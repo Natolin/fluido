@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_06_19_102341) do
 
   # These are extensions that must be enabled in order to support this database
@@ -86,5 +87,4 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
-
 end
