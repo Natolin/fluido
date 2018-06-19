@@ -1,5 +1,5 @@
 class Lesson < ApplicationRecord
-  belongs_to :languages
+  belongs_to :language
   belongs_to :user
 
   validates :description, presence: true
