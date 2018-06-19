@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_102341) do
-
+ActiveRecord::Schema.define(version: 2018_06_19_101930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.integer "total_price"
+    t.string "status", default: "pending"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.bigint "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_bookings_on_lesson_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "conversations", force: :cascade do |t|
     t.string "title"
@@ -26,6 +39,23 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.text "description"
+    t.integer "price"
+    t.bigint "language_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_lessons_on_language_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -55,7 +85,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
     t.index ["interest_id"], name: "index_user_interests_on_interest_id"
     t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
-  
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,7 +102,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.boolean "teacher_status"
+    t.boolean "teacher_status", default: false
     t.text "description"
     t.float "average_rating"
     t.string "country"
@@ -81,6 +111,10 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "lessons"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "lessons", "languages"
+  add_foreign_key "lessons", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "subscriptions", "conversations"
