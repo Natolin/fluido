@@ -1,5 +1,5 @@
 class Language < ApplicationRecord
-  has_many :languages
+  has_many :lessons
 
   validates :name, presence: true
 end
