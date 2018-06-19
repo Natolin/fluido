@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :user_interests
   has_many :interests, through: :user_interests
   has_many :messages
-  has many :suscriptions
+  has many :subscriptions
   has_many :conversations, through: :messages
 
   validates :first_name, presence: true
