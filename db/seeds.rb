@@ -34,10 +34,10 @@ puts "Creating seeds..."
 
 
 
-syd = User.create(first_name: "Syd", last_name: "Thomas", username: "MissAmerica", country: "UsaBitch")
-jess = User.create(first_name: "Jesse", last_name: "Davis", username: "MisterMontana", country: "UsaDude")
-pit = User.create(first_name: "Piotr", last_name: "Godzinski", username: "DrunkCaptain", country: "Poland")
-chris = User.create(first_name: "Chris", last_name: "Philipps", username: "Fluidish", country: "Germany")
+syd = User.create(first_name: "Syd", last_name: "Thomas", username: "MissAmerica", country: "UsaBitch",email: "s@s.com", password: "ssssss")
+jess = User.create(first_name: "Jesse", last_name: "Davis", username: "MisterMontana", country: "UsaDude",email: "j@j.com", password: "jjjjjj")
+pit = User.create(first_name: "Piotr", last_name: "Godzinski", username: "DrunkCaptain", country: "Poland",email: "p@p.com", password: "pppppp")
+chris = User.create(first_name: "Chris", last_name: "Philipps", username: "Fluidish", country: "Germany",email: "c@c.com", password: "cccccc")
 users = User.count
 puts "#{users} users created"
 
