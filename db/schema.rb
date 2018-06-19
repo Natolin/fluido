@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
     t.index ["interest_id"], name: "index_user_interests_on_interest_id"
     t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
-
+  
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.boolean "teacher_status"
+    t.text "description"
+    t.float "average_rating"
+    t.string "country"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -78,4 +86,5 @@ ActiveRecord::Schema.define(version: 2018_06_19_102341) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
+
 end
