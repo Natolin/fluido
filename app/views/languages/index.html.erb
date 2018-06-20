@@ -3,5 +3,5 @@
 
 
 <% @languages.each do |l| %>
-  <%= l.name %>
+  <%= link_to l.name, lessons_path(l) %>
 <% end %>
