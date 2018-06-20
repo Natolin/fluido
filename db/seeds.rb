@@ -62,7 +62,7 @@ bookings = Booking.count
 puts "#{bookings} bookings created"
 
 
-sport = Interest.create(name: "sport")
+sports = Interest.create(name: "sport")
 coding = Interest.create(name: "coding")
 interests = Interest.count
 puts "#{interests} interests created"
