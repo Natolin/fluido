@@ -14,3 +14,8 @@
 <%= link_to lesson_path(@lesson), method: :delete do %>
   <button type="button" class=" btn btn-danger">Delete</button>
 <% end %>
+
+
+<%= link_to conversation_path(@lesson.user_id) do %>
+  <button type="button" class=" btn btn-warning">Send a message</button>
+<% end %>
