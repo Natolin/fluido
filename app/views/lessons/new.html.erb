@@ -1,2 +1,14 @@
-<h1>Lessons#new</h1>
-<p>Find me in app/views/lessons/new.html.erb</p>
+<h1>Create a new lesson</h1>
+
+  <%= simple_form_for @lesson do |f| %>
+  <%= f.association :language %>
+
+  <p>Your price</p>
+  <%= f.number_field :price %>
+
+  <p>A few words about how/what you teach</p>
+  <%= f.text_area :description %>
+
+  <%= f.button :submit %>
+
+<% end %>
