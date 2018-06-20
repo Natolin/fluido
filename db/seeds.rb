@@ -1,30 +1,30 @@
 puts "Destroy all go!"
 
-#User.destroy_all
+User.destroy_all
 p "#{User.count} should be 0"
 
-#Language.destroy_all
+Language.destroy_all
 p "#{Language.count} should be 0"
 
-#Lesson.destroy_all
+Lesson.destroy_all
 p "#{Lesson.count} should be 0"
 
-#Booking.destroy_all
+Booking.destroy_all
 p "#{Booking.count} should be 0"
 
-#Interest.destroy_all
+Interest.destroy_all
 p "#{Interest.count} should be 0"
 
-#UserInterest.destroy_all
+UserInterest.destroy_all
 p "#{UserInterest.count} should be 0"
 
-#Conversation.destroy_all
+Conversation.destroy_all
 p "#{Conversation.count} should be 0"
 
-#Message.destroy_all
+Message.destroy_all
 p "#{Message.count} should be 0"
 
-#Subscription.destroy_all
+Subscription.destroy_all
 p "#{Subscription.count} should be 0"
 
 
