@@ -62,6 +62,7 @@ bookings = Booking.count
 puts "#{bookings} bookings created"
 
 
+
 sports = Interest.create(name: "Sports")
 food = Interest.create(name: "Food")
 travel = Interest.create(name: "Travel/Outdoors")

@@ -1,13 +1,15 @@
 <%= simple_form_for @user do |f| %>
-<%= f.input :photo, :label=> "Upload your profile picture"%>
-<%= f.input :photo_cache, as: :hidden %>
-<%= f.input :username, placeholder: "Please enter your first name" %>
-<%= f.input :first_name %>
-<%= f.input :last_name %>
-<%= f.input :country, as: :text %>
-<%= f.input :description %>
-<%= f.button :submit %>
+  <%= f.input :photo, :label=> "Upload your profile picture"%>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :username, placeholder: "Please enter your first name" %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :country, as: :text %>
+  <%= f.association :interests, as: :check_boxes %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
 <% end %>
+
 
 <%= link_to edit_user_registration_path do %>
     <button type="button" class="btn btn-success">Update password</button>
