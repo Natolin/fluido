@@ -89,6 +89,48 @@
 
 
  <% end %>
+
+  <% if @my_classes.count > 0 %>
+
+    <h3>All of my Classes:</h3>
+
+  <% @my_classes.each do  |x| %>
+    <div class="row">
+      <div class="dash-bookings-content">
+
+        <div class="dash-bookings-info--left col-md-4">
+          <p>Classes Name: with <%= x.user.first_name %> on:<%= x.start_date %></p>
+        </div>
+
+        <div class="edit_booking col-md-2">
+          <%= link_to lesson_path(x) do %>
+            <button class="dash-option-button">View</button>
+          <% end %>
+
+          <%= link_to edit_lesson_path(x) do %>
+            <button class="dash-option-button">Edit</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+
+  <% else %>
+
+    <div class="message-if-nothing">
+      <h3>You don't have any lessons to display.</h3>
+      <%= link_to new_lesson_path do %>
+        <button class="dash-option-button">Publish a lesson</button>
+      <% end %>
+    </div>
+    <br>
+
+
+ <% end %>
+
+
 </div>
 
 <br>
