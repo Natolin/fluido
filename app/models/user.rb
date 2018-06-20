@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :bookings
@@ -11,10 +12,10 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :conversations, through: :messages
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :username, presence: true
-  validates :country, presence: true
+  validates :first_name, presence: true, on: :update
+  validates :last_name, presence: true, on: :update
+  validates :username, presence: true, on: :update
+  validates :country, presence: true, on: :update
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

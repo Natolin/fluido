@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  get 'languages/index'
+
+  resources :users, only: [:edit, :update]
+  resources :lessons
+
   devise_for :users
   root to: 'pages#home'
 
