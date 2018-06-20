@@ -55,9 +55,15 @@ worse = Lesson.create(description: "worse lesson ever", price: "4", language_id:
 lessons = Lesson.count
 puts "#{lessons} lessons created"
 
-
+Booking.create(start_date: "2018-02-02 01:00:00 UTC", end_date: "2018-02-02 02:00:00 UTC", user_id: pit.id, lesson_id: best.id )
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-02-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-04-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-06-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-06-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-06-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
 Booking.create(start_date: "2018-02-02 01:00:00 UTC", end_date: "2018-02-02 02:00:00 UTC", user_id: pit.id, lesson_id: best.id, rating: 3)
 Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-02-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id, rating: 5)
+
 bookings = Booking.count
 puts "#{bookings} bookings created"
 
