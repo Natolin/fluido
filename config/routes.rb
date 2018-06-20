@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'languages/index'
   resources :users, only: [:edit, :update]
 
   devise_for :users
