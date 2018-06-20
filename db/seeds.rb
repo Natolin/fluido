@@ -56,20 +56,38 @@ lessons = Lesson.count
 puts "#{lessons} lessons created"
 
 
-Booking.create(start_date: "2018-02-02 01:00:00 UTC", end_date: "2018-02-02 02:00:00 UTC", user_id: pit.id, lesson_id: best.id )
-Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-02-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-02 01:00:00 UTC", end_date: "2018-02-02 02:00:00 UTC", user_id: pit.id, lesson_id: best.id, rating: 3)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-02-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id, rating: 5)
 bookings = Booking.count
 puts "#{bookings} bookings created"
 
 
-sport = Interest.create(name: "sport")
-coding = Interest.create(name: "coding")
+sports = Interest.create(name: "Sports")
+food = Interest.create(name: "Food")
+travel = Interest.create(name: "Travel/Outdoors")
+music = Interest.create(name: "Music")
+science = Interest.create(name: "Science/Technology")
+literature = Interest.create(name: "Literture")
+politics = Interest.create(name: "Politics")
+philosophy = Interest.create(name: "Philosophy")
+art = Interest.create(name: "Art/Culture")
+pets = Interest.create(name: "Pets/Animals")
 interests = Interest.count
 puts "#{interests} interests created"
 
 
-UserInterest.create(user_id: syd.id, interest_id: sport.id)
-UserInterest.create(user_id: jess.id, interest_id: coding.id)
+UserInterest.create(user_id: syd.id, interest_id: art.id)
+UserInterest.create(user_id: syd.id, interest_id: pets.id)
+UserInterest.create(user_id: syd.id, interest_id: travel.id)
+UserInterest.create(user_id: jess.id, interest_id: philosophy.id)
+UserInterest.create(user_id: jess.id, interest_id: music.id)
+UserInterest.create(user_id: jess.id, interest_id: food.id)
+UserInterest.create(user_id: chris.id, interest_id: pets.id)
+UserInterest.create(user_id: chris.id, interest_id: science.id)
+UserInterest.create(user_id: chris.id, interest_id: sports.id)
+UserInterest.create(user_id: pit.id, interest_id: sports.id)
+UserInterest.create(user_id: pit.id, interest_id: music.id)
+UserInterest.create(user_id: pit.id, interest_id: literature.id)
 user_interests = UserInterest.count
 puts "#{user_interests} user_interests created"
 
@@ -81,11 +99,11 @@ puts "#{conversations} conversations created"
 
 
 Message.create(content: "Hello", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "Hello", user_id: chris.id, conversation_id: conv2.id)
-Message.create(content: "Hello 2", user_id: syd.id, conversation_id: conv1.id)
-Message.create(content: "Hello 2", user_id: jess.id, conversation_id: conv2.id)
+Message.create(content: "Hey babe", user_id: chris.id, conversation_id: conv2.id)
+Message.create(content: "Wussup gurl", user_id: syd.id, conversation_id: conv1.id)
+Message.create(content: "Aint nuthing", user_id: jess.id, conversation_id: conv2.id)
 Message.create(content: "Bye", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "Bye", user_id: chris.id, conversation_id: conv2.id)
+Message.create(content: "See ya", user_id: chris.id, conversation_id: conv2.id)
 messages = Message.count
 puts "#{messages} messages created"
 
