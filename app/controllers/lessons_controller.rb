@@ -36,6 +36,8 @@ class LessonsController < ApplicationController
 
 
   def destroy
+    @lesson.destroy
+    redirect_to lessons_path
   end
 
 
