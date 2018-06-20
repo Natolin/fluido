@@ -1,31 +1,15 @@
 class MessagesController < ApplicationController
-  before_action do
-   @conversation = Conversation.find(params[:conversation_id])
-  end
-
-  def index # render as a partial on the messages show page
-   @messages = @conversation.messages
-    if @messages.length > 10
-     @over_ten = true
-     @messages = @messages[-10..-1]
-    end
-
-    if params[:m]
-     @over_ten = false
-     @messages = @conversation.messages
-    end
-
-  @message = @conversation.messages.new
-   end
-
-  def new # render form as a partial on the messages show page
-   @message = @conversation.messages.new
-  end
+ before_action do
+  @conversation = Conversation.find(params[:conversation_id])
+ end
 
   def create # render as a partial on the messages show page
-   @message = @conversation.messages.new(message_params)
+  @conversation = Conversation.find(params[:conversation_id])
+   @message = Message.new(message_params)
+   @message.user = current_user
+   @message.conversation = @conversation
    if @message.save
-    redirect_to conversation_messages_path(@conversation)
+    redirect_to conversation_path(@conversation)
    end
   end
 

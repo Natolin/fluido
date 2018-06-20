@@ -1,2 +1,14 @@
 <h1>Conversations#show</h1>
 <p>Find me in app/views/conversations/show.html.erb</p>
+
+
+<% @conversation.messages.each do |mess| %>
+<p><%= mess.user.username %>: <%= mess.content%><p>
+<%end %>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <p><%= f.text_area :content %></p>
+  <p><%= f.submit :send %></p>
+<%end%>
+
+
