@@ -79,8 +79,12 @@ conversations = Conversation.count
 puts "#{conversations} conversations created"
 
 
-Message.create(content: "Wake up idiot", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "shut down bastard", user_id: chris.id, conversation_id: conv2.id)
+Message.create(content: "Hello", user_id: pit.id, conversation_id: conv1.id)
+Message.create(content: "Hello", user_id: chris.id, conversation_id: conv2.id)
+Message.create(content: "Hello 2", user_id: syd.id, conversation_id: conv1.id)
+Message.create(content: "Hello 2", user_id: jess.id, conversation_id: conv2.id)
+Message.create(content: "Bye", user_id: pit.id, conversation_id: conv1.id)
+Message.create(content: "Bye", user_id: chris.id, conversation_id: conv2.id)
 messages = Message.count
 puts "#{messages} messages created"
 

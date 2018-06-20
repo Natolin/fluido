@@ -1,0 +1,7 @@
+<h1>Messages#index</h1>
+<p>Find me in app/views/messages/index.html.erb</p>
+
+<% @messages.each do |msg| %>
+<%= msg.user %>
+<%= msg.content %>
+<%end%>

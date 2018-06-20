@@ -1,0 +1,7 @@
+<h1>Conversations#index</h1>
+<p>Find me in app/views/conversations/index.html.erb</p>
+
+<% @my_conversations.each do |convo| %>
+  <%= link_to convo.title, conversation_path(convo) %>
+
+<% end %>
