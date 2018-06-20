@@ -1,0 +1,12 @@
+<%= simple_form_for @lesson do |f| %>
+  <%= f.association :language %>
+
+  <p>Your price</p>
+  <%= f.number_field :price %>
+
+  <p>A few words about how/what you teach</p>
+  <%= f.text_area :description %>
+
+  <%= f.button :submit %>
+
+<% end %>

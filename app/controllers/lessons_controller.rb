@@ -26,6 +26,12 @@ class LessonsController < ApplicationController
   end
 
   def update
+    @lesson.update(lesson_params)
+    if @lesson.save
+      redirect_to lesson_path(@lesson)
+    else
+      render :edit
+    end
   end
 
 
