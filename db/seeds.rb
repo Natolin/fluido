@@ -44,6 +44,9 @@ puts "#{users} users created"
 
 spanish = Language.create(name: "Spanish")
 english = Language.create(name: "English")
+french = Language.create(name: "French")
+italian = Language.create(name: "Italian")
+german = Language.create(name: "German")
 languages = Language.count
 puts "#{languages} languages created"
 
