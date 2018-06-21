@@ -23,14 +23,19 @@ class ConversationsController < ApplicationController
       other_sub = Subscription.create(user_id: user.id, conversation_id: convo.id)
       my_sub = Subscription.create(user_id: myself.id, conversation_id: convo.id)
     end
+
    redirect_to conversation_path(convo)
    end
 
   def show
-
+    # not on the conversation show page and the user can type a message.
+    # message will show with username and content and message box will clear 
     @conversation = Conversation.find(params[:id])
     @message = Message.new
 
+    # on left side we would like to display a list of user you have convo's with
+    # username should be clickable to that it opens that conversation
+    @convos = current_user.conversations
     
   end
 
