@@ -12,3 +12,13 @@
 <%end%>
 
 
+<% @convos.each do |c |%>
+  <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
+    
+
+ <p><%= link_to subscript.user.first_name, conversation_path(c) %></p>
+<% end%>
+
+
+
+

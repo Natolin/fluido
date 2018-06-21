@@ -55,11 +55,18 @@ worse = Lesson.create(description: "worse lesson ever", price: "4", language_id:
 lessons = Lesson.count
 puts "#{lessons} lessons created"
 
-
+Booking.create(start_date: "2018-02-02 01:00:00 UTC", end_date: "2018-02-02 02:00:00 UTC", user_id: pit.id, lesson_id: best.id )
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-02-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-04-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-06-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-06-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
+Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-06-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id)
 Booking.create(start_date: "2018-02-02 01:00:00 UTC", end_date: "2018-02-02 02:00:00 UTC", user_id: pit.id, lesson_id: best.id, rating: 3)
 Booking.create(start_date: "2018-02-03 01:00:00 UTC", end_date: "2018-02-03 05:30:00 UTC", user_id: chris.id, lesson_id: worse.id, rating: 5)
+
 bookings = Booking.count
 puts "#{bookings} bookings created"
+
 
 
 sports = Interest.create(name: "Sports")
@@ -92,26 +99,7 @@ user_interests = UserInterest.count
 puts "#{user_interests} user_interests created"
 
 
-conv1 = Conversation.create(title: "Spanish lessons")
-conv2 = Conversation.create(title: "English lessons")
-conversations = Conversation.count
-puts "#{conversations} conversations created"
 
-
-Message.create(content: "Hello", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "Hey babe", user_id: chris.id, conversation_id: conv2.id)
-Message.create(content: "Wussup gurl", user_id: syd.id, conversation_id: conv1.id)
-Message.create(content: "Aint nuthing", user_id: jess.id, conversation_id: conv2.id)
-Message.create(content: "Bye", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "See ya", user_id: chris.id, conversation_id: conv2.id)
-messages = Message.count
-puts "#{messages} messages created"
-
-
-Subscription.create(conversation_id: conv1.id, user_id: syd.id)
-Subscription.create(conversation_id: conv2.id, user_id: jess.id)
-subscriptions = Subscription.count
-puts "#{subscriptions} subscriptions created"
 
 
 

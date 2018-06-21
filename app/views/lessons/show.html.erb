@@ -16,6 +16,7 @@
         </div>
       </div>
 
+
       <div class="show-name-box">
         <p><%= @lesson.user.first_name %> <%= @lesson.user.last_name[0]%>.</p>
       </div>
@@ -111,3 +112,9 @@
         <%end%>
 
     </div>
+
+<%= link_to new_lesson_booking_path(@lesson) do %>
+  <button type="button" class=" btn btn-warning">Book it now!</button>
+<% end %>
+
+

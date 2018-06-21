@@ -1,8 +1,30 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 <h1>Lessons#index</h1>
 <p>Find me in app/views/lessons/index.html.erb</p>
 
 
-<% @lessons.each do |l| %>
-  <%= l.price %>
-  <%= l.description %>
-<% end %>
+<%= render 'lessons/search-form' %>
+
+
+<ul>
+  <% @lessons.each do |l| %>
+    <li><%= l.user.first_name %></li>
+    <li><%= l.price %></li>
+    <li><%= l.description %></li>
+    <li><%= link_to lesson_path(l) do %>
+      <button class="dash-option-button">See</button>
+    <% end %></li>
+    <br>
+  <br>
+  <% end %>
+</ul>
+
+

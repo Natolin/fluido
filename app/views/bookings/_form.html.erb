@@ -1,0 +1,19 @@
+<div class="form-group">
+  <%= simple_form_for [@lesson, @booking] do |f| %>
+    <% if @booking.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="booking-form">
+      <p>Start Date: <%= f.input :start_date, as: :string, input_html: { class: "datepicker"}  %></p>
+      <p>End Date: <%= f.input :end_date, as: :string, input_html: { class: "datepicker"}%></p>
+      <br>
+      <%= f.button :submit, class: 'back btn btn-warning' %>
+    </div>
+  <% end %>
+</div>
