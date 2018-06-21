@@ -8,11 +8,18 @@ class Lesson < ApplicationRecord
 
   include PgSearch
 
-  pg_search_scope :global_search,
-    against: [ :id],
+  pg_search_scope :search_by_language,
+    against: [ :id ],
     associated_against: {
       language: [ :name ]
     },
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
+  pg_search_scope :search_by_price,
+    against: [ :price ],
     using: {
       tsearch: { prefix: true }
     }

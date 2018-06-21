@@ -2,13 +2,18 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query] == "All"
-      @lessons = Lesson.all
-    elsif params[:query]
-      @lessons = Lesson.global_search(params[:query])
-    else
-      @lessons = Lesson.all
+    query = params[:query]
+    @lessons = Lesson.all
+    if query
+      if query[:language] != "All"
+        @lessons = @lessons.search_by_language(query[:language])
+      end
+
+      if query[:price] != "nil"
+        @lessons = @lessons.search_by_price(query[:price])
+      end
     end
+    @lessons
   end
 
   def show

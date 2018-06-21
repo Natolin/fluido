@@ -2,7 +2,8 @@
   <div class="search-language">
 
     <form action="<%= lessons_path %>" method="GET">
-      <select name="query" >
+      <select name="query[language]">
+        <option value="nil">Language</option>
         <option value="English">English</option>
         <option value="Spanish">Spanish</option>
         <option value="French">French</option>
@@ -10,6 +11,15 @@
         <option value="Italian">Italian</option>
         <option value="All">All Languages</option>
       </select>
+      <select name="query[price]" >
+        <option value="nil">Price</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="20+">20+</option>
+      </select>
+
       <button type="submit" class=" search-button btn">Search</button>
     </form>
 

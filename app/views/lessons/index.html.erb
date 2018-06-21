@@ -11,7 +11,7 @@
 <p>Find me in app/views/lessons/index.html.erb</p>
 
 
-<%= render 'lessons/search-language' %>
+<%= render 'lessons/search' %>
 
 
 <ul>
@@ -22,8 +22,6 @@
     <li><%= link_to lesson_path(l) do %>
       <button class="dash-option-button">See</button>
     <% end %></li>
-    <br>
-  <br>
   <% end %>
 </ul>
 
