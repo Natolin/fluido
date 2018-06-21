@@ -10,8 +10,8 @@
       </div>
     <% end %>
     <div class="booking-form">
-      <p>Start Date: <%= f.input :start_date, input_html: { class: "datepicker"}  %></p>
-      <p>End Date: <%= f.input :end_date, input_html: { class: "datepicker"}%></p>
+      <p>Start Date: <%= f.input :start_date, as: :string, input_html: { class: "datepicker"}  %></p>
+      <p>End Date: <%= f.input :end_date, as: :string, input_html: { class: "datepicker"}%></p>
       <br>
       <%= f.button :submit, class: 'back btn btn-warning' %>
     </div>
