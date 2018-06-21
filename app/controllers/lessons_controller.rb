@@ -2,7 +2,9 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query]
+    if params[:query] == "All"
+      @lessons = Lesson.all
+    elsif params[:query]
       @lessons = Lesson.global_search(params[:query])
     else
       @lessons = Lesson.all
