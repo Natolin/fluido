@@ -32,10 +32,10 @@ puts "Creating seeds..."
 
 
 
-syd = User.create(first_name: "Syd", last_name: "Thomas", username: "MissAmerica", country: "UsaBitch",email: "s@s.com", password: "ssssss", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 3.4, photo: "babe.jpeg")
-jess = User.create(first_name: "Jesse", last_name: "Davis", username: "MisterMontana", country: "UsaDude",email: "j@j.com", password: "jjjjjj", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 5, photo: "gator.jpeg")
-pit = User.create(first_name: "Piotr", last_name: "Godzinski", username: "DrunkCaptain", country: "Poland",email: "p@p.com", password: "pppppp", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 2.9, photo: "kfc.jpeg")
-chris = User.create(first_name: "Chris", last_name: "Philipps", username: "Fluidish", country: "Germany",email: "c@c.com", password: "cccccc", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 4.5, photo: "shark.jpeg")
+syd = User.create(first_name: "Syd", last_name: "Thomas", country: "UsaBitch",email: "s@s.com", password: "ssssss", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 3.4, photo: "babe.jpeg")
+jess = User.create(first_name: "Jesse", last_name: "Davis", country: "UsaDude",email: "j@j.com", password: "jjjjjj", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 5, photo: "gator.jpeg")
+pit = User.create(first_name: "Piotr", last_name: "Godzinski", country: "Poland",email: "p@p.com", password: "pppppp", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 2.9, photo: "kfc.jpeg")
+chris = User.create(first_name: "Chris", last_name: "Philipps", country: "Germany",email: "c@c.com", password: "cccccc", description: 'hello everyboody, im nice and words and stuff nine ten', average_rating: 4.5, photo: "shark.jpeg")
 users = User.count
 puts "#{users} users created"
 

@@ -3,7 +3,7 @@
 
 
 <% @conversation.messages.each do |mess| %>
-<p><%= mess.user.username %>: <%= mess.content%><p>
+<p><%= mess.user.first_name %> <%= mess.user.last_name[0]%>.: <%= mess.content%><p>
 <%end %>
 
 <%= form_for [@conversation, @message] do |f| %>
