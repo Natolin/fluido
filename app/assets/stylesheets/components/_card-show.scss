@@ -1,42 +1,51 @@
 .jd-card-square-fluido {
   /*Don't copy this margin*/
-  margin: 100px;
+  margin: 100px auto;
+  margin-top: 175px;
   position: relative;
   width: 275px;
   //height: 350px;
-  border: 5px solid white;
-  border-top: none;
+  border: 1px solid #B2A5A3;
   color: #B2A5A3;
   //background: whitesmoke;
-  border-radius: 0px;
   font-size: 20px;
   font-family: 'Quicksand', sans-serif;
   text-align: center;
-  box-shadow: 0px 1px 3px #B2A5A3;
+  //box-shadow: 0px 1px 3px #B2A5A3;
 }
 .show-avatar {
   position: absolute;
-  top: 10px;
-  right: 80px;
+  top: -75px;
+  right: 70px;
 }
 .show-avatar-circle > img {
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
   border: 2px solid #B2A5A3;
   border-radius: 50%;
+}
+
+.flags-on-card {
   position: absolute;
-  bottom: -50px;
-  right: 120px;
+  top: 5px;
+  right: 55px;
+}
+
+.country-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
 }
 
 .show-name-box {
-  border: 2px solid #D90146;
+  border: 2px solid #B2A5A3;
   //background: #B2A5A3;
-  width: 271px;
+  // width: 271px;
   position: absolute;
   padding: 0px 10px;
-  top: -33px;
-  left: 0px;
+  top: 75px;
+  left: 100px;
   z-index: -1;
   p {
     margin-bottom: 0px;
@@ -46,7 +55,7 @@
 }
 
 .show-content {
-  padding-top: 45px;
+  padding-top: 115px;
 }
 
 .show-country {
@@ -54,18 +63,26 @@
 
 }
 
+.show-average-rating {
+  margin: -10px;
+}
+
 .yellow-star {
-  color: #D90146;
+  color: gold;
   font-size: 16px;
 }
 
 .grey-star {
-  color: whitesmoke;
+  color: #B2A5A3;
   font-size: 16px;
 }
 
-.show-all-interests {
-  font-size: 16px;
+.show-price {
+  margin-top: 20px;
+  p {
+    font-size: 20px;
+    color: #D90146;
+  }
 }
 
 .show-price {
@@ -76,34 +93,67 @@
   width: 200px;
   background: #B2A5A3;
   height: 2px;
-  position: absolute;
-  top: 175px;
-  left: 35px;
-
+  margin: 0px auto;
 }
 
 .show-description {
   text-align: center;
-  margin-top: 35px;
+  margin-top: 15px;
   .description-body {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  
+  li {
+    list-style-position: inside;
+    text-align: left;
+    padding-left: 35px;
+  }
+  p {
+    padding: 0px 20px;
   }
 }
 
-.flags-on-card {
-  position: absolute;
-  top: 10px;
-  right: 80px;
+.show-message-button {
+  color: #B2A5A3;
+  border: 1px solid #D90146;
+  background: white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
 }
 
-.country-image {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin: 5px;
-  position: absolute;
-  bottom: -53px;
-  right: 117px;
+.show-booking-button {
+  color: white;
+  //border: 1px solid #D90146;
+  background: #D90146;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
 }
+
+.show-edit-button {
+  color: #B2A5A3;
+  border: 1px solid #D90146;
+  background: white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+}
+
+.show-delete-button {
+  color: white;
+  //border: 1px solid #D90146;
+  background: #D90146;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+}
+
+.show-buttons-centered {
+  margin: 20px auto;
+  text-align: center;
+}
+
+
 
 
