@@ -1,8 +1,4 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
-
 <% @user = @lesson.user %>
-
 
 <div class="container">
 
@@ -69,7 +65,7 @@
         <p>Description</p>
         <p class="description-body">"<%= @lesson.description %>"</p>
       </div>
-      
+
     </div>
 
 
@@ -95,11 +91,23 @@
 
        <%= form_for(@conversation) do |f|%>
         <%= hidden_field_tag "user_id", @lesson.user.id %>
-        <%= f.submit "Send a message", class: "show-button btn btn-warning"  %>
+        <%= f.submit "Send a message", class: "show-message-button"  %>
        <%end%>
 
       <% end %>
 
 
+
+
+
+
+<% if @lesson.user != current_user %>
+        
+        <div>
+          <%= link_to new_booking_path do %>
+           <button type="button" class="show-booking-button btn btn-primary">Schedule a Lesson</button>
+          <% end %>
+        </div>
+        <%end%>
 
     </div>
