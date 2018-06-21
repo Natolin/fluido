@@ -74,47 +74,40 @@
 
     
 
-
-    <% if @lesson.user == current_user %>
-        
-        <div>
-          <%= link_to edit_lesson_path do %>
-           <button type="button" class="show-button btn btn-primary">Edit</button>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to lesson_path(@lesson), method: :delete do %>
-          <button type="button" class="show-button btn btn-danger">Delete</button>
-          <% end %>
-        </div>
-
-      <% else %>
-
-       <%= form_for(@conversation) do |f|%>
+  <div class="show-buttons-centered">
+    <% if @lesson.user != current_user %>
+      <%= form_for(@conversation) do |f|%>
         <%= hidden_field_tag "user_id", @lesson.user.id %>
-        <%= f.submit "Send a message", class: "show-message-button"  %>
-       <%end%>
+        <%= f.submit "Send a Message", class: "show-message-button"  %>
+      <%end%>
+    <% end %>
+  </div>
 
-      <% end %>
+<!-- Availability and calendar will go here-->
+
+<% if @lesson.user != current_user %>    
+  <div class="show-buttons-centered">
+    <%= link_to new_lesson_booking_path(@lesson) do %>
+      <button type="button" class="show-booking-button">Schedule a Lesson</button>
+    <% end %>
+  </div>
+<% else %>
+  <div class="show-buttons-centered">
+    <%= link_to edit_lesson_path do %>
+      <button type="button" class="show-edit-button">Edit Lesson</button>
+    <% end %>
+  </div>
+
+  <div class="show-buttons-centered">
+    <%= link_to lesson_path(@lesson), method: :delete do %>
+      <button type="button" class="show-delete-button">Delete Lesson</button>
+    <% end %>
+  </div>
+<%end%>
 
 
 
-
-
-
-<% if @lesson.user != current_user %>
-        
-        <div>
-          <%= link_to new_booking_path do %>
-           <button type="button" class="show-booking-button btn btn-primary">Schedule a Lesson</button>
-          <% end %>
-        </div>
-        <%end%>
-
-    </div>
-
-<%= link_to new_lesson_booking_path(@lesson) do %>
-  <button type="button" class=" btn btn-warning">Book it now!</button>
-<% end %>
+<!-- end of page container div-->
+</div>
 
 

@@ -1,7 +1,7 @@
 .jd-card-square-fluido {
   /*Don't copy this margin*/
-  margin: 100px;
-  margin-top: 150px;
+  margin: 100px auto;
+  margin-top: 175px;
   position: relative;
   width: 275px;
   //height: 350px;
@@ -111,19 +111,44 @@
 }
 
 .show-message-button {
-color: #B2A5A3;
-border: 1px solid #D90146;
-background: white;
-border-radius: 5px;
-
+  color: #B2A5A3;
+  border: 1px solid #D90146;
+  background: white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
 }
 
-.show-message-button {
-color: #B2A5A3;
-border: 1px solid #D90146;
-background: white;
-border-radius: 5px;
+.show-booking-button {
+  color: white;
+  //border: 1px solid #D90146;
+  background: #D90146;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+}
 
+.show-edit-button {
+  color: #B2A5A3;
+  border: 1px solid #D90146;
+  background: white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+}
+
+.show-delete-button {
+  color: white;
+  //border: 1px solid #D90146;
+  background: #D90146;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+}
+
+.show-buttons-centered {
+  margin: 20px auto;
+  text-align: center;
 }
 
 
