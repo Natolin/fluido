@@ -11,19 +11,19 @@
 <p>Find me in app/views/lessons/index.html.erb</p>
 
 
-<%= render 'lessons/search-form' %>
+<%= render 'lessons/search' %>
 
 
 <ul>
   <% @lessons.each do |l| %>
     <li><%= l.user.first_name %></li>
+    <li><%= l.user.interests.first.name %></li>
     <li><%= l.price %></li>
     <li><%= l.description %></li>
+    <li><%= l.user.average_rating %></li>
     <li><%= link_to lesson_path(l) do %>
       <button class="dash-option-button">See</button>
     <% end %></li>
-    <br>
-  <br>
   <% end %>
 </ul>
 

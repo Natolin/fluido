@@ -9,12 +9,57 @@ class Lesson < ApplicationRecord
 
   include PgSearch
 
-  pg_search_scope :global_search,
-    against: [ :id],
+  pg_search_scope :search_by_language,
+    against: [ :id ],
     associated_against: {
       language: [ :name ]
+    },
+    # Shouldn't need tsearch for dropdowns
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_price,
+    against: [ :price ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_teacher_name,
+  against: [ :id ],
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
+
+  # Country search needs autocomplete or something
+
+  pg_search_scope :search_by_country,
+    against: [ :id ],
+    associated_against: {
+      user: [ :country ]
     },
     using: {
       tsearch: { prefix: true }
     }
+
+
+  # Rating doesn't fully work yet
+
+  # pg_search_scope :search_by_rating,
+  #   against: [ :id ],
+  #   associated_against: {
+  #     user: [ :average_rating ]
+  #   },
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
+
+
+
+
+
 end
