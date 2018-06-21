@@ -45,6 +45,19 @@ class Lesson < ApplicationRecord
     }
 
 
+  # Rating doesn't fully work yet
+
+  # pg_search_scope :search_by_rating,
+  #   against: [ :id ],
+  #   associated_against: {
+  #     user: [ :average_rating ]
+  #   },
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
+
+
+
 
 
 end

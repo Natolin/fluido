@@ -22,6 +22,10 @@ class LessonsController < ApplicationController
       if query[:teacher_name] != ""
         @lessons = @lessons.search_by_teacher_name(query[:teacher_name])
       end
+
+      # if query[:rating] != ""
+      #   @lessons = @lessons.search_by_rating(query[:rating])
+      # end
     end
   end
 
