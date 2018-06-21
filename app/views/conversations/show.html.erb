@@ -1,18 +1,25 @@
 
 <div class="container">
 
+  <div class="messages-chatlist">
+  <div class="messages-header-logo">
+    <p>@other</p>
+
+  </div>
+</div>
+
 <div class="messages-past-field">
 <% @conversation.messages.each_with_index do |mess, index| %>
   <% if mess.user == current_user%>
     <div class="messages-mine-right">
-      <% unless @conversation.messages[index-1].user == current_user %>
+      <% if @conversation.messages[index-1].user != current_user || index == 0 %>
         <p class="messages-owner">Me:</p>
       <% end %>
       <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
     </div>
   <% else%>
     <div class="messages-other-left">
-      <% unless @conversation.messages[index-1].user == mess.user %>
+      <% if @conversation.messages[index-1].user != mess.user || index == 0 %>
         <p class="messages-owner"><%= mess.user.first_name %> <%= mess.user.last_name[0]%>:</p>
       <% end %>
       <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>

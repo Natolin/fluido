@@ -32,11 +32,17 @@ class ConversationsController < ApplicationController
     # message will show with username and content and message box will clear 
     @conversation = Conversation.find(params[:id])
     @message = Message.new
-
     # on left side we would like to display a list of user you have convo's with
     # username should be clickable to that it opens that conversation
     @convos = current_user.conversations
-    
+
+    @conversation.subscriptions.each do |sub|
+    until sub.user_id == current_user.id
+    @other = Subscription.find(sub.user_id)
+  end
+    return @other
+
+   # @user_ids = @conversation.subscriptions.pluck(:user_id)
   end
 
   private
