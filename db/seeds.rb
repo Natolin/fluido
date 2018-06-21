@@ -40,11 +40,11 @@ users = User.count
 puts "#{users} users created"
 
 
-spanish = Language.create(name: "Spanish")
-english = Language.create(name: "English")
-french = Language.create(name: "French")
-italian = Language.create(name: "Italian")
-german = Language.create(name: "German")
+spanish = Language.create(name: "Spanish", flag: "flags/flag_spanish.png" )
+english = Language.create(name: "English", flag: "flags/flag_english.png")
+french = Language.create(name: "French", flag: "flags/flag_french.png")
+italian = Language.create(name: "Italian", flag: "flags/flag_italian.png")
+german = Language.create(name: "German", flag: "flags/flag_german.png")
 languages = Language.count
 puts "#{languages} languages created"
 
