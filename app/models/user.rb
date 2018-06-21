@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
-  validates :username, presence: true, on: :update
   validates :country, presence: true, on: :update
 
   devise :database_authenticatable, :registerable,

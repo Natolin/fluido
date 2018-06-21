@@ -1,7 +1,6 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :photo, :label=> "Upload your profile picture"%>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.input :username, placeholder: "Please enter your first name" %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :country, as: :text %>

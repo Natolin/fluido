@@ -4,9 +4,12 @@
 
   <div class="dash-bookings-title">
     <h1>Dashboard</h1>
-      <%= image_tag ("shark.jpg") %>
+      <%= cl_image_tag @current_user.photo %>
   </div>
 
+
+  <% if @my_bookings.count > 0 %>
+    <h3>All of my Bookings:</h3>
 
 <div class="calendar">
   <% if @my_bookings.count > 0 %>

@@ -1,8 +1,4 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
-
 <% @user = @lesson.user %>
-
 
 <div class="container">
 
@@ -10,19 +6,19 @@
    <div class="jd-card-square-fluido">
       <div class="show-avatar">
         <div class="show-avatar-circle">
-          <%= image_tag ("shark.jpg")  %>
+          <%= cl_image_tag @user.photo %>
         </div>
       </div>
 
       <div class="flags-on-card">
         <div class="country-flag-circle">
-          <%= image_tag "flags/flag_italian.png" , class: "country-image"  %>
+          <%= image_tag @lesson.language.flag, class: "country-image"  %>
         </div>
       </div>
 
 
       <div class="show-name-box">
-        <p><%= @lesson.user.first_name %></p>
+        <p><%= @lesson.user.first_name %> <%= @lesson.user.last_name[0]%>.</p>
       </div>
 
 
@@ -31,6 +27,7 @@
       <div class="show-country">
         <p>from <%= @lesson.user.country %></p>
       </div>
+
       <div class="show-average-rating">
         <% @rating = @lesson.user.average_rating %>
 
@@ -44,25 +41,31 @@
         <%end%>
       </div>
 
-      <div class="show-all-interests">
-        <% @user.interests.each do |int| %>
-          <%= int.name %>
-        <% end %>
+      <div class="show-price">
+        <p>$<%= @lesson.price %>/hour</p>
       </div>
 
-      <div class="show-price">
-        <p><%= @lesson.price %>/hour</p>
+      <div class="show-magic-line"> 
       </div>
+
+      <div class="show-description">
+        <p>Interests</p>
+        <ul>
+          <% @user.interests.each do |int| %>
+            <li class="description-body"><%= int.name %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      
 
       <div class="show-magic-line">
       </div>
 
       <div class="show-description">
-        <p>Description:</p>
+        <p>Description</p>
         <p class="description-body">"<%= @lesson.description %>"</p>
       </div>
-
-      
 
     </div>
 
@@ -71,35 +74,40 @@
 
     
 
-
-    <% if @lesson.user == current_user %>
-        
-        <div>
-          <%= link_to edit_lesson_path do %>
-           <button type="button" class="show-button btn btn-primary">Edit</button>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to lesson_path(@lesson), method: :delete do %>
-          <button type="button" class="show-button btn btn-danger">Delete</button>
-          <% end %>
-        </div>
-
-      <% else %>
-
-       <%= form_for(@conversation) do |f|%>
+  <div class="show-buttons-centered">
+    <% if @lesson.user.id != current_user.id %>
+      <%= form_for(@conversation) do |f|%>
         <%= hidden_field_tag "user_id", @lesson.user.id %>
-        <%= f.submit "Send a message", class: "show-button btn btn-warning"  %>
-       <%end%>
+        <%= f.submit "Send a Message", class: "show-message-button"  %>
+      <%end%>
+    <% end %>
+  </div>
 
-      <% end %>
+<!-- Availability and calendar will go here-->
+
+<% if @lesson.user.id != current_user.id %>    
+  <div class="show-buttons-centered">
+    <%= link_to new_lesson_booking_path(@lesson) do %>
+      <button type="button" class="show-booking-button">Schedule a Lesson</button>
+    <% end %>
+  </div>
+<% else %>
+  <div class="show-buttons-centered">
+    <%= link_to edit_lesson_path do %>
+      <button type="button" class="show-edit-button">Edit Lesson</button>
+    <% end %>
+  </div>
+
+  <div class="show-buttons-centered">
+    <%= link_to lesson_path(@lesson), method: :delete do %>
+      <button type="button" class="show-delete-button">Delete Lesson</button>
+    <% end %>
+  </div>
+<%end%>
 
 
 
-    </div>
-
-<%= link_to new_lesson_booking_path(@lesson) do %>
-  <button type="button" class=" btn btn-warning">Book it now!</button>
-<% end %>
+<!-- end of page container div-->
+</div>
 
 
