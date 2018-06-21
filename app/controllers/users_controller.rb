@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :country, :description, :username, :email, :password, :photo)
+    params.require(:user).permit(:first_name, :last_name, :country, :description, :username, :email, :password, :photo, interest_ids: [])
+    # params only accepts one thing at a time, so I had to add the [] after interest_ids to allow an entire array of interest ids to be passed into the update method
   end
 end
 

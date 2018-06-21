@@ -1,15 +1,37 @@
+module Devise
+  module Models
+    module Timeoutable
+      # Checks whether the user session has expired based on configured time.
+      def timedout?(last_access)
+        return false if remember_exists_and_not_expired?
+        last_access && last_access <= self.class.timeout_in.ago
+      end
+
+      private
+
+      def remember_exists_and_not_expired?
+        return false unless respond_to?(:remember_expired?)
+        remember_created_at && !remember_expired?
+      end
+    end
+  end
+end
+
 # frozen_string_literal: true
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  config.remember_for = 2.weeks
+  config.timeout_in = 30.minutes
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '8bc6bb154834efb1e8527d63f7a05b81a18c651a6eee236bc85f73668172e648ae3e85b275476423b5960bd8fb669022c1bd628e375b3b4236d122e8c9e56fa4'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'

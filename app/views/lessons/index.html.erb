@@ -3,6 +3,9 @@
 
 
 <% @lessons.each do |l| %>
+  <%= l.user.first_name %>
   <%= l.price %>
   <%= l.description %>
 <% end %>
+
+

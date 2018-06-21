@@ -1,0 +1,136 @@
+<br>
+<br>
+<div class="container">
+
+  <div class="dash-bookings-title">
+    <h1>Your Dashboard</h1>
+  </div>
+
+  <% if @my_bookings.count > 0 %>
+    <h3>All of my Bookings:</h3>
+    <% @my_bookings.each do  |x| %>
+
+      <div class="row">
+        <div class="dash-bookings-content">
+
+          <div class="dash-bookings-info--left col-md-4">
+            <p>Lesson Name: <%= x.lesson.language.name %>, <%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
+            <p>Total Price: <%= (x.lesson.price*(x.end_date - x.start_date)).to_i %></p>
+          </div>
+
+          <div class="dash-bookings-info--center col-md-3">
+            <p>Start Date: <%= x.start_date %></p>
+            <p>End Date: <%= x.end_date %></p>
+          </div>
+
+          <div class="dash-bookings-info--right col-md-3">
+            <p>Teacher: <%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
+            <p>Student: <%= x.user.first_name %> <%= x.user.last_name %></p>
+          </div>
+        </div>
+      </div>
+
+      <% if @my_bookings.count > 1 %>
+        <div class="thin-magic-line"></div>
+      <% end %>
+
+    <% end %>
+
+  <% else %>
+
+    <div class="message-if-nothing">
+      <h3>You don't have any bookings to display.</h3>
+      <%= link_to lessons_path do %>
+        <button class="dash-option-button">Book a lesson</button>
+      <% end %>
+    </div>
+    <br>
+
+  <% end %>
+
+  <div class="magical-line"></div>
+
+  <% if @my_lessons.count > 0 %>
+
+    <h3>All of my Lessons:</h3>
+
+  <% @my_lessons.each do  |x| %>
+    <div class="row">
+      <div class="dash-bookings-content">
+
+        <div class="dash-bookings-info--left col-md-4">
+          <p>Lesson Name: <%= x.language.name %></p>
+        </div>
+
+        <div class="edit_booking col-md-2">
+          <%= link_to lesson_path(x) do %>
+            <button class="dash-option-button">View</button>
+          <% end %>
+
+          <%= link_to edit_lesson_path(x) do %>
+            <button class="dash-option-button">Edit</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+
+  <% else %>
+
+    <div class="message-if-nothing">
+      <h3>You don't have any lessons to display.</h3>
+      <%= link_to new_lesson_path do %>
+        <button class="dash-option-button">Publish a lesson</button>
+      <% end %>
+    </div>
+    <br>
+
+
+ <% end %>
+
+  <% if @my_classes.count > 0 %>
+
+    <h3>All of my Classes:</h3>
+
+  <% @my_classes.each do  |x| %>
+    <div class="row">
+      <div class="dash-bookings-content">
+
+        <div class="dash-bookings-info--left col-md-4">
+          <p>Classes Name: with <%= x.user.first_name %> on:<%= x.start_date %></p>
+        </div>
+
+        <div class="edit_booking col-md-2">
+          <%= link_to lesson_path(x) do %>
+            <button class="dash-option-button">View</button>
+          <% end %>
+
+          <%= link_to edit_lesson_path(x) do %>
+            <button class="dash-option-button">Edit</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+
+  <% else %>
+
+    <div class="message-if-nothing">
+      <h3>You don't have any lessons to display.</h3>
+      <%= link_to new_lesson_path do %>
+        <button class="dash-option-button">Publish a lesson</button>
+      <% end %>
+    </div>
+    <br>
+
+
+ <% end %>
+
+
+</div>
+
+<br>
