@@ -5,7 +5,6 @@ class Lesson < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
 
-
   include PgSearch
 
   pg_search_scope :search_by_language,
@@ -13,6 +12,7 @@ class Lesson < ApplicationRecord
     associated_against: {
       language: [ :name ]
     },
+    # Shouldn't need tsearch for dropdowns
     using: {
       tsearch: { prefix: true }
     }
@@ -23,4 +23,15 @@ class Lesson < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  pg_search_scope :search_by_teacher_name,
+    against: [ :id ],
+    associated_against: {
+      user: [ :first_name, :last_name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
 end

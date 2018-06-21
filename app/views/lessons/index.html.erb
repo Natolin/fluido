@@ -17,6 +17,7 @@
 <ul>
   <% @lessons.each do |l| %>
     <li><%= l.user.first_name %></li>
+    <li><%= l.user.interests.first.name %></li>
     <li><%= l.price %></li>
     <li><%= l.description %></li>
     <li><%= link_to lesson_path(l) do %>
