@@ -17,7 +17,6 @@ class Lesson < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-
   pg_search_scope :search_by_price,
     against: [ :price ],
     using: {
@@ -25,13 +24,27 @@ class Lesson < ApplicationRecord
     }
 
   pg_search_scope :search_by_teacher_name,
+  against: [ :id ],
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
+
+  # Country search needs autocomplete or something
+
+  pg_search_scope :search_by_country,
     against: [ :id ],
     associated_against: {
-      user: [ :first_name, :last_name ]
+      user: [ :country ]
     },
     using: {
       tsearch: { prefix: true }
     }
+
+
 
 
 end

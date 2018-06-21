@@ -5,12 +5,18 @@ class LessonsController < ApplicationController
     query = params[:query]
     @lessons = Lesson.all
     if query
-      if query[:language] != ""
+      if query[:language] == "All"
+        @lessons
+      elsif query[:language] != ""
         @lessons = @lessons.search_by_language(query[:language])
       end
 
       if query[:price] != ""
         @lessons = @lessons.search_by_price(query[:price])
+      end
+
+      if query[:country] != ""
+        @lessons = @lessons.search_by_country(query[:country])
       end
 
       if query[:teacher_name] != ""
