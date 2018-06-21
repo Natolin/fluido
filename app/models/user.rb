@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :interests, through: :user_interests
   has_many :messages
   has_many :subscriptions
-  has_many :conversations, through: :messages
+  has_many :conversations, through: :subscriptions
 
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update

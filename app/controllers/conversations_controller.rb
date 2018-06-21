@@ -10,50 +10,32 @@ class ConversationsController < ApplicationController
   end
 
   def create # the user that you want to message is passed to this method
-    user_id = params[:user_id]
-    other_sub = Subscription.find_by(user_id: user_id)
-    my_sub = Subscription.find_by(user_id: current_user.id)
-    # if a convo exists b/t these users already (how to get this to involve more than one)
-    if (my_sub.present? && other_sub.present?) && (my_sub.conversation_id == other_sub.conversation_id)
-      # then save that pre-existing convo into a variable for user later
-        @convo = Conversation.find(my_sub.conversation_id)
-    else
-      @convo = Conversation.new()
-      if @convo.save
-        # create x new subscriptions for 
-        sub1 = Subscription.create(conversation_id: @convo.id, user_id: current_user.id)
-        sub2 = Subscription.create(conversation_id: @convo.id, user_id: params[:user_id])
-      end
+    user = User.find(params[:user_id].to_i)
+    my_id = current_user.id
+    myself = User.find(my_id)
+    convo = user.conversations.find do |conv|
+      user_ids = conv.subscriptions.pluck(:user_id)
+      user_ids.include?(myself.id) && user_ids.include?(user.id)
     end
-    redirect_to conversation_path(@convo)
-  end
+
+    if convo.nil? 
+      convo = Conversation.create
+      other_sub = Subscription.create(user_id: user.id, conversation_id: convo.id)
+      my_sub = Subscription.create(user_id: myself.id, conversation_id: convo.id)
+    end
+
+   redirect_to conversation_path(convo)
+   end
 
   def show
-
+    # not on the conversation show page and the user can type a message.
+    # message will show with username and content and message box will clear 
     @conversation = Conversation.find(params[:id])
     @message = Message.new
 
-    @list = []
-    @other = []
-
-    # get all subs I have
-    @my_subs = Subscription.where(user_id: current_user.id)
-
-    # for each of my subscriptions
-    @my_subs.each do |sub|
-      # extract the convo using the id stored in the sub
-      @convo = Conversation.find(sub.conversation_id)
-
-      # extract only subs that have this convo.id (>= 2)
-      @both = Subscription.where(conversation_id: @convo.id)
-
-      #this will be an array of two
-      @other_subscription = @both.delete(Subscription.find_by(user_id: current_user.id))
-
-      @list << @convo
-      @other << @other_subscription
-
-    end
+    # on left side we would like to display a list of user you have convo's with
+    # username should be clickable to that it opens that conversation
+    @convos = current_user.conversations
     
   end
 

@@ -99,26 +99,7 @@ user_interests = UserInterest.count
 puts "#{user_interests} user_interests created"
 
 
-conv1 = Conversation.create(title: "Spanish lessons")
-conv2 = Conversation.create(title: "English lessons")
-conversations = Conversation.count
-puts "#{conversations} conversations created"
 
-
-Message.create(content: "Hello", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "Hey babe", user_id: chris.id, conversation_id: conv2.id)
-Message.create(content: "Wussup gurl", user_id: syd.id, conversation_id: conv1.id)
-Message.create(content: "Aint nuthing", user_id: jess.id, conversation_id: conv2.id)
-Message.create(content: "Bye", user_id: pit.id, conversation_id: conv1.id)
-Message.create(content: "See ya", user_id: chris.id, conversation_id: conv2.id)
-messages = Message.count
-puts "#{messages} messages created"
-
-
-Subscription.create(conversation_id: conv1.id, user_id: syd.id)
-Subscription.create(conversation_id: conv2.id, user_id: jess.id)
-subscriptions = Subscription.count
-puts "#{subscriptions} subscriptions created"
 
 
 
