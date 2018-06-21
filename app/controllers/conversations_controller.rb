@@ -10,23 +10,19 @@ class ConversationsController < ApplicationController
   end
 
   def create # the user that you want to message is passed to this method
-    user_id = params[:user_id]
-    other_sub = Subscription.find_by(user_id: user_id)
-    my_sub = Subscription.find_by(user_id: current_user.id)
-    # if a convo exists b/t these users already (how to get this to involve more than one)
-    if (my_sub.present? && other_sub.present?) && (my_sub.conversation_id == other_sub.conversation_id)
-      # then save that pre-existing convo into a variable for user later
-        @convo = Conversation.find(my_sub.conversation_id)
-    else
-      @convo = Conversation.new()
-      if @convo.save
-        # create x new subscriptions for 
-        sub1 = Subscription.create(conversation_id: @convo.id, user_id: current_user.id)
-        sub2 = Subscription.create(conversation_id: @convo.id, user_id: params[:user_id])
-      end
+    user = User.find(params[:user_id].to_i)
+    convo = current_user.conversations.find do |conv|
+      user_ids = conv.subscriptions.pluck(:user_id)
+      user_ids.include?(current_user.id) && user_ids.include?(user.id)
     end
-    redirect_to conversation_path(@convo)
-  end
+    
+    if convo.nil? 
+      convo = Conversation.create
+      other_sub = Subscription.create(user_id: user.id, conversation_id: convo.id)
+      my_sub = Subscription.create(user_id: current_user.id, conversation_id: convo.id)
+    end
+   redirect_to conversation_path(convo)
+   end
 
   def show
 
