@@ -2,6 +2,11 @@
 <p>Find me in app/views/languages/index.html.erb</p>
 
 
-<% @languages.each do |l| %>
-  <%= link_to l.name, lessons_path(l) %>
-<% end %>
+
+<%= render 'lessons/search-form' %>
+
+
+<!-- <div><% @languages.each do |l| %>
+    <%= link_to l.name, lessons_path(l) %>
+  <% end %>
+</div> -->
