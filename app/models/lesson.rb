@@ -2,6 +2,8 @@ class Lesson < ApplicationRecord
   belongs_to :language
   belongs_to :user
 
+  has_many :bookings, dependent: :delete_all
+
   validates :description, presence: true
   validates :price, presence: true
 
