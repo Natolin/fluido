@@ -8,6 +8,17 @@
 
   <% if @my_bookings.count > 0 %>
     <h3>All of my Bookings:</h3>
+
+      <%= week_calendar number_of_weeks: 1, events: @my_bookings do |date, my_bookings| %>
+        <%= date %>
+        <br>
+          <% @my_bookings.each do |my_bookings| %>
+              <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
+              <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
+              <% end %>
+          <% end %>
+        <% end %>
+
     <% @my_bookings.each do  |x| %>
 
       <div class="row">
@@ -77,6 +88,10 @@
           <%= link_to edit_lesson_path(x) do %>
             <button class="dash-option-button">Edit</button>
           <% end %>
+
+          <%= link_to lesson_path(x), method: :delete do %>
+          <button type="button" class="show-button btn btn-danger">Delete</button>
+          <% end %>
         </div>
       </div>
     </div>
@@ -114,20 +129,6 @@
           <%= f.button :submit %>
         <% end %>
 
-
-
-
-        <!-- <form action="/bookings/<%= x.id %>/update_state" method="post">
-          <select name="status">
-            <option value="pending">pending</option>
-            <option value="accepted">accepted</option>
-            <option value="declined">declined</option>
-          </select>
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-          <input type="submit">
-        </form> -->
-
-
       </div>
     </div>
   <% end %>
@@ -135,10 +136,7 @@
   <% else %>
 
     <div class="message-if-nothing">
-      <h3>You don't have any lessons to display.</h3>
-      <%= link_to new_lesson_path do %>
-        <button class="dash-option-button">Publish a lesson</button>
-      <% end %>
+      <h3>You don't have any classes yet.</h3>
     </div>
     <br>
 
