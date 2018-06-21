@@ -1,23 +1,43 @@
-<h1>Conversations#show</h1>
-<p>Find me in app/views/conversations/show.html.erb</p>
 
+<div class="container">
 
-<% @conversation.messages.each do |mess| %>
-<p><%= mess.user.first_name %> <%= mess.user.last_name[0]%>.: <%= mess.content%><p>
+<div class="messages-past-field">
+<% @conversation.messages.each_with_index do |mess, index| %>
+  <% if mess.user == current_user%>
+    <div class="messages-mine-right">
+      <% unless @conversation.messages[index-1].user == current_user %>
+        <p class="messages-owner">Me:</p>
+      <% end %>
+      <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
+    </div>
+  <% else%>
+    <div class="messages-other-left">
+      <% unless @conversation.messages[index-1].user == mess.user %>
+        <p class="messages-owner"><%= mess.user.first_name %> <%= mess.user.last_name[0]%>:</p>
+      <% end %>
+      <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
+    </div>
+  <% end%>
+  
 <%end %>
 
+</div> <!-- end past-messages field -->
+
+<div class="messages-form">
 <%= form_for [@conversation, @message] do |f| %>
-  <p><%= f.text_area :content %></p>
-  <p><%= f.submit :send %></p>
+  <p class="messages-text-area"><%= f.text_area :content %></p>
+  <p><%= f.submit :Send, class: "show-hover show-send-button" %></p>
 <%end%>
+</div>
 
 
 <% @convos.each do |c |%>
   <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
     
-
- <p><%= link_to subscript.user.first_name, conversation_path(c) %></p>
+<p><%= link_to subscript.user.first_name, conversation_path(c) %></p>
 <% end%>
+
+</div> <!-- end container -->
 
 
 

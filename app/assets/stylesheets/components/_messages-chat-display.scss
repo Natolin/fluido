@@ -1,0 +1,46 @@
+.messages-past-field {
+  background: white;
+  border-radius: 3px;
+  padding: 10px 10px 10px 10px;
+  margin: 100px auto 0px auto;
+  width: 325px;
+}
+
+.messages-mine-right {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.messages-other-left {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.messages-owner {
+  color: #D90146;
+  margin-bottom: 0px;
+}
+
+.messages-form {
+ margin: 0px auto;
+  text-align: center;
+}
+
+#message_content {
+  width: 325px;
+  margin: 20px 0px;
+  border-radius: 5px;
+  border-color: none;
+  white-space: pre-line;
+}
+
+.show-send-button {
+  color: white;
+  //border: 1px solid #D90146;
+  background: #D90146;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+
+
+}
