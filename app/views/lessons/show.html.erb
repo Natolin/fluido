@@ -10,7 +10,7 @@
    <div class="jd-card-square-fluido">
       <div class="show-avatar">
         <div class="show-avatar-circle">
-          <%= image_tag ("shark.jpg")  %>
+          <%= cl_image_tag @user.photo %>
         </div>
       </div>
 
@@ -21,7 +21,7 @@
       </div>
 
       <div class="show-name-box">
-        <p><%= @lesson.user.first_name %></p>
+        <p><%= @lesson.user.first_name %> <%= @lesson.user.last_name[0]%>.</p>
       </div>
 
 
@@ -30,6 +30,7 @@
       <div class="show-country">
         <p>from <%= @lesson.user.country %></p>
       </div>
+
       <div class="show-average-rating">
         <% @rating = @lesson.user.average_rating %>
 
@@ -43,26 +44,32 @@
         <%end%>
       </div>
 
-      <div class="show-all-interests">
-        <% @user.interests.each do |int| %>
-          <%= int.name %>
-        <% end %>
+      <div class="show-price">
+        <p>$<%= @lesson.price %>/hour</p>
       </div>
 
-      <div class="show-price">
-        <p><%= @lesson.price %>/hour</p>
+      <div class="show-magic-line"> 
       </div>
+
+      <div class="show-description">
+        <p>Interests</p>
+        <ul>
+          <% @user.interests.each do |int| %>
+            <li class="description-body"><%= int.name %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      
 
       <div class="show-magic-line">
       </div>
 
       <div class="show-description">
-        <p>Description:</p>
+        <p>Description</p>
         <p class="description-body">"<%= @lesson.description %>"</p>
       </div>
-
       
-
     </div>
 
 
