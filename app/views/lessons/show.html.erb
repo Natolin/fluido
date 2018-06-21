@@ -1,22 +1,100 @@
 <h1>Lessons#show</h1>
 <p>Find me in app/views/lessons/show.html.erb</p>
 
-<%= @lesson.language.name %>
-<%= @lesson.price %>
-<%= @lesson.description %>
+<% @user = @lesson.user %>
 
 
-<%= link_to edit_lesson_path do %>
-   <button type="button" class=" btn btn-primary">Edit</button>
- <% end %>
+<div class="container">
 
 
-<%= link_to lesson_path(@lesson), method: :delete do %>
-  <button type="button" class=" btn btn-danger">Delete</button>
-<% end %>
+   <div class="jd-card-square-fluido">
+      <div class="show-avatar">
+        <div class="show-avatar-circle">
+          <%= image_tag ("shark.jpg")  %>
+        </div>
+      </div>
+
+      <div class="flags-on-card">
+        <div class="country-flag-circle">
+          <%= image_tag "flags/flag_italian.png" , class: "country-image"  %>
+        </div>
+      </div>
 
 
-<%= link_to conversation_path(@lesson.user_id) do %>
-  <button type="button" class=" btn btn-warning">Send a message</button>
-<% end %>
+      <div class="show-name-box">
+        <p><%= @lesson.user.first_name %></p>
+      </div>
+
+
+<div class="show-content">
+
+      <div class="show-country">
+        <p>from <%= @lesson.user.country %></p>
+      </div>
+      <div class="show-average-rating">
+        <% @rating = @lesson.user.average_rating %>
+
+        <% @rounded = @rating.round %>
+        <% @rounded.times do %>
+          <i class="fas fa-star yellow-star"></i>
+        <%end%>
+
+        <% (5 - @rounded).times do %>
+          <i class="fas fa-star grey-star"></i>
+        <%end%>
+      </div>
+
+      <div class="show-all-interests">
+        <% @user.interests.each do |int| %>
+          <%= int.name %>
+        <% end %>
+      </div>
+
+      <div class="show-price">
+        <p><%= @lesson.price %>/hour</p>
+      </div>
+
+      <div class="show-magic-line">
+      </div>
+
+      <div class="show-description">
+        <p>Description:</p>
+        <p class="description-body">"<%= @lesson.description %>"</p>
+      </div>
+
+      
+
+    </div>
+
+
+    </div>
+
+    
+
+
+    <% if @lesson.user == current_user %>
+        
+        <div>
+          <%= link_to edit_lesson_path do %>
+           <button type="button" class="show-button btn btn-primary">Edit</button>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to lesson_path(@lesson), method: :delete do %>
+          <button type="button" class="show-button btn btn-danger">Delete</button>
+          <% end %>
+        </div>
+
+      <% else %>
+
+       <%= form_for(@conversation) do |f|%>
+        <%= hidden_field_tag "user_id", @lesson.user.id %>
+        <%= f.submit "Send a message", class: "show-button btn btn-warning"  %>
+       <%end%>
+
+      <% end %>
+
+
+
+    </div>
 
