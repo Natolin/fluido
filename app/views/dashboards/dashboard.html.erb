@@ -15,7 +15,7 @@
 
           <div class="dash-bookings-info--left col-md-4">
             <p>Lesson Name: <%= x.lesson.language.name %>, <%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
-            <p>Total Price: <%= (x.lesson.price*(x.end_date - x.start_date)).to_i %></p>
+            <p>Total Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
           </div>
 
           <div class="dash-bookings-info--center col-md-3">
