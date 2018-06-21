@@ -6,6 +6,8 @@
     <h1>Your Dashboard</h1>
   </div>
 
+<%= cl_image_tag @current_user.photo %>
+
   <% if @my_bookings.count > 0 %>
     <h3>All of my Bookings:</h3>
 
