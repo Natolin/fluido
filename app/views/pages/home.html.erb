@@ -1,12 +1,122 @@
+<div class="spacemaker" style="margin-top:100px"></div>
 
-<div class="temp">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="home-page">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="slogan-1">
+          <h1>Real People</h1>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="slogan-2">
+          <h1>Real Learning</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="value-prop">
+          <p>Learn a language through actual conversations with native speakers.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="homepage-button">
+          <%= link_to languages_index_path do %>
+           <button type="button" class="jd-solid-button-med">Choose your language</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="how-does-it-work">
+          <h2>How Does It Work?</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-line-homepage"></div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <div class="step">
+          <div class="img-steps">
+            <%= image_tag "step-one" %>
+          </div>
+
+          <div class="step-text">
+            <p>Pick your target language.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <div class="step">
+          <div class="img-steps">
+            <%= image_tag "step-two" %>
+          </div>
+
+          <div class="step-text">
+            <p>Find your ideal teacher and schedule a lesson.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <div class="step">
+          <div class="img-steps">
+            <%= image_tag "step-three" %>
+          </div>
+
+          <div class="step-text">
+            <p>Start speaking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="or">
+          <h3>Or learn more about teaching and...</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="homepage-button">
+          <%= link_to languages_index_path do %>
+           <button type="button" class="jd-solid-button-med">Become a teacher</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
 </div>
 
-<%= link_to languages_index_path do %>
-   <button type="button" class=" btn btn-success">Choose your language</button>
- <% end %>
+
+
+
 
 
 
