@@ -85,7 +85,7 @@
 
 <!-- Availability and calendar will go here-->
 
-<% if @lesson.user != current_user %>    
+<% if @lesson.user == current_user %>    
   <div class="show-buttons-centered">
     <%= link_to new_lesson_booking_path(@lesson) do %>
       <button type="button" class="show-booking-button">Schedule a Lesson</button>
