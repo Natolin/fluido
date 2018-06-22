@@ -1,5 +1,5 @@
 <%= simple_form_for @user do |f| %>
-  <%= f.input :photo, :label=> "Upload your profile picture"%>
+  <%= f.file_field :photo, :label=> "Upload your profile picture"%>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>

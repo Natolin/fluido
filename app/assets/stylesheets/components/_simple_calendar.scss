@@ -1,8 +1,8 @@
-// .has-events{
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
+.has-events{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .has-events img{
   margin-top: 10%;
@@ -19,6 +19,18 @@ font-size: 15px;
   align: center;
 }
 
+thead th{
+  text-align: center;
+}
+
+h5{
+  margin-bottom: 5px;
+}
+
+h6{
+  margin-top: 0px;
+  color: #D90146;
+}
 
 .table{
 box-shadow: 0px 2px 2px 0px gray;
@@ -42,8 +54,6 @@ margin-bottom: 50px;
   }
 }
 
-// .table-striped{
-// border-top: 1px solid lightgray;}
 
 .dash-bookings-title{
   display: flex;
@@ -65,6 +75,12 @@ margin-bottom: 50px;
   padding-bottom: 10px;
   box-shadow: 0px 1px 1px 0px gray;
   border-radius: 5px;
+  .language_flag{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px;
+  }
 }
 
 .container{
@@ -103,7 +119,8 @@ margin-bottom: 50px;
 
 .black_line{
 border-bottom: 1px solid black;
-margin-top: 50px;
+margin-top: 20px;
+margin-bottom: 20px;
 width: 80%;
 text-align: center;
 }
@@ -114,7 +131,7 @@ text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  img{
+  .avatar_user{
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -122,3 +139,4 @@ text-align: center;
     border: 1px solid #D90146;
   }
 }
+
