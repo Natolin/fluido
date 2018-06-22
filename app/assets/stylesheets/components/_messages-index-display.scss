@@ -1,0 +1,52 @@
+
+
+.convo-index-header {
+  margin: 0px auto;
+  text-align: center;
+}
+
+.convo-index-card {
+  width: 325px;
+  margin: 20px auto;
+  background: white;
+  border: 2px solid #D90146;
+  border-radius: 5px;
+}
+
+.convo-index-card:hover {
+  transition: all .5s ease;
+  background: #D90146;
+  //border: 1px solid #D90146;
+  cursor: pointer;
+}
+
+.convo-avatar-circle > img {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #B2A5A3;
+  border-radius: 50%;
+  margin: 12px auto;
+  margin-left: 20px;
+
+}
+
+.convo-card-text {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.convo-owner {
+  color: black;
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+.convo-country {
+  color: lightgrey;
+}
+
+a {
+  text-decoration: none;
+}
+
+

@@ -1,4 +1,48 @@
-<h1>Conversations#index</h1>
-<p>Find me in app/views/conversations/index.html.erb</p>
+<div class="spacemaker" style="margin-top:100px"></div>
 
 
+
+
+<!-- <div class="container"> -->
+
+  <h2 class="convo-index-header">All Messages</h2>
+
+<% @my_convos.each do |c |%>
+  <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
+
+
+<%= link_to conversation_path(c) do %>
+<div class="convo-index-card">
+  <div class="row">
+
+    <div class="col-xs-4">
+      <div class="convo-avatar-circle">
+        <%= cl_image_tag subscript.user.photo %>
+      </div>
+    </div>
+
+    <div class="col-xs-8">
+      <div class="convo-card-text">
+        <p class="convo-owner"><%= subscript.user.first_name %> <%= subscript.user.last_name[0] %>.</p>
+        <p class="convo-country"> from <%= subscript.user.country %></p>
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div> <!-- end of card -->
+<% end %>
+
+<% end%>
+
+<!-- </div> end of container -->
