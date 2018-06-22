@@ -36,6 +36,10 @@ class ConversationsController < ApplicationController
     # username should be clickable to that it opens that conversation
     @convos = current_user.conversations
 
+    both = @conversation.subscriptions.pluck(:user_id)
+    other = both.find { |id| id != current_user.id }
+    @display_other = User.find(other)
+
 
   end
 end
