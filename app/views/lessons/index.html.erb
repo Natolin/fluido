@@ -19,7 +19,7 @@
                 <div class="teacher-upper-details">
                   <div class="teachers-photo">
                     <%= cl_image_tag(l.user.photo) %>
-                    <%= image_tag("flags/flag_french.png", id: "flag") %>
+                    <%= image_tag l.language.flag, id: "flag" %>
                   </div>
 
                   <div class="teachers-name">
