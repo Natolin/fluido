@@ -6,7 +6,7 @@
    <div class="jd-card-square-fluido">
       <div class="show-avatar">
         <div class="show-avatar-circle">
-          <%= cl_image_tag @user.photo %>
+          <img class='avatar_user' src="<%= @user.photo %>" alt="">
         </div>
       </div>
 
@@ -45,7 +45,7 @@
         <p>$<%= @lesson.price %>/hour</p>
       </div>
 
-      <div class="show-magic-line"> 
+      <div class="show-magic-line">
       </div>
 
       <div class="show-description">
@@ -57,7 +57,7 @@
         </ul>
       </div>
 
-      
+
 
       <div class="show-magic-line">
       </div>
@@ -72,7 +72,7 @@
 
     </div>
 
-    
+
 
   <div class="show-buttons-centered">
     <% if @lesson.user.id != current_user.id %>
@@ -85,7 +85,7 @@
 
 <!-- Availability and calendar will go here-->
 
-<% if @lesson.user.id != current_user.id %>    
+<% if @lesson.user.id != current_user.id %>
   <div class="show-buttons-centered">
     <%= link_to new_lesson_booking_path(@lesson) do %>
       <button type="button" class="show-hover show-booking-button">Schedule a Lesson</button>
