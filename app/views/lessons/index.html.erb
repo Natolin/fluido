@@ -15,11 +15,16 @@
             <%= link_to lesson_path(l) do %>
 
               <div class="one-card">
-                <!-- <div class="teachers-photo">
-                  <%= l.user.photo %>
-                </div> -->
-                <div class="teachers-name">
-                  <%= l.user.first_name + " " + l.user.last_name[0] %>.
+
+                <div class="teacher-upper-details">
+                  <div class="teachers-photo">
+                    <%= cl_image_tag(l.user.photo) %>
+                    <%= image_tag("flags/flag_french.png", id: "flag") %>
+                  </div>
+
+                  <div class="teachers-name">
+                    <%= l.user.first_name + " " + l.user.last_name[0] %>.
+                  </div>
                 </div>
 
                 <div class="from">
