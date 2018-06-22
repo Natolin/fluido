@@ -3,50 +3,44 @@
 <div class="container">
 
   <div class="dash-bookings-title">
-    <h1>Your Dashboard</h1>
+    <h1>Dashboard</h1>
+      <%= cl_image_tag @current_user.photo %>
   </div>
 
-<%= cl_image_tag @current_user.photo %>
 
   <% if @my_bookings.count > 0 %>
     <h3>All of my Bookings:</h3>
 
+<div class="calendar">
+  <% if @my_bookings.count > 0 %>
+    <h3>Bookings</h3>
       <%= week_calendar number_of_weeks: 1, events: @my_bookings do |date, my_bookings| %>
-        <%= date %>
-        <br>
+        <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
           <% @my_bookings.each do |my_bookings| %>
               <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
               <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
               <% end %>
           <% end %>
         <% end %>
-
+</div>
     <% @my_bookings.each do  |x| %>
 
       <div class="row">
         <div class="dash-bookings-content">
-
-          <div class="dash-bookings-info--left col-md-4">
-            <p>Lesson Name: <%= x.lesson.language.name %>, <%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
-            <p>Total Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
-          </div>
-
-          <div class="dash-bookings-info--center col-md-3">
-            <p>Start Date: <%= x.start_date %></p>
-            <p>End Date: <%= x.end_date %></p>
+          <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
+            <%= image_tag ("shark.jpg") %>
+            <p><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
+            <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> at <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></p>
+            <p>Estimated Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
             <p>Status: <%= x.status %></p>
-          </div>
-
-          <div class="dash-bookings-info--right col-md-3">
-            <p>Teacher: <%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
-            <p>Student: <%= x.user.first_name %> <%= x.user.last_name %></p>
-          </div>
-         <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
+            <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
               <button class="dash-option-button">Edit</button>
             <% end %>
           <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
             <button type="button" class=" btn btn-danger">Delete</button>
           <% end %>
+          </div>
+          <div class="black_line"></div>
         </div>
       </div>
 
@@ -69,18 +63,17 @@
   <% end %>
 
   <div class="magical-line"></div>
-
+  <div class="lessons">
   <% if @my_lessons.count > 0 %>
 
-    <h3>All of my Lessons:</h3>
+    <h3>Lessons</h3>
 
   <% @my_lessons.each do  |x| %>
     <div class="row">
       <div class="dash-bookings-content">
 
-        <div class="dash-bookings-info--left col-md-4">
+        <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
           <p>Lesson Name: <%= x.language.name %></p>
-        </div>
 
         <div class="edit_booking col-md-2">
           <%= link_to lesson_path(x) do %>
@@ -95,6 +88,8 @@
           <button type="button" class="show-button btn btn-danger">Delete</button>
           <% end %>
         </div>
+        </div>
+         <div class="black_line"></div>
       </div>
     </div>
 
@@ -113,23 +108,28 @@
 
 
  <% end %>
+ </div>
 
   <% if @my_classes.count > 0 %>
-
-    <h3>All of my Classes:</h3>
+<div class="classes">
+    <h3>Classes</h3>
 
   <% @my_classes.each do  |x| %>
     <div class="row">
       <div class="dash-bookings-content">
 
-        <div class="dash-bookings-info--left col-md-4">
-          <p>Classes Name: with <%= x.user.first_name %> on:<%= x.start_date %> <%= x.status %></p>
-        </div>
-
-        <%= simple_form_for [x.lesson, x] do |f| %>
+        <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
+          <%= image_tag ("shark.jpg") %>
+          <p>Teaching <%= x.user.first_name %></p>
+          <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> at <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></p>
+            <p>Estimated Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
+          <%= simple_form_for [x.lesson, x] do |f| %>
           <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
           <%= f.button :submit %>
         <% end %>
+        </div>
+
+    <div class="black_line"></div>
 
       </div>
     </div>
@@ -144,7 +144,7 @@
 
 
  <% end %>
-
+</div>
 
 </div>
 
