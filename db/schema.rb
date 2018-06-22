@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_101930) do
   end
 
   create_table "conversations", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 2018_06_19_101930) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
-    t.string "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_101930) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "username"
     t.boolean "teacher_status", default: false
     t.text "description"
     t.float "average_rating"

@@ -1,30 +1,28 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="spacemaker" style="margin-top:100px"></div>
 
 
-<h1>Lessons#index</h1>
-<p>Find me in app/views/lessons/index.html.erb</p>
+<div class="container">
 
+  <%= render 'lessons/search' %>
 
-<%= render 'lessons/search' %>
+  <div class="row">
+    <div class="col-xs-12">
 
+      <% @lessons.each do |l| %>
+        <%= link_to lesson_path(l) do %>
+          <div class="entire-card">
+            <%= l.user.first_name %>
+            <%= l.user.interests.first.name %>
+            <%= l.price %>
+            <%= l.description %>
+            <%= l.user.average_rating %>
+          </div>
+        <% end %>
+      <% end %>
 
-<ul>
-  <% @lessons.each do |l| %>
-    <li><%= l.user.first_name %></li>
-    <li><%= l.user.interests.first.name %></li>
-    <li><%= l.price %></li>
-    <li><%= l.description %></li>
-    <li><%= l.user.average_rating %></li>
-    <li><%= link_to lesson_path(l) do %>
-      <button class="dash-option-button">See</button>
-    <% end %></li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+
+</div>
 
 
