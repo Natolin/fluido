@@ -5,7 +5,7 @@ class ConversationsController < ApplicationController
 
   def index # will be rendered with a partial on the "show" page
     #@conversations = Conversation.where(conversation.messages.user_id == current_user.id)
-    @my_conversations = Conversation.all
+    @my_convos = current_user.conversations
     # only show all of the conversations that the user is in
   end
 
