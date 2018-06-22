@@ -22,7 +22,7 @@
   border: 2px solid #B2A5A3;
   font-size: 20px;
   color: #B2A5A3;
-  margin-top: -7%;
+  margin-top: -6%;
   margin-right: auto;
   margin-left: auto;
 }
@@ -53,15 +53,22 @@
 
 .teacher-details {
   display: flex;
+  padding: 10px;
 }
 
 .teachers-interests {
-  margin-top: 10%;
-  width: 70%;
+  display: block;
+  margin-top: 5%;
+  margin-left: 5px;
+  width: 65%;
   font-size: 12px;
 }
 
 .teachers-price {
   width: 30%;
+  color: #D90146;
+
 }
+
+
 
