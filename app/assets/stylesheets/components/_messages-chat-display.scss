@@ -1,0 +1,84 @@
+.messages-chatlist {
+  /*Requires Permanent Marker font from Google Fonts*/
+  width: 325px;
+  height: 55px;
+  background: white;
+  color: #D90146;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  box-shadow: 0px 2px 2px #B2A5A3;
+  z-index: 1;
+  margin: 75px auto;
+  margin-bottom: 0px;
+}
+
+.messages-header-logo {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.messages-past-field {
+  background: white;
+  border-radius: 3px;
+  padding: 10px 10px 10px 10px;
+  margin: 5px auto;
+  width: 325px;
+}
+
+.messages-mine-right {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.messages-other-left {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.messages-owner {
+  color: #D90146;
+  margin-bottom: 0px;
+}
+
+.messages-form {
+ margin: 0px auto;
+  text-align: center;
+}
+
+#message_content {
+  width: 325px;
+  margin: 20px 0px;
+  border-radius: 5px;
+  border-color: none;
+  white-space: pre-line;
+}
+
+.show-send-button {
+  color: white;
+  //border: 1px solid #D90146;
+  background: #D90146;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+
+
+}
