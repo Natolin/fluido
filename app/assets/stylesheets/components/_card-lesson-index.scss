@@ -1,0 +1,106 @@
+.cards {
+  margin: 40px auto;
+  width: 280px;
+  height: 135px;
+  border: 2px solid #B2A5A3;
+  border-radius: 5px;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.one-card {
+  color: #B2A5A3;
+}
+
+.teacher-upper-details {
+ display: flex;
+}
+
+.teachers-photo {
+  position: relative;
+}
+
+.teachers-photo img{
+  background: $light-gray;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #D90146;
+  border-radius: 50%;
+  margin-top: -35%;
+  margin-left: -25%;
+}
+
+#flag {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 0px;
+  right: 25%;
+  bottom: 0%;
+}
+
+.teachers-name {
+  background: $light-gray;
+  width: 45%;
+  height: 10%;
+  text-align: center;
+  border: 2px solid #B2A5A3;
+  font-size: 20px;
+  color: #B2A5A3;
+  margin-top: -6%;
+  margin-right: auto;
+}
+
+.from {
+  position: absolute;
+  width: 60%;
+  text-align: center;
+  padding: 0px;
+  top: 26%;
+  left: 21%;
+
+  span {
+    font-size: 14px;
+    color: #B2A5A3;
+
+      &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.teacher-stars {
+  position: absolute;
+  top: 35%;
+  left: 38%;
+
+
+  i {
+    font-size: 12px;
+    padding: 1px;
+  }
+}
+
+.teacher-details {
+  display: flex;
+  padding: 10px;
+}
+
+.teachers-interests {
+  display: block;
+  margin-top: 5%;
+  margin-left: 5px;
+  width: 65%;
+  font-size: 12px;
+}
+
+.teachers-price {
+  width: 30%;
+  color: #D90146;
+
+}
+
+
+
