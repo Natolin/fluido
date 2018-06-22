@@ -3,7 +3,8 @@
 
   <div class="messages-chatlist">
   <div class="messages-header-logo">
-    <p>@other</p>
+    <p>Name and avatar of other here</p>
+    <p>also a drop down arrow for others</p>
 
   </div>
 </div>
@@ -25,7 +26,7 @@
       <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
     </div>
   <% end%>
-  
+
 <%end %>
 
 </div> <!-- end past-messages field -->
@@ -40,7 +41,7 @@
 
 <% @convos.each do |c |%>
   <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
-    
+
 <p><%= link_to subscript.user.first_name, conversation_path(c) %></p>
 <% end%>
 

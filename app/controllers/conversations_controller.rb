@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
       user_ids.include?(myself.id) && user_ids.include?(user.id)
     end
 
-    if convo.nil? 
+    if convo.nil?
       convo = Conversation.create
       other_sub = Subscription.create(user_id: user.id, conversation_id: convo.id)
       my_sub = Subscription.create(user_id: myself.id, conversation_id: convo.id)
@@ -29,26 +29,13 @@ class ConversationsController < ApplicationController
 
   def show
     # not on the conversation show page and the user can type a message.
-    # message will show with username and content and message box will clear 
+    # message will show with username and content and message box will clear
     @conversation = Conversation.find(params[:id])
     @message = Message.new
     # on left side we would like to display a list of user you have convo's with
     # username should be clickable to that it opens that conversation
     @convos = current_user.conversations
 
-    @conversation.subscriptions.each do |sub|
-    until sub.user_id == current_user.id
-    @other = Subscription.find(sub.user_id)
-  end
-    return @other
 
-   # @user_ids = @conversation.subscriptions.pluck(:user_id)
-  end
-
-  private
-
-  def conversation_params
-    params.require(:conversation).permit(title: "#{@user.username} and #{current.user.username}")
-    # i have written both names in the title so that in the display i can remove the one that matches the current_user
   end
 end
