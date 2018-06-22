@@ -31,38 +31,6 @@ h1 {
   margin-bottom: 60px;
 }
 
-.homepage-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.jd-solid-button-med {
-  position: relative;
-  width: 240px;
-  height: 52px;
-  background: #D90146;
-  color: white;
-  border-radius: 5px;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 20px;
-  margin-bottom: 60px;
-}
-
-.jd-solid-button-med > p {
-  position: absolute;
-  top: 10px;
-  left: 54px;
-}
-
-.jd-solid-button-med:hover {
-  transition: all .5s ease;
-  background: white;
-  border: 1px solid #D90146;
-  color: #B2A5A3;
-  cursor: pointer;
-}
-
 .question {
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
