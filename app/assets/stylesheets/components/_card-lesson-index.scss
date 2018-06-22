@@ -54,8 +54,12 @@
 }
 
 .from {
+  position: absolute;
+  width: 60%;
   text-align: center;
   padding: 0px;
+  top: 26%;
+  left: 21%;
 
   span {
     font-size: 14px;
@@ -68,8 +72,10 @@
 }
 
 .teacher-stars {
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 35%;
+  left: 38%;
+
 
   i {
     font-size: 12px;
