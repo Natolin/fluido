@@ -4,34 +4,35 @@
 
   <div class="dash-bookings-title">
     <h1>Dashboard</h1>
-      <%= cl_image_tag @current_user.photo %>
+      <img src="<%= @current_user.photo %>" alt="">
+
   </div>
 
 
-  <% if @my_bookings.count > 0 %>
-    <h3>All of my Bookings:</h3>
-
-<div class="calendar">
-  <% if @my_bookings.count > 0 %>
-    <h3>Bookings</h3>
-      <%= week_calendar number_of_weeks: 1, events: @my_bookings do |date, my_bookings| %>
-        <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
-          <% @my_bookings.each do |my_bookings| %>
-              <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
-              <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
-              <% end %>
+<% if @my_bookings.count > 0 %>
+  <div class="calendar">
+    <% if @my_bookings.count > 0 %>
+        <%= week_calendar number_of_weeks: 1, events: @my_bookings do |date, my_bookings| %>
+          <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
+            <% @my_bookings.each do |my_bookings| %>
+                <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
+                <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
+                <% end %>
+            <% end %>
           <% end %>
-        <% end %>
-</div>
-    <% @my_bookings.each do  |x| %>
-
+  </div>
+  <% @my_bookings.each do  |x| %>
       <div class="row">
         <div class="dash-bookings-content">
+          <div class="black_line"></div>
+          <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></h5>
+          <h6>Learning from</h6>
           <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
-            <%= image_tag ("shark.jpg") %>
+            <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
+
             <p><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name %></p>
-            <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> at <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></p>
             <p>Estimated Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
+            <%= image_tag x.lesson.language.flag, class: "language_flag" %>
             <p>Status: <%= x.status %></p>
             <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
               <button class="dash-option-button">Edit</button>
@@ -40,17 +41,15 @@
             <button type="button" class=" btn btn-danger">Delete</button>
           <% end %>
           </div>
-          <div class="black_line"></div>
         </div>
       </div>
 
-      <% if @my_bookings.count > 1 %>
-        <div class="thin-magic-line"></div>
+    <% if @my_bookings.count > 1 %>
+      <div class="thin-magic-line"></div>
       <% end %>
-
     <% end %>
 
-  <% else %>
+    <% else %>
 
     <div class="message-if-nothing">
       <h3>You don't have any bookings to display.</h3>
@@ -59,7 +58,7 @@
       <% end %>
     </div>
     <br>
-
+    <% end %>
   <% end %>
 
   <div class="magical-line"></div>
@@ -71,7 +70,7 @@
   <% @my_lessons.each do  |x| %>
     <div class="row">
       <div class="dash-bookings-content">
-
+        <div class="black_line"></div>
         <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
           <p>Lesson Name: <%= x.language.name %></p>
 
@@ -89,7 +88,6 @@
           <% end %>
         </div>
         </div>
-         <div class="black_line"></div>
       </div>
     </div>
 
@@ -112,25 +110,23 @@
 
   <% if @my_classes.count > 0 %>
 <div class="classes">
-    <h3>Classes</h3>
-
   <% @my_classes.each do  |x| %>
     <div class="row">
-      <div class="dash-bookings-content">
 
+      <div class="dash-bookings-content">
+        <div class="black_line"></div>
+        <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></h5>
+        <h6>Teaching</h6>
         <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
-          <%= image_tag ("shark.jpg") %>
-          <p>Teaching <%= x.user.first_name %></p>
-          <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> at <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></p>
-            <p>Estimated Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
+          <img class='avatar_user' src="<%= x.user.photo %>" alt="">
+          <p><%= x.user.first_name %></p>
+          <p>Estimated Price: <%= (x.lesson.price*(x.end_date - x.start_date)/3600).round(2) %></p>
+         <%= image_tag x.lesson.language.flag, class: "language_flag" %>
           <%= simple_form_for [x.lesson, x] do |f| %>
           <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
           <%= f.button :submit %>
         <% end %>
         </div>
-
-    <div class="black_line"></div>
-
       </div>
     </div>
   <% end %>
@@ -140,12 +136,6 @@
     <div class="message-if-nothing">
       <h3>You don't have any classes yet.</h3>
     </div>
-    <br>
-
-
  <% end %>
+  </div>
 </div>
-
-</div>
-
-<br>
