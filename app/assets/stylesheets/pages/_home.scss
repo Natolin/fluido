@@ -1,4 +1,119 @@
 // Specific CSS for your home-page
-.temp {
-  margin-top: 55px;
+.home-page {
+  background-image: url("home-splat.png");
+  background-repeat:no-repeat;
+  background-position: center;
 }
+
+
+.splat-secondary {
+  width: 130px;
+  height: 130px;
+}
+
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+
+.slogan-2 {
+  text-align: right;
+  margin-bottom: 80px;
+}
+
+.value-prop {
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.homepage-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jd-solid-button-med {
+  position: relative;
+  width: 240px;
+  height: 52px;
+  background: #D90146;
+  color: white;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+.jd-solid-button-med > p {
+  position: absolute;
+  top: 10px;
+  left: 54px;
+}
+
+.jd-solid-button-med:hover {
+  transition: all .5s ease;
+  background: white;
+  border: 1px solid #D90146;
+  color: #B2A5A3;
+  cursor: pointer;
+}
+
+.question {
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  text-align: center;
+}
+
+.magic-line-homepage {
+  width: 255px;
+  border: 1px solid black;
+  margin: 20px auto;
+}
+
+.img-steps {
+  width: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step {
+  background-repeat:no-repeat;
+  margin: 40px 0px;
+}
+
+
+.step-text {
+  text-align: center;
+  font-size: 22px;
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+.or {
+  text-align: center;
+  font-size: 24px;
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 60px;
+}
+
+#why-use {
+  font-size: 28px;
+}
+
+#accent-fluido {
+  color: #D90146;
+  font-size: 28px;
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: 1px 1px 1px #B2A5A3;
+}
+

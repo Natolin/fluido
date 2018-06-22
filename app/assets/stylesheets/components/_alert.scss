@@ -7,9 +7,17 @@
   text-align: center;
   color: white;
 }
-.alert-info {
-  background: $green;
+.alert-info, .alert-warning {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 22px;
+  text-shadow: 1px 1px 1px black;
+  color: white;
+  width: 80%;
+  background: #D90146;;
+  border: 10px double white;
+  border-radius: 5px;
+  margin: 75px auto;
 }
-.alert-warning {
-  background: $red;
-}
+// .alert-warning {
+//   background: $red;
+// }
