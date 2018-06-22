@@ -48,9 +48,9 @@
 
                 <div class="teacher-details">
                   <div class="teachers-interests">
-                    <% 3.times do %>
-                      <div><%= l.user.interests.first.name %></div>
-                    <% end %>
+                    <div><%= l.user.interests[0].name %></div>
+                    <div><%= l.user.interests[1].name %></div>
+                    <div><%= l.user.interests[2].name %></div>
                   </div>
 
                   <div class="teachers-price">
