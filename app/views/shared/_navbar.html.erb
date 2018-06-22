@@ -7,6 +7,7 @@
         <ul class="dropdown-menu dropdown-menu-right jd-header-dropdown-menu">
 
           <% if user_signed_in? %>
+            <li><%= current_user.name %></li>
             <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
             <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

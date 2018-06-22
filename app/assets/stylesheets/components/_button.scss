@@ -1,0 +1,61 @@
+.homepage-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jd-border-button-med {
+  position: relative;
+  width: 240px;
+  height: 52px;
+  background: white;
+  color: #B2A5A3;
+  border: 1px solid #D90146;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jd-border-button-med > p {
+  position: absolute;
+  top: 10px;
+  left: 54px;
+}
+
+.jd-border-button-med:hover {
+  transition: all .5s ease;
+  background: #D90146;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.jd-solid-button-med {
+  position: relative;
+  width: 240px;
+  height: 52px;
+  background: #D90146;
+  color: white;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.jd-solid-button-med > p {
+  position: absolute;
+  top: 10px;
+  left: 54px;
+}
+
+.jd-solid-button-med:hover {
+  transition: all .5s ease;
+  background: white;
+  border: 1px solid #D90146;
+  color: #B2A5A3;
+  cursor: pointer;
+}
