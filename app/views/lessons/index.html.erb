@@ -5,22 +5,60 @@
 
   <%= render 'lessons/search' %>
 
+<div class="little-space-maker" style="margin: 60px 0px"></div>
+
   <div class="row">
-    <div class="col-xs-12">
-
       <% @lessons.each do |l| %>
-        <%= link_to lesson_path(l) do %>
-          <div class="entire-card">
-            <%= l.user.first_name %>
-            <%= l.user.interests.first.name %>
-            <%= l.price %>
-            <%= l.description %>
-            <%= l.user.average_rating %>
-          </div>
-        <% end %>
-      <% end %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
 
-    </div>
+          <div class="cards">
+            <%= link_to lesson_path(l) do %>
+
+              <div class="one-card">
+                <!-- <div class="teachers-photo">
+                  <%= l.user.photo %>
+                </div> -->
+                <div class="teachers-name">
+                  <%= l.user.first_name + " " + l.user.last_name[0] %>.
+                </div>
+
+                <div class="from">
+                  <span>from</span>
+                  <span><%= l.user.country %></span>
+                </div>
+
+                <div class="teacher-stars">
+                  <% rating = l.user.average_rating %>
+
+                  <% rounded = rating.round %>
+                  <% rounded.times do %>
+                    <i class="fas fa-star yellow-star"></i>
+                  <%end%>
+
+                  <% (5 - rounded).times do %>
+                    <i class="fas fa-star grey-star"></i>
+                  <%end%>
+                </div>
+
+
+                <div class="teacher-details">
+                  <div class="teachers-interests">
+                    <% 6.times do %>
+                      <%= l.user.interests.first.name %>
+                    <% end %>
+                  </div>
+
+                  <div class="teachers-price">
+                    <h4>$<%= l.price %>/hr</h4>
+                  </div>
+                </div>
+
+
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
   </div>
 
 </div>

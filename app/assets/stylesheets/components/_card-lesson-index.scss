@@ -1,5 +1,67 @@
-.entire-card {
-  width: 270px;
-  height: 125px;
-  border: 1px solid #FFFFFF;
+.cards {
+  margin: 40px auto;
+  width: 280px;
+  height: 135px;
+  border: 2px solid #B2A5A3;
+  border-radius: 5px;
+
+  a:hover {
+    text-decoration: none;
+  }
 }
+
+.one-card {
+  color: #B2A5A3;
+}
+
+
+.teachers-name {
+  background: $light-gray;
+  width: 45%;
+  text-align: center;
+  border: 2px solid #B2A5A3;
+  font-size: 20px;
+  color: #B2A5A3;
+  margin-top: -7%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.from {
+  text-align: center;
+  padding: 0px;
+
+  span {
+    font-size: 14px;
+    color: #B2A5A3;
+
+      &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.teacher-stars {
+  display: flex;
+  justify-content: center;
+
+  i {
+    font-size: 12px;
+    padding: 1px;
+  }
+}
+
+.teacher-details {
+  display: flex;
+}
+
+.teachers-interests {
+  margin-top: 10%;
+  width: 70%;
+  font-size: 12px;
+}
+
+.teachers-price {
+  width: 30%;
+}
+
