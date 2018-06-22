@@ -4,20 +4,39 @@
   height: 55px;
   background: white;
   color: #D90146;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
   padding: 0px 30px;
   box-shadow: 0px 2px 2px #B2A5A3;
   z-index: 1;
   margin: 75px auto;
   margin-bottom: 0px;
+  text-align: center;
 }
+
 
 .messages-header-logo {
-  
+  margin: 10px auto;
 }
 
+.messages-show-current {
+  margin: 0px auto;
+  p {
+    font-size: 25px;
+  }
+
+}
+
+.fa-angle-down {
+  cursor: pointer;
+  margin-left: 100%;
+  margin-top: 5px;
+  border: 2px solid #D90146;
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: 14px;
+}
 
 
 
