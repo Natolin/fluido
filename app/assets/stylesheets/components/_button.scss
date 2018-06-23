@@ -34,6 +34,11 @@
   text-decoration: none;
 }
 
+.jd-border-button-med:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px #B2A5A3;
+}
+
 .jd-solid-button-med {
   position: relative;
   width: 240px;
@@ -58,4 +63,9 @@
   border: 1px solid #D90146;
   color: #B2A5A3;
   cursor: pointer;
+}
+
+.jd-solid-button-med:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px #B2A5A3;
 }
