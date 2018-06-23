@@ -1,17 +1,33 @@
 <div class="spacemaker" style="margin-top:100px"></div>
 
-<h1>Update your profile</h1>
+<div class="container">
 
-<% if @user.photo != nil %>
-  <%= cl_image_tag @user.photo, :width=>150, :height=>150 %>
-<% end %>
+  <h1 id="edit-header">Update your profile</h1>
+  <div class="magic-line-homepage"></div>
 
 
-<%= render 'users/form' %>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
 
-<%= link_to :back, class: "back" do %>
-  <div class="back-button">Back</div>
-<% end %>
+      <div class="edit-photo">
+        <% if @user.photo != nil %>
+          <%= cl_image_tag @user.photo %>
+        <% end %>
+      </div>
+
+
+      <%= render 'users/form' %>
+
+
+      <%= link_to :back, class: "back" do %>
+        <div class="back-button">Back</div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+</div>
 
 
 

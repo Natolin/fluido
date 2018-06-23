@@ -1,0 +1,22 @@
+#edit-header {
+  font-size: 36px;
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+
+.edit-photo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid #D90146;
+  margin: 40px 0px;
+}
+
+
