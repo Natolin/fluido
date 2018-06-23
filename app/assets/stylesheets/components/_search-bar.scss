@@ -1,13 +1,17 @@
-.search-bar form {
+#show-hide-search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
 }
 
-.search-bar select, .search-bar input {
+#search-bar {
+  display: block;
+}
+
+#search-bar select, #search-bar input {
+  font-size: 20px;
   width: 240px;
-  height: 40px;
-  margin: 10px 0px;
+  height: 52px;
+  margin: 15px 0px;
   padding: 5px;
   transition: all 0.3s ease-in-out;
 
@@ -18,7 +22,8 @@
   }
 }
 
-.search-bar input {
+
+#search-bar input {
   border-style:solid;
   border:1px solid #cccccc;
   border-radius: 5px;
@@ -29,6 +34,6 @@
   }
 }
 
-.search-bar button {
-  margin-top: 15px;
+#search-bar button {
+  margin: 15px 0px;
 }
