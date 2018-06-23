@@ -1,0 +1,46 @@
+.about-sign-up {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.about-teaching-header, .about-sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#space {
+  margin-right: 10px;
+}
+
+span {
+  font-size: 30px;
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+.magic-line-aboutpage {
+  margin: 20px auto;
+  border: 1px solid black;
+  width: 60%;
+}
+
+.about-teaching-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+
+  span {
+    color: black;
+  }
+}
+
+.about-teaching-details p {
+  text-align: center;
+  font-size: 20px;
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  margin: 80px 0px;
+}
