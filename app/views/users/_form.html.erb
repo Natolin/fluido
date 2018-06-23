@@ -7,12 +7,21 @@
     <%= f.input :country, as: :string, required: false %>
     <%= f.association :interests, as: :check_boxes %>
     <%= f.input :description %>
-    <%= f.button :submit, class: "jd-solid-button-med" %>
+
+    <div class="magic-line-homepage"></div>
+    <div class="space" style="margin-top:40px"></div>
+
+    <div class="center">
+      <%= f.button :submit, class: "update-user" %>
+    </div>
   <% end %>
 
+  <div class="space" style="margin-top:40px"></div>
 
-  <%= link_to edit_user_registration_path do %>
-      <button type="button" class="jd-border-button-med">Update password</button>
-  <% end %>
+  <div class="center">
+    <%= link_to edit_user_registration_path do %>
+        <button type="button" class="update-user">Change Password</button>
+    <% end %>
+  </div>
 </div>
 
