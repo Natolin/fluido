@@ -64,9 +64,12 @@ h1 {
 
 .step-text {
   text-align: center;
-  font-size: 22px;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
+
+  p {
+    font-size: 18px;
+  }
 }
 
 
