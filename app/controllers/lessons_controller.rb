@@ -17,8 +17,7 @@ class LessonsController < ApplicationController
 
       # Interests
 
-      # if query[:interest]
-      #   interest = Interest.find_by name: interest
+      # if query[:interest] != ""
       # end
 
       # Price
