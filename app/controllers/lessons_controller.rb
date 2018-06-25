@@ -17,12 +17,13 @@ class LessonsController < ApplicationController
 
       # Interests
 
-      # if query[:interest] != ""
-      # end
+      if query[:interest] != ""
+        @lessons = @lessons.search_by_interests(query[:interest])
+      end
 
       # Price
 
-      if query[:price] != ""
+      if query[:price] != "" # Not nil otherwise other search fields wont work
         price = query[:price]
         if price != "20+"
           @lessons = @lessons.where(price: 1..price.to_i)
@@ -33,7 +34,7 @@ class LessonsController < ApplicationController
 
       # Country
 
-      if query[:country] != ""
+      if query[:country] != "Country"
         @lessons = @lessons.search_by_country(query[:country])
       end
 

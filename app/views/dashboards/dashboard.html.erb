@@ -1,22 +1,23 @@
 <br>
 <br>
-<div class="container">
+<div class="pg container">
 
   <div class="dash-bookings-title">
-    <h1>Dashboard</h1>
+    <h1><%= @current_user.first_name %></h1>
       <img src="<%= @current_user.photo %>" alt="">
-
+      <div class="black_line"></div>
   </div>
 
 
 <% if @my_bookings.count > 0 %>
   <div class="calendar">
     <% if @my_bookings.count > 0 %>
-        <%= week_calendar number_of_weeks: 1, events: @my_bookings do |date, my_bookings| %>
+        <%= calendar number_of_days: 4, events: @my_bookings do |date, my_bookings| %>
           <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
             <% @my_bookings.each do |my_bookings| %>
                 <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
                 <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
+                <% break %>
                 <% end %>
             <% end %>
           <% end %>
@@ -41,11 +42,20 @@
             <button type="button" class=" btn btn-danger">Delete</button>
           <% end %>
           </div>
+          <!-- <div class="black_line"></div> -->
+          <div class="message-button">
+            <% if x.lesson.user.id != current_user.id %>
+              <%= form_for(@conversation) do |f|%>
+                <%= hidden_field_tag "user_id", x.lesson.user.id %>
+                <%= f.submit "Send a Message", class: "message-button"  %>
+              <%end%>
+            <% end %>
+          </div>
         </div>
       </div>
 
     <% if @my_bookings.count > 1 %>
-      <div class="thin-magic-line"></div>
+      <!-- <div class="thin-magic-line"></div> -->
       <% end %>
     <% end %>
 
@@ -61,36 +71,81 @@
     <% end %>
   <% end %>
 
-  <div class="magical-line"></div>
+
   <div class="lessons">
+
   <% if @my_lessons.count > 0 %>
-
-    <h3>Lessons</h3>
-
+    <h3>My published lessons</h3>
   <% @my_lessons.each do  |x| %>
-    <div class="row">
-      <div class="dash-bookings-content">
-        <div class="black_line"></div>
-        <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
-          <p>Lesson Name: <%= x.language.name %></p>
+    <div class="show-lesson">
 
-        <div class="edit_booking col-md-2">
-          <%= link_to lesson_path(x) do %>
-            <button class="dash-option-button">View</button>
+     <div class="pg-card-square-fluido">
+
+        <div class="show-avatar">
+          <div class="show-avatar-circle">
+            <img class='avatar_user' src="<%= x.user.photo %>" alt="">
+          </div>
+        </div>
+
+        <div class="flags-on-card">
+          <div class="country-flag-circle">
+            <%= image_tag x.language.flag, class: "country-image"  %>
+          </div>
+        </div>
+
+
+        <div class="show-name-box">
+          <p><%= x.user.first_name %> <%= x.user.last_name[0]%>.</p>
+        </div>
+
+
+  <div class="show-content">
+
+      <div class="show-country">
+        <p>from <%= x.user.country %></p>
+      </div>
+
+      <div class="show-average-rating">
+        <% @rating = x.user.average_rating %>
+
+        <% @rounded = @rating.round %>
+        <% @rounded.times do %>
+          <i class="fas fa-star yellow-star"></i>
+        <%end%>
+
+        <% (5 - @rounded).times do %>
+          <i class="fas fa-star grey-star"></i>
+        <%end%>
+      </div>
+
+      <div class="show-price">
+        <p>$<%= x.price %>/hour</p>
+      </div>
+
+      <div class="show-magic-line">
+      </div>
+
+      <div class="show-description">
+        <p>Interests</p>
+        <ul>
+          <% x.user.interests.each do |int| %>
+            <li class="description-body"><%= int.name %></li>
           <% end %>
+        </ul>
+      </div>
 
-          <%= link_to edit_lesson_path(x) do %>
+      <div class="show-magic-line">
+      </div>
+
+      <div class="show-description">
+        <p>Description</p>
+        <p class="description-body">"<%= x.description %>"</p>
+      </div>
+      <%= link_to edit_lesson_path(x) do %>
             <button class="dash-option-button">Edit</button>
           <% end %>
-
-          <%= link_to lesson_path(x), method: :delete do %>
-          <button type="button" class="show-button btn btn-danger">Delete</button>
-          <% end %>
-        </div>
-        </div>
-      </div>
     </div>
-
+    </div>
   <% end %>
 
 

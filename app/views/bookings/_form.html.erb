@@ -1,19 +1,37 @@
-<div class="form-group">
-  <%= simple_form_for [@lesson, @booking] do |f| %>
-    <% if @booking.errors.any? %>
-      <div class="errors-container">
-        <ul>
-          <% @booking.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div class="booking-form">
-      <p>Start Date: <%= f.input :start_date, as: :string, input_html: { class: "datepicker"}  %></p>
-      <p>End Date: <%= f.input :end_date, as: :string, input_html: { class: "datepicker"}%></p>
-      <br>
-      <%= f.button :submit, class: 'back btn btn-warning' %>
+<div class="form-container">
+  <div class="booking-form">
+
+    <div class="review-detials">
+      <h4>Pick when you want to chat:</h4>
     </div>
-  <% end %>
+
+    <%= simple_form_for [@lesson, @booking] do |f| %>
+      <% if @booking.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @booking.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="booking-form--details">
+        <p>Date:</p>
+        <%= f.input :start_date, as: :string, input_html: { class: "datepicker"}  %>
+
+        <%= f.input :end_date, as: :string, input_html: { class: "datepicker" } %>
+
+        <div class="little-space-maker" style="margin: 60px 0px"></div>
+
+        <p>You'll be scheduled to 1 hour.</p>
+        <div class="little-space-maker" style="margin: 60px 0px"></div>
+
+        <%= f.button :submit, class: 'jd-solid-button-med' %>
+
+        <div class="little-space-maker" style="margin: 60px 0px"></div>
+      </div>
+
+    <% end %>
+  </div>
 </div>
