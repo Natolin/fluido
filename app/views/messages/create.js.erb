@@ -1,7 +1,7 @@
 function addMessage(messagePartial) {
-  const messagesContainer = document.querySelector('.messages');
+  var messagesContainer = document.querySelector('.messages');
   messagesContainer.insertAdjacentHTML('beforeend', messagePartial)
-  const input = document.querySelector('#message_content');
+  var input = document.querySelector('#message_content');
   input.value = '';
   input.blur();
 }
