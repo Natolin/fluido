@@ -34,7 +34,7 @@ class LessonsController < ApplicationController
 
       # Country
 
-      if query[:country] != ""
+      if query[:country] != "Country"
         @lessons = @lessons.search_by_country(query[:country])
       end
 

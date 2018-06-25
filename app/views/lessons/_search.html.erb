@@ -55,7 +55,12 @@
 
 
 
-          <input value="" name="query[country]" type="text" placeholder="Country">
+          <select name="query[country]">
+              <option value="Country">Country</option>
+            <% User::COUNTRIES.each do |x| %>
+              <option value="<%= x %>"><%= x %></option>
+            <% end %>
+          </select>
 
 
           <input value="" name="query[teacher_name]" type="text" placeholder="Teacher's Name">
