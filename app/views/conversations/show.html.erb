@@ -37,7 +37,7 @@
   <div class="messages">
     <% @conversation.messages.each_with_index do |message, index | %>
 
-  <%= render "messages/message", message: message, index: index  %>
+  <%= render "messages/message", message: message, owner: message.user == current_user   %>
 
   <% end %>
 

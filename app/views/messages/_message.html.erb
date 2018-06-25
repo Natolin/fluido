@@ -1,18 +1,4 @@
-
-  <% if message.user == current_user%>
-    <div class="messages-mine-right">
-      <% if @conversation.messages[index-1].user != current_user || index == 0 %>
-        <p class="messages-owner">Me:</p>
-      <% end %>
-      <p><%= h(message.content).gsub(/\n/, '<br/>').html_safe %></p>
-    </div>
-  <% else%>
-    <div class="messages-other-left">
-      <% if @conversation.messages[index-1].user != message.user || index == 0 %>
-        <p class="messages-owner"><%= message.user.first_name %> <%= message.user.last_name[0]%>:</p>
-      <% end %>
-      <p><%= h(message.content).gsub(/\n/, '<br/>').html_safe %></p>
-    </div>
-  <% end%>
-
-
+<div class="messages-<%= owner ? 'mine-right' : 'other-left' %>">
+  <p><%= h(message.content).gsub(/\n/, '<br/>').html_safe %></p>
+  <small><%= message.user.first_name %></small>
+</div>

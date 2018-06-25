@@ -9,6 +9,6 @@ function addMessage(messagePartial) {
 <% if @message.errors.any?%>
   console.log("im the response");
 <% else %>
-  addMessage('<%= j render "message" , message: @message, index: @conversation.messages.index(@message) %>');
+  addMessage('<%= j render "message" , message: @message, index: @conversation.messages.index(@message), owner: true %>');
 <% end %>
 
