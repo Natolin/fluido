@@ -1,16 +1,25 @@
 // Specific CSS for your home-page
-.home-page {
-  background-image: url("home-splat.png");
-  background-repeat:no-repeat;
-  background-position: center;
+
+.hompage_navbar {
+  height: 55px;
+  background: #D90146;
+  padding: 15px;
+  text-align: right;
 }
 
+.homepage-header-item {
+  padding: 0 20px;
+  cursor: pointer;
 
-.splat-secondary {
-  width: 130px;
-  height: 130px;
+  a {
+   color: white;
+
+   &:hover {
+    text-decoration: none;
+    color: #B2A5A3;
+   }
+  }
 }
-
 
 h1 {
   font-family: 'Permanent Marker', cursive;
@@ -18,21 +27,42 @@ h1 {
   letter-spacing: 1px;
 }
 
-.slogan-2 {
-  text-align: right;
-  margin-bottom: 80px;
+.backdrop-gradient {
+  background: linear-gradient(#D90146, $light-gray);
+  height: 500px;
+  padding-top: 40px;
+}
+
+.title-fluido {
+  width: 80%;
+  margin: auto;
+  color: white;
+
+  h1 {
+    font-size: 68px;
+    text-align: center;
+    text-shadow: 0px -2px 5px black;
+  }
+
 }
 
 .value-prop {
+  width: 90%;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   text-align: center;
-  margin-bottom: 60px;
+  margin: 80px auto;
 
   p {
-    font-size: 20px;
+    color: white;
+    text-shadow: 0px -2px 4px grey;
+    font-size: 26px;
   }
+}
+
+.homepage-button {
+  margin: 40px auto;
 }
 
 .question {

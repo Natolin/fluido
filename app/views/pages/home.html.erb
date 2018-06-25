@@ -1,55 +1,57 @@
-<div class="spacemaker" style="margin-top:100px"></div>
-    <!-- Slogan -->
+<!-- Specific header for homepage -->
+
+<div class="hompage_navbar">
+  <div class="dropdown">
+    <i class="fas fa-bars dropdown-toggle homepage-header-item" data-toggle="dropdown"></i>
+
+    <ul class="dropdown-menu dropdown-menu-right jd-header-dropdown-menu">
+      <% if user_signed_in? %>
+        <p>Hi <%= current_user.first_name %>!</p>
+        <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
+        <li><%= link_to 'Messages', conversations_path %></li>
+        <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li> <%= link_to 'Login/Sign Up', new_user_session_path %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+
+<!-- Value Proposition -->
+
+  <div class="wrapper">
+
+    <div class="backdrop-gradient">
+      <div class="title-fluido">
+        <h1>Fluido</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="value-prop">
+            <p>Learn a language through actual conversations with native speakers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="homepage-button">
+            <%= link_to lessons_path do %>
+             <button type="button" class="jd-solid-button-med">Find a teacher</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="slogan-1">
-        <h1>Real People</h1>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="slogan-2">
-        <h1>Real Learning</h1>
-      </div>
-    </div>
-  </div>
-    </div>
-
-
-
-    <!-- Value Proposition -->
-
-
-
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="value-prop">
-        <p>Learn a language through actual conversations with native speakers.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="homepage-button">
-        <%= link_to lessons_path do %>
-         <button type="button" class="jd-solid-button-med">Find a teacher</button>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-
 
   <!-- How does it work? -->
-
-
 
   <div class="row">
     <div class="col-xs-12">
