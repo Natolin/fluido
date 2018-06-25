@@ -10,5 +10,6 @@ function addMessage(messagePartial) {
   console.log("im the response");
 <% else %>
   addMessage('<%= j render "message" , message: @message, index: @conversation.messages.index(@message), owner: true %>');
+  scrollLastMessageIntoView();
 <% end %>
 

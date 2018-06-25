@@ -1,5 +1,8 @@
 import "bootstrap";
 import "plugins/flatpickr";
-import "components/scroll";
+import { scrollLastMessageIntoView } from "components/scroll";
+
+global.scrollLastMessageIntoView = scrollLastMessageIntoView;
+
 
 

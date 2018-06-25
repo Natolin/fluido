@@ -1,4 +1,4 @@
-<div class="messages-<%= owner ? 'mine-right' : 'other-left' %>">
+<div class="messages-<%= owner ? 'mine-right' : 'other-left' %> message">
   <p class="messages-owner" ><%= message.user.first_name %></p>
   <p class="messages-the-message"><%= h(message.content).gsub(/\n/, '<br/>').html_safe %></p>
   <!-- <p class="messages-timestamp" ><%= message.created_at.strftime("%I:%M%p").in_time_zone("CET") %></p> -->
