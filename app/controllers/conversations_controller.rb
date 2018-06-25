@@ -30,12 +30,13 @@ class ConversationsController < ApplicationController
   def show
     # not on the conversation show page and the user can type a message.
     # message will show with username and content and message box will clear
-    @conversation = Conversation.find(params[:id])
+    # @conversation = Conversation.includes(messages: :user).find(params[:id])
     @message = Message.new
     # on left side we would like to display a list of user you have convo's with
     # username should be clickable to that it opens that conversation
     @convos = current_user.conversations
 
+    @conversation = Conversation.find(params[:id])
     both = @conversation.subscriptions.pluck(:user_id)
     other = both.find { |id| id != current_user.id }
     @display_other = User.find(other)

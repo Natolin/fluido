@@ -1,5 +1,7 @@
 import "bootstrap";
+import "components/scroll";
 import "plugins/flatpickr";
+
 global.$ = $;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -168,4 +170,5 @@ fetch("/token")
     }
   }
 })
+
 

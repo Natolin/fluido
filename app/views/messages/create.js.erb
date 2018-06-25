@@ -1,0 +1,14 @@
+function addMessage(messagePartial) {
+  const messagesContainer = document.querySelector('.messages');
+  messagesContainer.insertAdjacentHTML('beforeend', messagePartial)
+  const input = document.querySelector('#message_content');
+  input.value = '';
+  input.blur();
+}
+
+<% if @message.errors.any?%>
+  console.log("im the response");
+<% else %>
+  addMessage('<%= j render "message" , message: @message, index: @conversation.messages.index(@message), owner: true %>');
+<% end %>
+
