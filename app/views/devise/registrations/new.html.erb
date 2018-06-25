@@ -8,9 +8,9 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :email, required: true, autofocus: true, placeholder: "Email" %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Password" %>
+        <%= f.input :password_confirmation, required: true, placeholder: "Confirm Password" %>
       </div>
 
   <div class="spacemaker" style="margin-top:35px"></div>
@@ -23,11 +23,5 @@
     </div>
 
   <div class="spacemaker" style="margin-top:15px"></div>
-
-
-    <div class="form-button2">
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
 </div>
 <div class="spacemaker" style="margin-top:100px"></div>

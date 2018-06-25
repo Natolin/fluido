@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'bookings/edit'
   get 'dashboard', to: 'dashboards#dashboard'
   get 'languages/index'
-  get 'teachers/about'
+  get 'teachers', to: 'pages#teachers', as: :teachers
+
   # delete 'booking', to: 'bookings#destroy'
 
   resources :users, only: [:edit, :update]
