@@ -1,6 +1,7 @@
 <div class="jd-header-fluido">
   <a href="/" class="jd-header-logo">Fluido</a>
   <div class="jd-header-right">
+    <div class="jd-header-item"><%= link_to 'Search', lessons_path %></div>
     <div class="jd-header-item">
       <div class="dropdown">
         <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown"></i>
@@ -8,7 +9,6 @@
 
           <% if user_signed_in? %>
             <p>Hi <%= current_user.first_name %>!</p>
-            <li><%= link_to 'Search', lessons_path %></li>
             <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
             <li><%= link_to 'Messages', conversations_path %></li>
             <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
