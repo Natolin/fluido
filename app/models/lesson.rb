@@ -14,24 +14,19 @@ class Lesson < ApplicationRecord
     associated_against: {
       language: [ :name ]
     },
-    # Shouldn't need tsearch for dropdowns
     using: {
       tsearch: { prefix: true }
     }
 
-  pg_search_scope :search_by_price,
-    against: [ :price ],
-    using: {
-      tsearch: { prefix: true }
-    }
 
   pg_search_scope :search_by_teacher_name,
-  against: [ :id ],
-  associated_against: {
-    user: [ :first_name, :last_name ]
-  },
-  using: {
-    tsearch: { prefix: true }
+    against: [ :id ],
+    associated_against: {
+      user: [ :first_name, :last_name ]
+    },
+
+    using: {
+      tsearch: { prefix: true }
   }
 
 
@@ -42,24 +37,8 @@ class Lesson < ApplicationRecord
     associated_against: {
       user: [ :country ]
     },
+
     using: {
       tsearch: { prefix: true }
     }
-
-
-  # Rating doesn't fully work yet
-
-  # pg_search_scope :search_by_rating,
-  #   against: [ :id ],
-  #   associated_against: {
-  #     user: [ :average_rating ]
-  #   },
-  #   using: {
-  #     tsearch: { prefix: true }
-  #   }
-
-
-
-
-
 end

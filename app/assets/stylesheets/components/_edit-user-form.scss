@@ -1,0 +1,59 @@
+
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+#user_photo {
+
+}
+
+.form-group {
+  margin-top: 25px;
+}
+
+.form-control {
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #B2A5A3;
+  }
+}
+
+legend {
+  text-align: center;
+}
+
+.update-user {
+  width: 240px;
+  height: 52px;
+  background: #D90146;
+  color: white;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin: 15px;
+
+  &:hover {
+    transition: all .5s ease;
+    background: white;
+    border: 1px solid #D90146;
+    color: #B2A5A3;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #B2A5A3;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

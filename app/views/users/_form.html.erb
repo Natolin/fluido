@@ -1,16 +1,27 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.file_field :photo, :label=> "Upload your profile picture"%>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :country, as: :text %>
-  <%= f.association :interests, as: :check_boxes %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<div class="edit-form">
+  <%= simple_form_for @user do |f| %>
+    <%= f.file_field :photo, :label=> "Upload your profile picture" %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :first_name, required: false, input_html: { class: "first-name" } %>
+    <%= f.input :last_name, required: false %>
+    <%= f.input :country, as: :string, required: false %>
+    <%= f.association :interests, as: :check_boxes %>
+    <%= f.input :description %>
 
+    <div class="magic-line-homepage"></div>
+    <div class="space" style="margin-top:40px"></div>
 
-<%= link_to edit_user_registration_path do %>
-    <button type="button" class="btn btn-success">Update password</button>
-<% end %>
+    <div class="center">
+      <%= f.button :submit, class: "update-user" %>
+    </div>
+  <% end %>
+
+  <div class="space" style="margin-top:40px"></div>
+
+  <div class="center">
+    <%= link_to edit_user_registration_path do %>
+        <button type="button" class="update-user">Change Password</button>
+    <% end %>
+  </div>
+</div>
 

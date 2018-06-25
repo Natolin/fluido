@@ -4,28 +4,46 @@ class LessonsController < ApplicationController
   def index
     query = params[:query]
     @lessons = Lesson.all
+
     if query
+
+      # Language
+
       if query[:language] == "All"
         @lessons
       elsif query[:language] != ""
         @lessons = @lessons.search_by_language(query[:language])
       end
 
+      # Interests
+
+      # if query[:interest] != ""
+      # end
+
+      # Price
+
       if query[:price] != ""
-        @lessons = @lessons.search_by_price(query[:price])
+        price = query[:price]
+        if price != "20+"
+          @lessons = @lessons.where(price: 1..price.to_i)
+        else
+          @lessons = @lessons.where.not(price: 1..price.to_i)
+        end
       end
+
+      # Country
 
       if query[:country] != ""
         @lessons = @lessons.search_by_country(query[:country])
       end
 
+      # Teacher Name
+
       if query[:teacher_name] != ""
         @lessons = @lessons.search_by_teacher_name(query[:teacher_name])
       end
 
-      # if query[:rating] != ""
-      #   @lessons = @lessons.search_by_rating(query[:rating])
-      # end
+
     end
   end
 
