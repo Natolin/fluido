@@ -5,6 +5,11 @@
   flex-direction: column;
   margin: 0 auto;
   max-width: 300px;
+
+  h4 {
+    font-size: 18px;
+    margin-top:30px;
+  }
 }
 
 #user_photo {
@@ -26,6 +31,12 @@
 
 legend {
   text-align: center;
+}
+
+.edit-form select {
+  margin-top: 30px;
+  width: 300px;
+  height: 40px;
 }
 
 .update-user {
@@ -56,4 +67,24 @@ legend {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#lesson_price {
+  border-radius: 5px;
+  width: 300px;
+  padding: 5px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #B2A5A3;
+  }
+}
+
+#lesson_description {
+  border-radius: 5px;
+  padding: 5px;
+  width: 300px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #B2A5A3;
+  }
 }

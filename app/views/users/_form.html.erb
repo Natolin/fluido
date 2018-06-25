@@ -4,7 +4,14 @@
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.input :first_name, required: false, input_html: { class: "first-name" } %>
     <%= f.input :last_name, required: false %>
-    <%= f.input :country, as: :string, required: false %>
+
+    <select name="user[country]">
+      <option value="Country">Country</option>
+      <% User::COUNTRIES.each do |x| %>
+        <option value="<%= x %>"><%= x %></option>
+      <% end %>
+    </select>
+
     <%= f.association :interests, as: :check_boxes %>
     <%= f.input :description %>
 

@@ -4,5 +4,6 @@ class DashboardsController < ApplicationController
     @my_lessons = current_user.lessons
     bookings = Booking.all
     @my_classes = bookings.select{ |booking| booking.lesson.user_id == current_user.id }
+    @conversation = Conversation.new
   end
 end
