@@ -8,4 +8,4 @@ function scrollLastMessageIntoView() {
 }
 
 
-global.scrollLastMessageIntoView = scrollLastMessageIntoView;
+export {scrollLastMessageIntoView};

@@ -1,6 +1,8 @@
 import "bootstrap";
-import "components/scroll";
 import "plugins/flatpickr";
+import { scrollLastMessageIntoView } from "components/scroll";
+
+global.scrollLastMessageIntoView = scrollLastMessageIntoView;
 
 global.$ = $;
 
@@ -170,5 +172,6 @@ fetch("/token")
     }
   }
 })
+
 
 
