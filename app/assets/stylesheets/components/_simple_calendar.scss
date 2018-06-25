@@ -112,7 +112,33 @@ margin-bottom: 50px;
   margin-bottom: 20px;
 }
 
-.container{
+
+#controls{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#room-controls{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    button {
+    width: 79%;
+    margin-left: 10.5%;
+    border-radius: 5px;
+    margin-top: 5px;
+    }
+}
+
+#room-name{
+  width: 79%;
+  margin-left: 10.5%;
+  border-radius: 5px;
+}
+
+.my_container{
   font-family: 'Quicksand', sans-serif;
   h1{
     font-size: 30px;
@@ -155,6 +181,7 @@ margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 30px;
 }
 
 .black_line{

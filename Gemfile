@@ -24,6 +24,9 @@ gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
 gem "simple_calendar", "~> 2.0"
 
+gem 'twilio-ruby', '~> 5.10.4'
+gem 'jquery-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
