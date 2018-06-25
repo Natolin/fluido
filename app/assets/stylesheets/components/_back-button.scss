@@ -1,0 +1,28 @@
+.back:hover {
+  text-decoration: none;
+}
+
+.back-button {
+  width: 120px;
+  height: 42px;
+  color: #B2A5A3;
+  background: white;
+  border: 1px solid #D90146;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transition: all .5s ease;
+    background: #D90146;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+

@@ -1,0 +1,39 @@
+#show-hide-search {
+  display: flex;
+  justify-content: space-around;
+}
+
+#search-bar {
+  display: block;
+}
+
+#search-bar select, #search-bar input {
+  font-size: 20px;
+  width: 240px;
+  height: 52px;
+  margin: 15px 0px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 3px 2px #B2A5A3;
+  }
+}
+
+
+#search-bar input {
+  border-style:solid;
+  border:1px solid #cccccc;
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 3px 2px #B2A5A3;
+  }
+}
+
+#search-bar button {
+  margin: 15px 0px;
+}

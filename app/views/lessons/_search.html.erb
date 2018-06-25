@@ -1,53 +1,71 @@
 <div class="container">
-  <div class="search-language">
 
-    <form action="<%= lessons_path %>" method="GET">
-      <select name="query[language]">
-        <option value="">Language</option>
-        <option value="English">English</option>
-        <option value="Spanish">Spanish</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
-        <option value="Italian">Italian</option>
-        <option value="All">All Languages</option>
-      </select>
-      <select name="query[price]" >
-        <option value="">Price</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-        <option value="20+">20+</option>
-      </select>
-      <select name="query[interest]" >
-        <option value="">Interests</option>
-        <option value="food">Food</option>
-        <option value="travel">Travel/Outdoors</option>
-        <option value="music">Music</option>
-        <option value="art">Art</option>
-        <option value="science">Science/Technology</option>
-        <option value="literature">Literature</option>
-        <option value="politics">Politics</option>
-        <option value="philosophy">Philosophy</option>
-        <option value="pets">Animals/Pets</option>
-        <option value="pets">Sports</option>
-      </select>
 
-      <input value="" name="query[country]" type="text" placeholder="Country">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="show-hide-search">
+        <button class="jd-border-button-med">Find by</button>
+      </div>
+    </div>
+  </div>
 
-      <input value="" name="query[teacher_name]" type="text" placeholder="Teacher's Name">
 
-      <select name="query[rating]" >
-        <option value="">Rating</option>
-        <option value="5">5</option>
-        <option value="4">4</option>
-        <option value="3">3</option>
-        <option value="2">2</option>
-        <option value="1">1</option>
-      </select>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-12">
+      <div id="search-bar">
 
-      <button type="submit" class=" search-button btn">Search</button>
-    </form>
+        <form action="<%= lessons_path %>" method="GET">
 
+          <select name="query[language]">
+            <option value="">Language</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="All">All Languages</option>
+          </select>
+
+
+
+          <select name="query[price]" >
+            <option value="">Price</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="20+">20+</option>
+          </select>
+
+
+
+          <select name="query[interest]" >
+            <option value="">Interests</option>
+            <option value="Food">Food</option>
+            <option value="Travel/Outdoors">Travel/Outdoors</option>
+            <option value="Music">Music</option>
+            <option value="Art/Culture">Art/Culture</option>
+            <option value="Science">Science/Technology</option>
+            <option value="Literature">Literature</option>
+            <option value="Politics">Politics</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Pets/Animals">Animals/Pets</option>
+            <option value="Sport">Sports</option>
+          </select>
+
+
+
+          <input value="" name="query[country]" type="text" placeholder="Country">
+
+
+          <input value="" name="query[teacher_name]" type="text" placeholder="Teacher's Name">
+
+
+          <button type="submit" class="jd-solid-button-med">Search</button>
+
+        </form>
+
+      </div>
+    </div>
   </div>
 </div>

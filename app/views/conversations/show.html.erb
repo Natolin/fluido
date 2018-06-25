@@ -25,31 +25,33 @@
   </div>
 </div>
 
-<div class="messages-past-field">
-<% @conversation.messages.each_with_index do |mess, index| %>
-  <% if mess.user == current_user%>
-    <div class="messages-mine-right">
-      <% if @conversation.messages[index-1].user != current_user || index == 0 %>
-        <p class="messages-owner">Me:</p>
-      <% end %>
-      <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
-    </div>
-  <% else%>
-    <div class="messages-other-left">
-      <% if @conversation.messages[index-1].user != mess.user || index == 0 %>
-        <p class="messages-owner"><%= mess.user.first_name %> <%= mess.user.last_name[0]%>:</p>
-      <% end %>
-      <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
-    </div>
-  <% end%>
+<% if @conversation.messages.count > 0 %>
+  <div class="messages-past-field">
+  <% @conversation.messages.each_with_index do |mess, index| %>
+    <% if mess.user == current_user%>
+      <div class="messages-mine-right">
+        <% if @conversation.messages[index-1].user != current_user || index == 0 %>
+          <p class="messages-owner">Me:</p>
+        <% end %>
+        <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
+      </div>
+    <% else%>
+      <div class="messages-other-left">
+        <% if @conversation.messages[index-1].user != mess.user || index == 0 %>
+          <p class="messages-owner"><%= mess.user.first_name %> <%= mess.user.last_name[0]%>:</p>
+        <% end %>
+        <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
+      </div>
+    <% end%>
 
-<%end %>
+  <%end %>
 
-</div> <!-- end past-messages field -->
+  </div> <!-- end past-messages field -->
+<% end %>
 
 <div class="messages-form">
 <%= form_for [@conversation, @message] do |f| %>
-  <p class="messages-text-area"><%= f.text_area :content %></p>
+  <p class="messages-text-area"><%= f.text_area :content, placeholder: "Type your message here..." %></p>
   <p><%= f.submit :Send, class: "show-hover show-send-button" %></p>
 <%end%>
 </div>

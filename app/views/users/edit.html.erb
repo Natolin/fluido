@@ -1,11 +1,30 @@
-<h1>Update your profile</h1>
+<div class="spacemaker" style="margin-top:100px"></div>
 
-<% if @user.photo != nil %>
-  <%= cl_image_tag @user.photo, :width=>100, :height=>100 %>
-<% end %>
+<div class="container">
+
+  <h1 id="edit-header">Update your profile</h1>
+  <div class="magic-line-homepage"></div>
 
 
-<%= render 'users/form' %>
-<%= link_to "Back", :back %>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+
+      <div class="edit-photo">
+        <% if @user.photo != nil %>
+          <%= cl_image_tag @user.photo %>
+        <% end %>
+      </div>
+
+
+      <%= render 'users/form' %>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+
 
 
