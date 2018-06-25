@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'bookings/edit'
   get 'dashboard', to: 'dashboards#dashboard'
   get 'languages/index'
-  get 'teachers/about'
+  get 'teachers', to: 'pages#teachers', as: :teachers
+
   # delete 'booking', to: 'bookings#destroy'
 
   resources :users, only: [:edit, :update]
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
+  get 'token', to: 'auths#token', :defaults => { :format => :json }
 
   resources :conversations do
     resources :messages

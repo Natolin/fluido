@@ -7,7 +7,9 @@
 
       <div class="about-sign-up">
         <% if user_signed_in? %>
-          <%= link_to new_user_registration_path, "Sign up", class: "jd-border-button-med" %>
+          <%= link_to 'Create a Lesson', new_lesson_path, class: "jd-border-button-med" %>
+        <% else %>
+          <%= link_to "Sign up", new_user_session_path, class: "jd-border-button-med" %>
         <% end %>
       </div>
 
@@ -56,17 +58,24 @@
         <p>Hear stories from around the globe</p>
       </div>
 
+
       <div style="margin: 80px 0px"></div>
+
 
       <div class="about-sign-up">
         <% if user_signed_in? %>
-          <%= link_to new_user_registration_path, "Sign up", class: "jd-border-button-med" %>
+          <%= link_to 'Create a Lesson', new_lesson_path, class: "jd-border-button-med" %>
+        <% else %>
+          <%= link_to "Sign up", new_user_session_path, class: "jd-border-button-med" %>
         <% end %>
       </div>
+
 
       <div style="margin: 80px 0px"></div>
 
     </div>
   </div>
 </div>
+
+
 
