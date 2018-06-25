@@ -12,10 +12,14 @@
 height: 120px;
 font-family: 'Quicksand', sans-serif;
 font-size: 15px;
+  img{
+    max-width: 50px;
+  }
 }
 
 .simple-calendar{
   width: 90%;
+  // max-width: 200px;
   align: center;
 }
 
@@ -61,9 +65,11 @@ margin-bottom: 50px;
   align-items: center;
   font-family: 'Quicksand', sans-serif;
   img{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    margin-bottom: 20px;
+
   }
 }
 
@@ -81,6 +87,29 @@ margin-bottom: 50px;
     border-radius: 50%;
     margin: 5px;
   }
+}
+
+.show-lesson{
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+
+.pg-card-square-fluido {
+  /*Don't copy this margin*/
+  margin: 100px auto;
+  margin-top: 90px;
+  position: relative;
+  width: 275px;
+  //height: 350px;
+  border: 1px solid #B2A5A3;
+  color: #B2A5A3;
+  //background: whitesmoke;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  //box-shadow: 0px 1px 3px #B2A5A3;
+  margin-bottom: 20px;
 }
 
 .container{
@@ -101,7 +130,8 @@ margin-bottom: 50px;
 
 .lessons h3{
   font-size: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -111,6 +141,16 @@ margin-bottom: 50px;
   text-align: center;
 }
 
+
+.form-control{
+  width: 40%;
+  margin-left: 30%;
+  text-align: center;
+}
+
+.form-control-label{
+  display: none;
+}
 .calendar{
   display: flex;
   flex-direction: column;
@@ -132,11 +172,25 @@ text-align: center;
   flex-direction: column;
   align-items: center;
   .avatar_user{
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     margin-bottom: 10px;
     border: 1px solid #D90146;
   }
 }
 
+.message-button{
+  height: 50px;
+  width: 50px;
+}
+
+.dash-option-button{
+  margin-top: 10px;
+}
+.message-if-nothing{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
