@@ -53,7 +53,7 @@
 
 <div class="messages-form">
 <%= form_for [@conversation, @message], remote: true do |f| %>
-  <p class="messages-text-area"><%= f.text_area :content %></p>
+  <p class="messages-text-area"><%= f.text_area :content, placeholder: "Type your message here..." %></p>
   <p><%= f.submit :Send, class: "show-hover show-send-button" %></p>
 <%end%>
 </div>

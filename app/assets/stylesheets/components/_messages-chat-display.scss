@@ -1,6 +1,6 @@
 .messages-chatlist {
   /*Requires Permanent Marker font from Google Fonts*/
-  width: 325px;
+  width: 90%;
   height: 55px;
   background: white;
   color: #D90146;
@@ -8,7 +8,8 @@
   // align-items: center;
   // justify-content: space-between;
   padding: 0px 30px;
-  box-shadow: 0px 2px 2px #B2A5A3;
+  //box-shadow: 0px 2px 2px #B2A5A3;
+  box-shadow: 0px 0px 5px #B2A5A3;
   z-index: 1;
   margin: 75px auto;
   margin-bottom: 0px;
@@ -57,10 +58,13 @@
 
 .messages-past-field {
   background: white;
-  border-radius: 3px;
-  padding: 10px 10px 10px 10px;
-  margin: 5px auto;
-  width: 325px;
+  //border-radius: 3px;
+  padding: 10px 20px 10px 10px;
+  margin: 20px auto 20px auto;
+  width: 90%;
+  height: 400px;
+  overflow: auto;
+  box-shadow: 0px 0px 4px #B2A5A3;
 }
 
 .messages-mine-right {
@@ -82,6 +86,7 @@
 
 .messages-the-message {
   font-size: 18px !important;
+  margin-bottom: 0px;
 }
 
 .messages-timestamp {
@@ -90,22 +95,25 @@
   font-size: 14px !important;
 }
 
+
+
+
+
 .messages-form {
- margin: 0px auto;
+  margin: 0px auto;
   text-align: center;
 }
 
 #message_content {
-  width: 325px;
-  margin: 20px 0px;
+  width: 90%;
   border-radius: 5px;
-  border-color: none;
+  //border-color: none;
   white-space: pre-line;
 }
 
 .show-send-button {
   color: white;
-  //border: 1px solid #D90146;
+  //margin: 20px auto;
   background: #D90146;
   border-radius: 5px;
   width: 250px;
