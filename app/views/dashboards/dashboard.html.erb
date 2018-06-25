@@ -10,7 +10,26 @@
     </div>
 
 
-  <% if @my_bookings.count > 0 %>
+<% if @my_bookings.count > 0 %>
+  <div class="my_container">
+    <div id="remote-media"></div>
+      <div id="controls">
+        <div id="preview">
+          <div id="local-media"></div>
+        </div>
+        <button id="button-preview">Preview My Camera</button>
+        <div id="room-controls">
+          <input id="room-name" type="text" placeholder="Enter room name" />
+          <br>
+          <button id="button-join" class="btn-success">Join Room</button>
+          <br>
+          <button id="button-leave" class="btn-danger">Leave Room</button>
+        </div>
+        <div id="log"></div>
+      </div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <div class="home-page">
+
     <div class="calendar">
       <% if @my_bookings.count > 0 %>
           <%= calendar number_of_days: 4, events: @my_bookings do |date, my_bookings| %>
