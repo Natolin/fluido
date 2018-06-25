@@ -1,12 +1,22 @@
-<%= simple_form_for @lesson do |f| %>
-  <%= f.association :language %>
 
-  <p>Your price</p>
-  <%= f.number_field :price %>
+<div class="edit-form">
+  <%= simple_form_for @lesson do |f| %>
+    <%= f.association :language, required: false %>
 
-  <p>A few words about how/what you teach</p>
-  <%= f.text_area :description %>
+    <h4>Your price</h4>
+    <%= f.number_field :price %>
 
-  <%= f.button :submit %>
+    <h4>Give a few words about what or how you like to teach.</h4>
+    <%= f.text_area :description %>
 
-<% end %>
+    <div class="space" style="margin-top:40px"></div>
+    <div class="magic-line-homepage"></div>
+
+    <div class="center">
+      <%= f.button :submit, class: "update-user" %>
+    </div>
+
+    <div class="space" style="margin-top:40px"></div>
+
+  <% end %>
+</div>
