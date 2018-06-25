@@ -25,34 +25,59 @@
   </div>
 </div>
 
-<div class="messages-past-field">
-<% @conversation.messages.each_with_index do |mess, index| %>
-  <% if mess.user == current_user%>
-    <div class="messages-mine-right">
-      <% if @conversation.messages[index-1].user != current_user || index == 0 %>
-        <p class="messages-owner">Me:</p>
-      <% end %>
-      <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
-    </div>
-  <% else%>
-    <div class="messages-other-left">
-      <% if @conversation.messages[index-1].user != mess.user || index == 0 %>
-        <p class="messages-owner"><%= mess.user.first_name %> <%= mess.user.last_name[0]%>:</p>
-      <% end %>
-      <p><%= h(mess.content).gsub(/\n/, '<br/>').html_safe %></p>
-    </div>
-  <% end%>
 
-<%end %>
+
+
+
+
+
+
+
+<div class="messages-past-field">
+  <div class="messages">
+    <% @conversation.messages.each_with_index do |message, index | %>
+
+  <%= render "messages/message", message: message, index: index  %>
+
+  <% end %>
+
 
 </div> <!-- end past-messages field -->
 
+
+
+
+
+
+
+
+
+
+
 <div class="messages-form">
-<%= form_for [@conversation, @message] do |f| %>
+<%= form_for [@conversation, @message], remote: true do |f| %>
   <p class="messages-text-area"><%= f.text_area :content %></p>
   <p><%= f.submit :Send, class: "show-hover show-send-button" %></p>
 <%end%>
 </div>
+
+<% content_for :after_js do %>
+  <script>
+    scrollLastMessageIntoView();
+    App['conversation_<%= @conversation.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ConversationsChannel', conversation_id: <%= @conversation.id %> },
+      {
+        received: (data) => {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
+        }
+      }
+    )
+  </script>
+<% end %>
 
 
 </div> <!-- end container -->
