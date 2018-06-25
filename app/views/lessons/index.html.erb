@@ -14,60 +14,62 @@
       </div>
     <% else %>
       <% @lessons.each do |l| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <% if l.user != current_user %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
 
-          <div class="cards">
-            <%= link_to lesson_path(l) do %>
+            <div class="cards">
+              <%= link_to lesson_path(l) do %>
 
-              <div class="one-card">
+                <div class="one-card">
 
-                <div class="teacher-upper-details">
-                  <div class="teachers-photo">
-                    <img class='avatar_user' src="<%= l.user.photo %>" alt="">
-                    <%= image_tag l.language.flag, id: "flag" %>
+                  <div class="teacher-upper-details">
+                    <div class="teachers-photo">
+                      <img class='avatar_user' src="<%= l.user.photo %>" alt="">
+                      <%= image_tag l.language.flag, id: "flag" %>
+                    </div>
+
+                    <div class="teachers-name">
+                      <%= l.user.first_name + " " + l.user.last_name[0] %>.
+                    </div>
                   </div>
 
-                  <div class="teachers-name">
-                    <%= l.user.first_name + " " + l.user.last_name[0] %>.
-                  </div>
-                </div>
-
-                <div class="from">
-                  <span>from</span>
-                  <span><%= l.user.country %></span>
-                </div>
-
-                <div class="teacher-stars">
-                  <% rating = l.user.average_rating %>
-
-                  <% rounded = rating.round %>
-                  <% rounded.times do %>
-                    <i class="fas fa-star yellow-star"></i>
-                  <%end%>
-
-                  <% (5 - rounded).times do %>
-                    <i class="fas fa-star grey-star"></i>
-                  <%end%>
-                </div>
-
-
-                <div class="teacher-details">
-                  <div class="teachers-interests">
-                    <div><%= l.user.interests[0].name %></div>
-                    <div><%= l.user.interests[1].name %></div>
-                    <div><%= l.user.interests[2].name %></div>
+                  <div class="from">
+                    <span>from</span>
+                    <span><%= l.user.country %></span>
                   </div>
 
-                  <div class="teachers-price">
-                    <h4>$<%= l.price %>/hr</h4>
+                  <div class="teacher-stars">
+                    <% rating = l.user.average_rating %>
+
+                    <% rounded = rating.round %>
+                    <% rounded.times do %>
+                      <i class="fas fa-star yellow-star"></i>
+                    <%end%>
+
+                    <% (5 - rounded).times do %>
+                      <i class="fas fa-star grey-star"></i>
+                    <%end%>
                   </div>
+
+
+                  <div class="teacher-details">
+                    <div class="teachers-interests">
+                      <div><%= l.user.interests[0].name %></div>
+                      <div><%= l.user.interests[1].name %></div>
+                      <div><%= l.user.interests[2].name %></div>
+                    </div>
+
+                    <div class="teachers-price">
+                      <h4>$<%= l.price %>/hr</h4>
+                    </div>
+                  </div>
+
+
                 </div>
-
-
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
