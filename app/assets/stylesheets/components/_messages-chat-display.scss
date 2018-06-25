@@ -76,6 +76,18 @@
 .messages-owner {
   color: #D90146;
   margin-bottom: 0px;
+  font-style: italic;
+  font-size: 20px !important;
+}
+
+.messages-the-message {
+  font-size: 18px !important;
+}
+
+.messages-timestamp {
+  margin-bottom: 0px;
+  font-style: italic;
+  font-size: 14px !important;
 }
 
 .messages-form {

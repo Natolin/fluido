@@ -35,14 +35,11 @@
 
 <div class="messages-past-field">
   <div class="messages">
-    <% @conversation.messages.each_with_index do |message, index | %>
-
-  <%= render "messages/message", message: message, owner: message.user == current_user   %>
-
-  <% end %>
-
-
-</div> <!-- end past-messages field -->
+    <% @conversation.messages.each do |message| %>
+      <%= render "messages/message", message: message, owner: message.user == current_user   %>
+    <% end %>
+  </div> <!-- end past-messages field -->
+</div>
 
 
 
@@ -60,6 +57,7 @@
   <p><%= f.submit :Send, class: "show-hover show-send-button" %></p>
 <%end%>
 </div>
+
 
 <% content_for :after_js do %>
   <script>
