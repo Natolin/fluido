@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Obtain a token from the server in order to connect to the Room.
 fetch("/token")
   .then(response => response.json())
-  .then(data => {
+  .then(data  => {
     identity = data.identity;
     document.getElementById('room-controls').style.display = 'block';
 
@@ -77,6 +77,13 @@ fetch("/token")
       })
     }
   }).catch(console.error);
+
+  document.getElementById('button-leave').onclick = function() {
+    window.room = activeRoom = room;
+    if (activeRoom) {
+      activeRoom.disconnect();
+    }
+  }
 
   // Successfully connected!
   function roomJoined(room) {
@@ -168,6 +175,7 @@ fetch("/token")
   // Leave Room.
   function leaveRoomIfJoined() {
     if (activeRoom) {
+      console.log("Leaving room '" + roomName + "'...");
       activeRoom.disconnect();
     }
   }
