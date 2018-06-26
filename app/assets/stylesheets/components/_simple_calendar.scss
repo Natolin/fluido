@@ -73,19 +73,22 @@ margin-bottom: 50px;
   }
 }
 
-.card_dashboard{
+.card_dashboard {
+  position: relative;
+  display: flex;
   width: 80%;
-  background-color: #DAC9C9;
-  align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  box-shadow: 0px 1px 1px 0px gray;
+  height: 115px;
+  background-color: white;
+  box-shadow: 0px 1px 1px 0px $light-gray;
   border-radius: 5px;
-  .language_flag{
+
+  .language_flag {
+    position: absolute;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin: 5px;
+    bottom: 10px;
+    left: 65px;
   }
 }
 
@@ -191,24 +194,34 @@ width: 80%;
 text-align: center;
 }
 
+.dash-learning-from-time {
+  text-align: center;
+}
+
 .dash-bookings-content{
   margin-top: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .avatar_user{
-    width: 125px;
-    height: 125px;
+
+  .avatar_user {
+    margin-top: 15px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
-    margin-bottom: 10px;
     border: 1px solid #D90146;
   }
 }
 
+.learning-from-name {
+
+}
+
+.dash-lesson-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .message-button{
   height: 50px;
-  width: 50px;
+  width: 180px;
 }
 
 .dash-option-button{
