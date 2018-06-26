@@ -56,28 +56,29 @@
                     <div class="teachers-name">
                       <%= l.user.first_name + " " + l.user.last_name[0] %>.
                     </div>
+
+                    <div class="from">
+                      <span>from</span>
+                      <span><%= l.user.country %></span>
+                    </div>
+
+
+                    <div class="teacher-stars">
+                      <% rating = l.user.average_rating %>
+                      <% if rating.nil? == false %>
+
+                        <% rounded = rating.round %>
+                        <% rounded.times do %>
+                          <i class="fas fa-star yellow-star"></i>
+                        <%end%>
+
+                        <% (5 - rounded).times do %>
+                          <i class="fas fa-star grey-star"></i>
+                        <%end%>
+                      <% end %>
+                    </div>
                   </div>
 
-                  <div class="from">
-                    <span>from</span>
-                    <span><%= l.user.country %></span>
-                  </div>
-
-
-                  <div class="teacher-stars">
-                    <% rating = l.user.average_rating %>
-                    <% if rating.nil? == false %>
-
-                      <% rounded = rating.round %>
-                      <% rounded.times do %>
-                        <i class="fas fa-star yellow-star"></i>
-                      <%end%>
-
-                      <% (5 - rounded).times do %>
-                        <i class="fas fa-star grey-star"></i>
-                      <%end%>
-                    <% end %>
-                  </div>
 
 
                   <div class="teacher-details">
