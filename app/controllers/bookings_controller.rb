@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @booking.lesson = @lesson
     @booking.user = current_user
-    if @booking.save
+    if @booking.save!
       flash[:success] = "Your booking has been successfully created!"
       redirect_to dashboard_path
     else
@@ -51,6 +51,6 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :lesson_id, :user_id, :total_price, :rating, :status)
+    params.require(:booking).permit(:start_date, :start_time, :end_time, :lesson_id, :user_id, :total_price, :rating, :status)
   end
 end

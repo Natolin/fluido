@@ -3,14 +3,18 @@ class Booking < ApplicationRecord
   belongs_to :user
 
   validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
 
 
 
+  # def start_time
+  #     self.start_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  # end
 
-  def start_time
-        self.start_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
-  end
+  # def start_date
+  #   end_date = start_date
+  # end
   # def change_status(new_status)
   #   if new_status == "pending" || "accepted" || "declined"
   #     self.status = new_status
