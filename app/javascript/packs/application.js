@@ -1,9 +1,47 @@
 import "bootstrap";
 import "plugins/flatpickr";
 import { scrollLastMessageIntoView } from "components/scroll";
+
+import { keepCount } from "components/keep_count";
+
 import { toggleSearch } from "components/toggle";
 
-global.scrollLastMessageIntoView = scrollLastMessageIntoView;
+
+const userEdit = document.getElementById("user-edit-page")
+const chatList = document.getElementById("chatlist-page")
+
+if (userEdit) {
+  keepCount()
+}
+
+if (chatList) {
+  scrollLastMessageIntoView()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Piotr, please refacter
 
 global.$ = $;
 
