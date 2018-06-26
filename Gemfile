@@ -23,7 +23,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
 gem "simple_calendar", "~> 2.0"
-
+gem 'bootstrap-timepicker-rails-addon'
 gem 'twilio-ruby', '~> 5.10.4'
 gem 'jquery-rails'
 
