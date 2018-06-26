@@ -1,7 +1,15 @@
 <div class="jd-header-fluido">
   <a href="/" class="jd-header-logo">Fluido</a>
   <div class="jd-header-right">
-    <div class="jd-header-item"><%= link_to 'Search', lessons_path %></div>
+
+    <div class="jd-header-item">
+      <%= link_to lessons_path do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+
+
+
+    </div>
     <div class="jd-header-item">
       <div class="dropdown">
         <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown"></i>

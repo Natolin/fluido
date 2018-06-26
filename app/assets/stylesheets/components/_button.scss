@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.4s ease-in-out;
 }
 
 .jd-border-button-med > p {
@@ -27,7 +28,6 @@
 }
 
 .jd-border-button-med:hover {
-  transition: all .5s ease;
   background: #D90146;
   color: white;
   cursor: pointer;
@@ -49,6 +49,7 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
   margin-bottom: 5px;
+  transition: 0.4s ease-in-out;
 }
 
 .jd-solid-button-med > p {
@@ -58,7 +59,6 @@
 }
 
 .jd-solid-button-med:hover {
-  transition: all .5s ease;
   background: white;
   border: 1px solid #D90146;
   color: #B2A5A3;

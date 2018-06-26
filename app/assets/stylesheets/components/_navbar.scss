@@ -22,6 +22,11 @@
   color: white;
   text-decoration: none;
   text-shadow: 1px 1px 1px black;
+  transition: .3s;
+  &:hover {
+    text-decoration: none;
+    color: #B2A5A3;
+  }
 }
 
 /*Dropdown Burger*/
@@ -49,10 +54,15 @@
 
 }
 
-.fa-bars {
+.fa-bars, .fa-search {
   color: white;
-  font-size: 30px;
-  text-shadow: 1px 1px 1px black;
+  font-size: 28px;
+  text-shadow: 1px 1px 3px black;
+  transition: .3s;
+
+  &:hover {
+    color: #B2A5A3;
+  }
 }
 
 .jd-header-dropdown-menu {

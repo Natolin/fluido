@@ -1,7 +1,11 @@
 import "bootstrap";
 import "plugins/flatpickr";
 import { scrollLastMessageIntoView } from "components/scroll";
+
 import { keepCount } from "components/keep_count";
+
+import { toggleSearch } from "components/toggle";
+
 
 const userEdit = document.getElementById("user-edit-page")
 const chatList = document.getElementById("chatlist-page")

@@ -2,8 +2,8 @@
   <%= simple_form_for @user do |f| %>
     <%= f.file_field :photo, :label=> "Upload your profile picture" %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :first_name, required: false, input_html: { class: "first-name" } %>
-    <%= f.input :last_name, required: false %>
+    <%= f.input :first_name, required: false, input_html: { class: "first-name" }, placeholder: "First Name" %>
+    <%= f.input :last_name, required: false, placeholder: "Last Name" %>
 
     <select name="user[country]">
       <option value="Country">Country</option>
@@ -13,7 +13,7 @@
     </select>
 
     <%= f.association :interests, as: :check_boxes %>
-    <%= f.input :description %>
+    <%= f.input :description, placeholder: "Say a bit about yourself..." %>
 
     <div class="magic-line-homepage"></div>
     <div class="space" style="margin-top:40px"></div>
