@@ -1,16 +1,32 @@
 // Specific CSS for your home-page
+
 .home-page {
-  background-image: url("home-splat.png");
-  background-repeat:no-repeat;
-  background-position: center;
+
+  span {
+    font-size: 36px;
+  }
 }
 
-
-.splat-secondary {
-  width: 130px;
-  height: 130px;
+.hompage_navbar {
+  height: 55px;
+  background: #D90146;
+  padding: 15px;
+  text-align: right;
 }
 
+.homepage-header-item {
+  padding: 0 20px;
+  cursor: pointer;
+
+  a {
+   color: white;
+
+   &:hover {
+    text-decoration: none;
+    color: #B2A5A3;
+   }
+  }
+}
 
 h1 {
   font-family: 'Permanent Marker', cursive;
@@ -18,77 +34,111 @@ h1 {
   letter-spacing: 1px;
 }
 
-.slogan-2 {
-  text-align: right;
-  margin-bottom: 80px;
+.backdrop-gradient {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  background: linear-gradient(#D90146, $light-gray);
+  height: 500px;
+  padding: 40px;
+
+}
+
+.title-fluido {
+  width: 80%;
+  margin: auto;
+  color: white;
+
+  h1 {
+    font-size: 68px;
+    text-align: center;
+    text-shadow: 0px -2px 5px black;
+  }
+
 }
 
 .value-prop {
+  width: 80%;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   text-align: center;
-  margin-bottom: 60px;
+  margin: 80px auto;
 
   p {
-    font-size: 20px;
+    color: white;
+    text-shadow: 0px -2px 4px grey;
+    font-size: 26px;
   }
 }
 
+
+.homepage-button {
+  height: 56px;
+}
+
+
+.steps {
+  margin-top: 75px;
+}
+
 .question {
+  width: 90%;
+  margin: 0 auto;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
-  font-size: 24px;
   text-align: center;
+
+  h2 {
+    font-size: 36px;
+  }
 }
 
 .magic-line-homepage {
   width: 255px;
-  border: 1px solid black;
+  border: .5px solid black;
   margin: 20px auto;
-}
-
-.img-steps {
-  width: 100px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.step {
-  background-repeat:no-repeat;
-  margin: 40px 0px;
 }
 
 
 .step-text {
+  width: 70%;
   text-align: center;
+  margin: 60px auto;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
 
-  p {
-    font-size: 18px;
+  p, span {
+    font-size: 22px;
   }
 }
 
 
 .or {
+  width: 80%;
+  margin: 30px auto;
   text-align: center;
   font-size: 24px;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
-  margin-bottom: 60px;
 }
 
-#why-use {
-  font-size: 28px;
-}
 
 #accent-fluido {
+  margin: 0px 5px;
   color: #D90146;
   font-size: 28px;
   font-family: 'Permanent Marker', cursive;
   text-shadow: 1px 1px 1px #B2A5A3;
+}
+
+.backdrop-gradient-reversed {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  background: linear-gradient(360deg, #D90146, $light-gray);
+  height: 500px;
+  padding: 40px;
+
 }
 

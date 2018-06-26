@@ -12,6 +12,7 @@
   font-family: 'Quicksand', sans-serif;
   text-align: center;
   //box-shadow: 0px 1px 3px #B2A5A3;
+  background: white;
 }
 .show-avatar {
   position: absolute;
@@ -36,6 +37,7 @@
   height: 40px;
   border-radius: 50%;
   margin: 5px;
+  border: 1px solid black;
 }
 
 .show-name-box {
@@ -46,7 +48,7 @@
   padding: 0px 10px;
   top: 75px;
   left: 100px;
-  z-index: -1;
+  // z-index: -1;
   p {
     margin-bottom: 0px;
     text-align: center;
@@ -102,7 +104,7 @@
   .description-body {
     font-size: 14px;
   }
-  
+
   li {
     list-style-position: inside;
     text-align: left;

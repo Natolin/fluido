@@ -19,7 +19,7 @@
 
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' unless @disable_navbar %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
