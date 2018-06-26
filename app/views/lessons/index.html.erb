@@ -9,6 +9,7 @@
     <% if @lessons.count == 1 %>
       <h4>We found 1 result</h4>
     <% else %>
+      <% @lessons -= current_user.lessons %>
       <h4><%= @lessons.count %> results found</h4>
     <% end %>
   </div>
@@ -54,17 +55,20 @@
                     <span><%= l.user.country %></span>
                   </div>
 
+
                   <div class="teacher-stars">
                     <% rating = l.user.average_rating %>
+                    <% if rating.nil? == false %>
 
-                    <% rounded = rating.round %>
-                    <% rounded.times do %>
-                      <i class="fas fa-star yellow-star"></i>
-                    <%end%>
+                      <% rounded = rating.round %>
+                      <% rounded.times do %>
+                        <i class="fas fa-star yellow-star"></i>
+                      <%end%>
 
-                    <% (5 - rounded).times do %>
-                      <i class="fas fa-star grey-star"></i>
-                    <%end%>
+                      <% (5 - rounded).times do %>
+                        <i class="fas fa-star grey-star"></i>
+                      <%end%>
+                    <% end %>
                   </div>
 
 
