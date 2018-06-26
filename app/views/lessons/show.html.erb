@@ -27,10 +27,10 @@
       <div class="show-country">
         <p>from <%= @lesson.user.country %></p>
       </div>
-
-      <% if @rating.nil? == false  %>
         <div class="show-average-rating">
           <% @rating = @lesson.user.average_rating %>
+
+      <% if @rating.nil? == false  %>
 
           <% @rounded = @rating.round %>
           <% @rounded.times do %>
