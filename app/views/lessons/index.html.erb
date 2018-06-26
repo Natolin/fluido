@@ -9,8 +9,15 @@
     <% if @lessons.count == 1 %>
       <h4>We found 1 result</h4>
     <% else %>
-      <% @lessons -= current_user.lessons %>
-      <h4><%= @lessons.count %> results found</h4>
+
+      <% if user_signed_in? %>
+        <% @lessons -= current_user.lessons %>
+        <h4><%= @lessons.count %> results found</h4>
+      <% else %>
+        <% @lessons %>
+        <h4><%= @lessons.count %> results found</h4>
+      <% end %>
+
     <% end %>
   </div>
 
@@ -21,15 +28,16 @@
     <% if @lessons.count < 1 %>
 
       <div class="center">
-        <h3>Sorry, no results found</h3>
+        <h3>Sorry, couldn't find anything.</h3>
       </div>
 
-    <% elsif current_user.lessons == @lessons %>
+    <% elsif user_signed_in? == true && current_user.lessons == @lessons %>
       <div style="text-align: center">
         <h4 style="padding: 0 10%">You can't find your own lessons here. Head on over to your dashboard if you want to see them.</h4>
       </div>
 
     <% else %>
+
       <% @lessons.each do |l| %>
         <% if l.user != current_user %>
           <div class="col-xs-12 col-sm-6 col-md-4">
