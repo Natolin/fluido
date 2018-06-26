@@ -75,7 +75,7 @@
 
 
   <div class="show-buttons-centered">
-    <% if @lesson.user.id != current_user.id %>
+    <% if user_signed_in? == false || @lesson.user.id != current_user.id %>
       <%= form_for(@conversation) do |f|%>
         <%= hidden_field_tag "user_id", @lesson.user.id %>
         <%= f.submit "Send a Message", class: "show-hover show-message-button"  %>
@@ -85,7 +85,7 @@
 
   <!-- Availability and calendar will go here-->
 
-  <% if @lesson.user.id != current_user.id %>
+  <% if user_signed_in? == false || @lesson.user.id != current_user.id %>
     <div class="show-buttons-centered">
       <%= link_to new_lesson_booking_path(@lesson) do %>
         <button type="button" class="show-hover show-booking-button">Schedule a Lesson</button>
