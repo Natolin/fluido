@@ -13,7 +13,7 @@
   <div class="spacemaker" style="margin-top:100px"></div>
   <div><h4 class="center">You have no messages.</h4></div>
 <% else %>
-  <% @my_convos.each do |c |%>
+  <% @my_convos.each do |c| %>
     <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
 
     <%= link_to conversation_path(c) do %>
