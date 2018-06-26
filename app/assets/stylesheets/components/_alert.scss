@@ -10,12 +10,12 @@
 .alert-info, .alert-warning {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
-  text-shadow: 1px 1px 1px black;
-  color: white;
+  // text-shadow: 1px 1px 1px black;
+  color: black;
   width: 80%;
-  background: #D90146;;
-  border: 10px double white;
-  border-radius: 5px;
+  background: white;
+  border: 5px double #D90146;
+  border-spacing: 5px;
   margin: 75px auto;
 }
 // .alert-warning {
