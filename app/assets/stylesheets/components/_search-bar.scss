@@ -3,8 +3,8 @@
   justify-content: space-around;
 }
 
-#search-bar {
-  display: block;
+.search-bar-is-hidden {
+  display: none;
 }
 
 #search-bar select, #search-bar input {
