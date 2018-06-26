@@ -1,0 +1,91 @@
+<div class="lessons">
+
+    <% if @my_lessons.count > 0 %>
+      <h3>My published lessons</h3>
+    <% @my_lessons.each do  |x| %>
+      <div class="show-lesson">
+
+       <div class="pg-card-square-fluido">
+
+          <div class="show-avatar">
+            <div class="show-avatar-circle">
+              <img class='avatar_user' src="<%= x.user.photo %>" alt="">
+            </div>
+          </div>
+
+          <div class="flags-on-card">
+            <div class="country-flag-circle">
+              <%= image_tag x.language.flag, class: "country-image"  %>
+            </div>
+          </div>
+
+
+          <div class="show-name-box">
+            <p><%= x.user.first_name %> <%= x.user.last_name[0]%>.</p>
+          </div>
+
+
+    <div class="show-content">
+
+        <div class="show-country">
+          <p>from <%= x.user.country %></p>
+        </div>
+
+        <div class="show-average-rating">
+          <% @rating = x.user.average_rating %>
+
+          <% @rounded = @rating.round %>
+          <% @rounded.times do %>
+            <i class="fas fa-star yellow-star"></i>
+          <%end%>
+
+          <% (5 - @rounded).times do %>
+            <i class="fas fa-star grey-star"></i>
+          <%end%>
+        </div>
+
+        <div class="show-price">
+          <p>$<%= x.price %>/hour</p>
+        </div>
+
+        <div class="show-magic-line">
+        </div>
+
+        <div class="show-description">
+          <p>Interests</p>
+          <ul>
+            <% x.user.interests.each do |int| %>
+              <li class="description-body"><%= int.name %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="show-magic-line">
+        </div>
+
+        <div class="show-description">
+          <p>Description</p>
+          <p class="description-body">"<%= x.description %>"</p>
+        </div>
+        <%= link_to edit_lesson_path(x) do %>
+              <button class="dash-option-button">Edit</button>
+            <% end %>
+      </div>
+      </div>
+    <% end %>
+
+
+    <% else %>
+
+      <div class="message-if-nothing">
+        <h3>You don't have any lessons to display.</h3>
+        <%= link_to new_lesson_path do %>
+          <button class="dash-option-button">Publish a lesson</button>
+        <% end %>
+      </div>
+      <br>
+
+
+   <% end %>
+   </div>
+ </div>
