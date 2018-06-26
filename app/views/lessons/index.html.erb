@@ -6,13 +6,11 @@
   <%= render 'lessons/search' %>
 
   <div class="center">
-
     <% if @lessons.count == 1 %>
       <h4>We found 1 result</h4>
     <% else %>
-      <h4><%= result = @lessons.count - current_user.lessons.count %> results found</h4>
+      <h4><%= @lessons.count %> results found</h4>
     <% end %>
-
   </div>
 
 <div class="little-space-maker" style="margin: 60px 0px"></div>
@@ -25,8 +23,10 @@
         <h3>Sorry, no results found</h3>
       </div>
 
-    <% elsif current_user.lessons == @lessons%>
-      <h4>You can't find your own lessons here. Head on over to your dashboard if you want to see it.</h4>
+    <% elsif current_user.lessons == @lessons %>
+      <div style="text-align: center">
+        <h4 style="padding: 0 10%">You can't find your own lessons here. Head on over to your dashboard if you want to see them.</h4>
+      </div>
 
     <% else %>
       <% @lessons.each do |l| %>

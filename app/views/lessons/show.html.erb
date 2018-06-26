@@ -28,18 +28,20 @@
         <p>from <%= @lesson.user.country %></p>
       </div>
 
-      <div class="show-average-rating">
-        <% @rating = @lesson.user.average_rating %>
+      <% if @rating.nil? == false  %>
+        <div class="show-average-rating">
+          <% @rating = @lesson.user.average_rating %>
 
-        <% @rounded = @rating.round %>
-        <% @rounded.times do %>
-          <i class="fas fa-star yellow-star"></i>
-        <%end%>
+          <% @rounded = @rating.round %>
+          <% @rounded.times do %>
+            <i class="fas fa-star yellow-star"></i>
+          <%end%>
 
-        <% (5 - @rounded).times do %>
-          <i class="fas fa-star grey-star"></i>
-        <%end%>
-      </div>
+          <% (5 - @rounded).times do %>
+            <i class="fas fa-star grey-star"></i>
+          <%end%>
+        </div>
+      <% end %>
 
       <div class="show-price">
         <p>$<%= @lesson.price %>/hour</p>
