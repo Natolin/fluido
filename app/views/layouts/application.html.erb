@@ -19,8 +19,8 @@
 
   </head>
   <body>
-    <%= render 'shared/navbar' unless @disable_navbar %>
-    <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' unless @disabled %>
+    <%= render 'shared/flashes' unless @disabled %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
