@@ -64,23 +64,25 @@ margin-bottom: 50px;
   flex-direction: column;
   align-items: center;
   font-family: 'Quicksand', sans-serif;
-  img{
+
+  img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-bottom: 20px;
-
   }
 }
+
 
 .card_dashboard {
   position: relative;
   display: flex;
+  align-items: center;
   width: 80%;
   height: 115px;
   background-color: white;
-  box-shadow: 0px 1px 1px 0px $light-gray;
   border-radius: 5px;
+  border: 2px solid #B2A5A3;
 
   .language_flag {
     position: absolute;
@@ -186,6 +188,8 @@ margin-bottom: 50px;
   margin-top: 30px;
 }
 
+
+
 .black_line{
 border-bottom: 1px solid black;
 margin-top: 20px;
@@ -202,7 +206,6 @@ text-align: center;
   margin-top: 20px;
 
   .avatar_user {
-    margin-top: 15px;
     width: 85px;
     height: 85px;
     border-radius: 50%;
@@ -210,8 +213,8 @@ text-align: center;
   }
 }
 
-.learning-from-name {
-
+.learning-from-name-and-status {
+  margin-left: 20%;
 }
 
 .dash-lesson-buttons {
