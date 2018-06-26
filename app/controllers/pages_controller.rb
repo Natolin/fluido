@@ -2,7 +2,7 @@ require 'twilio-ruby'
 
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :teachers]
-  before_action :disable_navbar, only: [:home]
+  before_action :disable, only: [:home]
 
 
   def home
@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
   # This is to disable the original navbar on the homepage
   # See the before action
-  def disable_navbar
-    @disable_navbar = true
+  def disable
+    @disabled = true
   end
 end
