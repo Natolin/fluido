@@ -1,6 +1,9 @@
 // Specific CSS for your home-page
 
 .home-page {
+  background: url("http://localhost:3000/assets/triangle-4b1e5bb690c8fca949974cfa1f2a07884758e0e14a54bca91eecabc83d0ad0f5.png");
+  background-repeat: no-repeat;
+  background-position: 0% 55%;
 
   span {
     font-size: 36px;
@@ -79,7 +82,12 @@ h1 {
 
 
 .steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-top: 75px;
+  margin-bottom: 75px;
+  height: 500px;
 }
 
 .question {
@@ -104,12 +112,24 @@ h1 {
 .step-text {
   width: 70%;
   text-align: center;
-  margin: 60px auto;
+  margin: 20px auto;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
 
   p, span {
     font-size: 22px;
+  }
+}
+
+.triangle {
+  width: 100%;
+
+  p {
+  text-align: center;
+  margin: auto auto;
+  color: #B2A5A3;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 26px;
   }
 }
 
