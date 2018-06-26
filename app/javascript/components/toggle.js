@@ -1,5 +1,6 @@
 function toggleSearch() {
 
+
   const findBy = document.getElementById("show-hide-search");
   const searchBar = document.getElementById("search-bar");
 
@@ -14,4 +15,6 @@ function toggleSearch() {
   })
 }
 
+
 toggleSearch();
+
