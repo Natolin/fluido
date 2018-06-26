@@ -28,18 +28,20 @@
         <p>from <%= @lesson.user.country %></p>
       </div>
 
-      <div class="show-average-rating">
-        <% @rating = @lesson.user.average_rating %>
+      <% if @rating.nil? == false  %>
+        <div class="show-average-rating">
+          <% @rating = @lesson.user.average_rating %>
 
-        <% @rounded = @rating.round %>
-        <% @rounded.times do %>
-          <i class="fas fa-star yellow-star"></i>
-        <%end%>
+          <% @rounded = @rating.round %>
+          <% @rounded.times do %>
+            <i class="fas fa-star yellow-star"></i>
+          <%end%>
 
-        <% (5 - @rounded).times do %>
-          <i class="fas fa-star grey-star"></i>
-        <%end%>
-      </div>
+          <% (5 - @rounded).times do %>
+            <i class="fas fa-star grey-star"></i>
+          <%end%>
+        </div>
+      <% end %>
 
       <div class="show-price">
         <p>$<%= @lesson.price %>/hour</p>
@@ -78,7 +80,9 @@
     <% if user_signed_in? == false || @lesson.user.id != current_user.id %>
       <%= form_for(@conversation) do |f|%>
         <%= hidden_field_tag "user_id", @lesson.user.id %>
-        <%= f.submit "Send a Message", class: "show-hover show-message-button"  %>
+        <div class="center">
+          <%= f.submit "Send a Message", class: "jd-border-button-med"  %>
+        </div>
       <%end%>
     <% end %>
   </div>
@@ -88,7 +92,7 @@
   <% if user_signed_in? == false || @lesson.user.id != current_user.id %>
     <div class="show-buttons-centered">
       <%= link_to new_lesson_booking_path(@lesson) do %>
-        <button type="button" class="show-hover show-booking-button">Schedule a Lesson</button>
+        <button type="button" class="jd-solid-button-med">Schedule a Lesson</button>
       <% end %>
     </div>
   <% else %>
@@ -104,6 +108,8 @@
       <% end %>
     </div>
   <%end%>
+
+  <div class="little-space-maker" style="margin: 60px 0px"></div>
 
 
 
