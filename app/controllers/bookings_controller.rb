@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @booking.lesson = @lesson
     @booking.user = current_user
-    if @booking.save!
+    if @booking.save
       flash[:success] = "Your booking has been successfully created!"
       redirect_to dashboard_path
     else
@@ -40,13 +40,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to dashboard_path
   end
-  # def update_state
-  #   @booking = Booking.find(params[:id])
-
-  #   @booking.change_status(params[:status])
-  #   @booking.save
-  #   redirect_to dashboard_path
-  # end
 
 private
 

@@ -6,21 +6,18 @@ class Booking < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
 
+  validate :end_time_is_after_start_time
 
 
-  # def start_time
-  #     self.start_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
-  # end
 
-  # def start_date
-  #   end_date = start_date
-  # end
-  # def change_status(new_status)
-  #   if new_status == "pending" || "accepted" || "declined"
-  #     self.status = new_status
-  #   else
-  #     self.status = "pending"
-  #   end
-  # end
+private
+
+  def end_time_is_after_start_time
+    return if end_time.blank? || start_time.blank?
+
+    if end_time <= start_time
+      errors.add(:end_time, "has to be after start time")
+    end
+  end
 
 end
