@@ -83,27 +83,27 @@
     <% end %>
   </div>
 
-<!-- Availability and calendar will go here-->
+  <!-- Availability and calendar will go here-->
 
-<% if @lesson.user.id != current_user.id %>
-  <div class="show-buttons-centered">
-    <%= link_to new_lesson_booking_path(@lesson) do %>
-      <button type="button" class="show-hover show-booking-button">Schedule a Lesson</button>
-    <% end %>
-  </div>
-<% else %>
-  <div class="show-hover show-buttons-centered">
-    <%= link_to edit_lesson_path do %>
-      <button type="button" class="show-edit-button">Edit Lesson</button>
-    <% end %>
-  </div>
+  <% if @lesson.user.id != current_user.id %>
+    <div class="show-buttons-centered">
+      <%= link_to new_lesson_booking_path(@lesson) do %>
+        <button type="button" class="show-hover show-booking-button">Schedule a Lesson</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="show-hover show-buttons-centered">
+      <%= link_to edit_lesson_path do %>
+        <button type="button" class="show-edit-button">Edit Lesson</button>
+      <% end %>
+    </div>
 
-  <div class="show-hover show-buttons-centered">
-    <%= link_to lesson_path(@lesson), method: :delete do %>
-      <button type="button" class="show-delete-button">Delete Lesson</button>
-    <% end %>
-  </div>
-<%end%>
+    <div class="show-hover show-buttons-centered">
+      <%= link_to lesson_path(@lesson), method: :delete do %>
+        <button type="button" class="show-delete-button">Delete Lesson</button>
+      <% end %>
+    </div>
+  <%end%>
 
 
 
