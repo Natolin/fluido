@@ -9,3 +9,4 @@ function scrollLastMessageIntoView() {
 
 
 export {scrollLastMessageIntoView};
+global.scrollLastMessageIntoView = scrollLastMessageIntoView;
