@@ -1,16 +1,68 @@
-.about-sign-up {
-  margin-top: 40px;
-  margin-bottom: 40px;
+#teachers-shadow {
+  box-shadow: none;
 }
 
-.about-teaching-header, .about-sign-up {
+.teacher_navbar {
+  height: 55px;
+  background: #D90146;
+  padding: 15px;
+  //text-align: right;
+}
+
+.teacher-header-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  cursor: pointer;
+
+  a {
+    font-size: 26px;
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px black;
+  transition: .3s;
+
+    &:hover {
+      text-decoration: none;
+      color: #B2A5A3;
+    }
+  }
+}
+
+#accent-fluido-header {
+
+}
+
+
+.about-sign-up {
+  //margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.about-teaching-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 55px;
+  margin-bottom: 40px;
+
+}
+
+.teach-gradient {
+  height: 200px;
+}
+
 #space {
   margin-right: 10px;
+  font-size: 40px;
+}
+
+#accent-fluido {
+  font-size: 40px;
 }
 
 span {
@@ -21,16 +73,19 @@ span {
 }
 
 .magic-line-aboutpage {
-  margin: 40px auto;
+  margin: 80px auto;
   border: 1px solid black;
   width: 60%;
+}
+
+.first-line-about {
+  margin: 120px auto 80px auto;
 }
 
 .about-teaching-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 60px;
 
   span {
     color: #B2A5A3;
@@ -40,9 +95,15 @@ span {
 
 .about-teaching-details p {
   width: 60%;
-  margin: 80px auto;
+  margin: 35px auto;
   text-align: center;
   font-size: 18px;
   color: #B2A5A3;
   font-family: 'Quicksand', sans-serif;
+}
+
+.teacher-gradient-reversed {
+  height: 200px;
+  padding: 0px 0px;
+
 }

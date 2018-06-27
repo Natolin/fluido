@@ -1,81 +1,113 @@
-<div class="spacemaker" style="margin-top:100px"></div>
+
+<div class="teacher_navbar">
+
+  <div class="teacher-header-item">
+    <p class="accent-fluido-header"><%= link_to "Fluido", root_path %></p>
+
+
+    <div class="dropdown">
+      <i class="fas fa-bars dropdown-toggle homepage-header-item" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right jd-header-dropdown-menu">
+        <% if user_signed_in? %>
+          <p>Hi <%= current_user.first_name %>!</p>
+          <li><%= link_to 'Dashboard', dashboard_path(current_user) %></li>
+          <li><%= link_to 'Messages', conversations_path %></li>
+          <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li> <%= link_to 'Login/Sign Up', new_user_session_path %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper">
+      <div class="backdrop-gradient teach-gradient">
+        <div style="margin: 80px 0px 0px 0px"></div>
+
+        <div class="about-sign-up">
+          <% if user_signed_in? %>
+            <%= link_to 'Create a Lesson', new_lesson_path, class: "jd-border-button-med" %>
+          <% else %>
+            <%= link_to "Sign up", new_user_session_path, class: "jd-border-button-med" %>
+          <% end %>
+        </div>
+
+        <div class="about-teaching-header">
+          <span id="space">Why teach on <span id="accent-fluido">Fluido</span> ? </span>
+        </div>
+      </div>
+    </div>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
 
 
-      <div class="about-sign-up">
-        <% if user_signed_in? %>
-          <%= link_to 'Create a Lesson', new_lesson_path, class: "jd-border-button-med" %>
-        <% else %>
-          <%= link_to "Sign up", new_user_session_path, class: "jd-border-button-med" %>
-        <% end %>
-      </div>
 
-
-      <div class="about-teaching-header">
-        <span id="space">Why teach on</span>
-        <span id="accent-fluido">Fluido</span>
-        <span>?</span>
-      </div>
-
-      <div class="magic-line-aboutpage"></div>
-      <div style="margin: 80px 0px"></div>
+      <div class="magic-line-aboutpage first-line-about"></div>
+      <!-- <div style="margin: 80px 0px"></div> -->
 
       <div class="about-teaching-title">
-        <span>Teach your way</span>
+        <span>Teach when you want, where you want.</span>
       </div>
 
       <div class="about-teaching-details">
-        <p>All you need is a webcam and a microphone</p>
+        <p>All you need is a webcam, a microphone, and a great attitude</p>
         <p>Take on as many students as you want</p>
-        <p>Teach from wherever convenient</p>
+        <p>Teach in your own style on your own time </p>
       </div>
 
       <div class="magic-line-aboutpage"></div>
-      <div style="margin: 80px 0px"></div>
+      <!-- <div style="margin: 80px 0px"></div> -->
 
       <div class="about-teaching-title">
         <span>Earn a little extra.</span>
       </div>
 
       <div class="about-teaching-details">
-        <p>Chose your price</p>
-        <p>Relax. Fluido handles all the payment</p>
+        <p>You set your own prices and adjust them as you see fit</p>
+        <p>Relax. Fluido handles all the payment details for you</p>
       </div>
 
 
       <div class="magic-line-aboutpage"></div>
-      <div style="margin: 80px 0px"></div>
+      <!-- <div style="margin: 80px 0px"></div> -->
 
       <div class="about-teaching-title">
-        <span>Talk to the world.</span>
+        <span>Connect to a multi - cultural network.</span>
       </div>
 
       <div class="about-teaching-details">
-        <p>Help start a growing community</p>
-        <p>Hear stories from around the globe</p>
+        <p>By joining Fluido, you become part of a growing global community</p>
+        <p>Meet people from around the world and hear their stories</p>
       </div>
 
 
       <div style="margin: 80px 0px"></div>
 
-
-      <div class="about-sign-up">
-        <% if user_signed_in? %>
-          <%= link_to 'Create a Lesson', new_lesson_path, class: "jd-border-button-med" %>
-        <% else %>
-          <%= link_to "Sign up", new_user_session_path, class: "jd-border-button-med" %>
-        <% end %>
-      </div>
-
-
-      <div style="margin: 80px 0px"></div>
 
     </div>
   </div>
 </div>
 
 
+    <div class="wrapper">
+      <div class="backdrop-gradient-reversed teacher-gradient-reversed">
+
+        <div class="about-sign-up">
+          <% if user_signed_in? %>
+            <%= link_to 'Create a Lesson', new_lesson_path, class: "jd-border-button-med" %>
+          <% else %>
+            <%= link_to "Sign up", new_user_session_path, class: "jd-border-button-med" %>
+          <% end %>
+        </div>
+
+
+        <div style="margin: 80px 0px 0px 0px"></div>
+
+      </div>
+    </div>
 
