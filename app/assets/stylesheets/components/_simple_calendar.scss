@@ -57,13 +57,50 @@ padding: 0px;
   padding: 0px;
 }
 
-.day{
-height: 120px;
-font-family: 'Quicksand', sans-serif;
-font-size: 15px;
-  img{
-    max-width: 50px;
+.calendar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.calendar-heading a {
+  position: relative;
+  width: 90px;
+  height: 36px;
+  background: white;
+  color: #B2A5A3;
+  border: 1px solid #B2A5A3;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    background: #D90146;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
   }
+}
+
+#scheduled-day-filled {
+  margin: 10px auto;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #D90146;
+}
+
+
+.day{
+  height: 120px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  text-align: center;
 }
 
 .simple-calendar{
@@ -72,8 +109,14 @@ font-size: 15px;
   align: center;
 }
 
+
 thead th{
   text-align: center;
+  background: white;
+}
+
+td {
+  background: white;
 }
 
 h5{
@@ -85,11 +128,9 @@ h6{
   color: #D90146;
 }
 
-.table{
-box-shadow: 0px 2px 2px 0px gray;
-border-radius: 5px 5px 0px 0px;
-font-family: 'Quicksand', sans-serif;
-margin-bottom: 50px;
+.table {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 50px;
 }
 
 .calendar-title{
@@ -231,12 +272,6 @@ margin-bottom: 50px;
 .form-control-label{
   display: none;
 }
-.calendar{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-}
 
 
 .dash-bookings-content{
@@ -346,7 +381,6 @@ margin-right: auto;
 }
 
 
-
 .flex-symbols a, .flex-symbols i {
   text-decoration: none;
   color: black;
@@ -360,8 +394,21 @@ margin-right: auto;
     }
 }
 
-.lesson-status{
-  margin: 0px !important;
-  font-size: 12px !important;
-  padding: 0px !important;
+.sexy-line {
+  width: 70%;
+  display:block;
+  margin: 0 auto;
+  border:none;
+  color:$light-gray;
+  height:1px;
+  background:black;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#000), to(whitesmoke));
 }
+
+
+
+
+
+
+
+
