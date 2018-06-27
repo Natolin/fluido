@@ -1,78 +1,92 @@
-<div class="container">
 
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div id="show-hide-search">
-        <button class="jd-border-button-med">Find by</button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-md-12">
-      <div id="search-bar" class="search-bar-is-hidden">
-
-        <form action="<%= lessons_path %>" method="GET">
-
-          <select name="query[language]">
-            <option value="All">All Languages</option>
-            <option value="English">English</option>
-            <option value="French">French</option>
-            <option value="German">German</option>
-            <option value="Italian">Italian</option>
-            <option value="Polish">Polish</option>
-            <option value="Portuguese">Portuguese</option>
-            <option value="Russian">Russian</option>
-            <option value="Spanish">Spanish</option>
-          </select>
-
-
-
-          <select name="query[price]" >
-            <option value="">Price</option>
-            <option value="5">5 and under</option>
-            <option value="10">10 and under</option>
-            <option value="15">15 and under</option>
-            <option value="20">20 and under</option>
-            <option value="20+">20+</option>
-          </select>
-
-
-
-          <select name="query[interest]" >
-            <option value="">Interests</option>
-            <option value="Pets/Animals">Animals/Pets</option>
-            <option value="Art/Culture">Art/Culture</option>
-            <option value="Food">Food</option>
-            <option value="Literature">Literature</option>
-            <option value="Music">Music</option>
-            <option value="Philosophy">Philosophy</option>
-            <option value="Politics">Politics</option>
-            <option value="Science">Science/Technology</option>
-            <option value="Sport">Sports</option>
-            <option value="Travel/Outdoors">Travel/Outdoors</option>
-          </select>
-
-
-
-          <select name="query[country]">
-              <option value="Country">Country</option>
-            <% User::COUNTRIES.each do |x| %>
-              <option value="<%= x %>"><%= x %></option>
-            <% end %>
-          </select>
-
-
-          <input value="" name="query[teacher_name]" type="text" placeholder="Teacher's Name">
-
-
-          <button type="submit" class="jd-solid-button-med">Search</button>
-
-        </form>
-
-      </div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div id="show-hide-search">
+      <button class="jd-border-button-med" id="find-by-button"><p>Find by</p><i class="fas fa-angle-down" id=search-bar-icon></i></button>
     </div>
   </div>
 </div>
+
+
+
+<div class="search-body">
+  <div id="search-bar" class="search-bar-is-hidden">
+
+    <form action="<%= lessons_path %>" method="GET">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+
+          <div class="search-field">
+            <select name="query[language]">
+              <option value="All">All Languages</option>
+              <option value="English">English</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Italian">Italian</option>
+              <option value="Polish">Polish</option>
+              <option value="Portuguese">Portuguese</option>
+              <option value="Russian">Russian</option>
+              <option value="Spanish">Spanish</option>
+            </select>
+          </div>
+
+
+
+          <div class="search-field">
+            <select name="query[price]" >
+              <option value="">Price</option>
+              <option value="5">5 and under</option>
+              <option value="10">10 and under</option>
+              <option value="15">15 and under</option>
+              <option value="20">20 and under</option>
+              <option value="20+">20+</option>
+            </select>
+          </div>
+
+
+
+          <div class="search-field">
+            <select name="query[interest]" >
+              <option value="">Interests</option>
+              <option value="Pets/Animals">Animals/Pets</option>
+              <option value="Art/Culture">Art/Culture</option>
+              <option value="Food">Food</option>
+              <option value="Literature">Literature</option>
+              <option value="Music">Music</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Politics">Politics</option>
+              <option value="Science">Science/Technology</option>
+              <option value="Sport">Sports</option>
+              <option value="Travel/Outdoors">Travel/Outdoors</option>
+            </select>
+          </div>
+
+
+
+          <div class="search-field">
+            <select name="query[country]">
+                <option value="Country">Country</option>
+              <% User::COUNTRIES.each do |x| %>
+                <option value="<%= x %>"><%= x %></option>
+              <% end %>
+            </select>
+          </div>
+
+
+          <div class="search-field">
+            <input value="" name="query[teacher_name]" type="text" placeholder="Teacher's Name">
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1" id="space-around-row">
+          <button type="submit" class="jd-solid-button-med">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+

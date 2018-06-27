@@ -1,21 +1,50 @@
-#search-bar {
-  transition: 0.3s;
-}
-
 #show-hide-search {
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
+  width: 240px;
+  height: 52px;
+}
+
+#find-by-button {
+  // This ID inherits from jd-border-button-med in button scss components
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  p {
+    margin-left: 8%;
+  }
+}
+
+#search-bar-icon {
+  // This ID inherits from .fa-angle-down in messages-chat-display-scss
+  cursor: pointer;
+  margin-left: 65%;
+  margin-bottom: 3px;
+  border: 2px solid #D90146;
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+
+#search-bar {
+  transition: 0.3s;
 }
 
 .search-bar-is-hidden {
   display: none;
 }
 
+
+
+
 #search-bar select, #search-bar input {
   font-size: 20px;
   width: 240px;
   height: 52px;
-  margin: 15px 0px;
+  margin: 15px 0;
   padding: 5px;
   transition: all 0.3s ease-in-out;
 
@@ -39,5 +68,11 @@
 }
 
 #search-bar button {
-  margin: 15px 0px;
+  margin: 15px 0;
 }
+
+#space-around-row, .search-field {
+  display: flex;
+  justify-content: space-around;
+}
+
