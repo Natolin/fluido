@@ -117,18 +117,18 @@
           <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
           <h6>Teaching</h6>
         </div>
+        <div class="lesson-status">
+          <%= simple_form_for [x.lesson, x] do |f| %>
+          <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
+          <%= f.button :submit %>
+          <% end %>
+        </div>
         <div class="dash-bookings-content">
           <div class="row">
           <div class="card_dashboard col-xs-8 col-xs-offset-2">
             <img class='avatar_user' src="<%= x.user.photo %>" alt="">
             <div class="learning-from-name-and-status">
               <h4><%= x.user.first_name %></h4>
-              <div class="lesson-status">
-              <%= simple_form_for [x.lesson, x] do |f| %>
-                <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
-                <%= f.button :submit %>
-              <% end %>
-              </div>
             </div>
               <%= image_tag x.lesson.language.flag, class: "language_flag" %>
           </div>
