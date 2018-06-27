@@ -63,10 +63,12 @@
                       <%= l.user.first_name + " " + l.user.last_name[0] %>.
                     </div>
 
-                    <div class="from">
-                      <span>from</span>
-                      <span><%= l.user.country %></span>
-                    </div>
+                    <% if l.user.country != "Country" %>
+                      <div class="from">
+                        <span>from</span>
+                        <span><%= l.user.country %></span>
+                      </div>
+                    <% end %>
 
 
                     <div class="teacher-stars">
