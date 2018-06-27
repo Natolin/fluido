@@ -1,21 +1,27 @@
-#search-bar {
-  transition: 0.3s;
-}
-
 #show-hide-search {
   display: flex;
   justify-content: space-around;
+}
+
+// .search-body {
+//   margin: 0 auto;
+// }
+
+#search-bar {
+  transition: 0.3s;
 }
 
 .search-bar-is-hidden {
   display: none;
 }
 
+
+
 #search-bar select, #search-bar input {
   font-size: 20px;
   width: 240px;
   height: 52px;
-  margin: 15px 0px;
+  margin: 15px 0;
   padding: 5px;
   transition: all 0.3s ease-in-out;
 
@@ -39,5 +45,11 @@
 }
 
 #search-bar button {
-  margin: 15px 0px;
+  margin: 15px 0;
 }
+
+#space-around-row, .search-field {
+  display: flex;
+  justify-content: space-around;
+}
+
