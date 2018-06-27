@@ -51,9 +51,15 @@
       <% end %>
     </div>
 
-    <div class="black_line_dashboard"></div>
-
     <!-- PEOPLE YOU ARE LEARNING FROM -->
+
+    <div class="spacemaker" style="margin-top:100px"></div>
+    <div class="black_line_dashboard"></div>
+    <div class="dash-bookings-title">
+      <h1>Your Scheduled Lessons</h1>
+    </div>
+    <div class="black_line_dashboard"></div>
+    <div class="spacemaker" style="margin-bottom:100px"></div>
 
     <% @my_bookings.each do  |x| %>
 
@@ -107,29 +113,36 @@
           <% end %>
         </div>
       </div>
-      <div class="black_line_dashboard"></div>
     <% end %>
 
 
   <% else %>
 
+    <!-- IF YOU DON'T HAVE ANY BOOKINGS... -->
+
 
     <div class="message-if-nothing">
-      <h3>You don't have any bookings to display.</h3>
-
+      <h3 style="text-align:center">You don't have any bookings to display.</h3>
+      <br>
       <%= link_to lessons_path do %>
-        <button class="dash-option-button">Book a lesson</button>
+        <button class="jd-solid-button-med">Book a lesson</button>
       <% end %>
     </div>
     <br>
 
   <% end %>
 
-  <br>
-  <h4 style="text-align: center">Classes you will give</h4>
-  <p style="text-align: center">*Dont forget to update your status</p>
-  <br>
+  <!-- CLASSES YOU ARE OFFEREING -->
+
+  <div class="spacemaker" style="margin-top:100px"></div>
   <div class="black_line_dashboard"></div>
+  <div class="dash-bookings-title">
+    <h1>Lessons you are teaching</h1>
+  </div>
+  <div class="black_line_dashboard"></div>
+  <div class="spacemaker" style="margin-bottom:100px"></div>
+
+
 
   <% if @my_classes.count > 0 %>
     <div class="classes">
@@ -170,9 +183,9 @@
                   <div class="fas fa-receipt"></div>
                 <% end %>
 
-                <% if x.lesson.user.id != current_user.id %>
+                <% if x.user.id != current_user.id %>
                   <%= form_for(@conversation) do |f|%>
-                    <%= hidden_field_tag "user_id", x.lesson.user.id %>
+                    <%= hidden_field_tag "user_id", x.user.id %>
                     <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
                       <i class="fas fa-envelope"></i>
                     <%end%>
@@ -191,13 +204,17 @@
           </div>
         </div>
       </div>
-      <div class="black_line_dashboard"></div>
     </div>
     <% end %>
   <% else %>
 
     <div class="message-if-nothing">
-      <h3>You don't have any classes yet.</h3>
+      <h3 style="text-align:center">Want to teach your native language?</h3>
+      <br>
+      <%= link_to new_lesson_path do %>
+        <button class="jd-solid-button-med">Create a lesson</button>
+      <% end %>
+      <div class="spacemaker" style="margin-top:40px"></div>
     </div>
   <% end %>
 </div>
