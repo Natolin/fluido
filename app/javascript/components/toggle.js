@@ -16,5 +16,6 @@ function toggleSearch() {
 }
 
 
-toggleSearch();
+export {toggleSearch};
+
 

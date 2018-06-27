@@ -3,19 +3,23 @@ import "plugins/flatpickr";
 import { scrollLastMessageIntoView } from "components/scroll";
 
 import { keepCount } from "components/keep_count";
-
 import { toggleSearch } from "components/toggle";
 
 
-const userEdit = document.getElementById("user-edit-page")
-const chatList = document.getElementById("chatlist-page")
+const userEdit = document.getElementById("user-edit-page");
+const chatList = document.getElementById("chatlist-page");
+const searchFormId = document.getElementById("search-bar");
 
 if (userEdit) {
-  keepCount()
+  keepCount();
 }
 
 if (chatList) {
-  scrollLastMessageIntoView()
+  scrollLastMessageIntoView();
+}
+
+if (searchFormId) {
+  toggleSearch();
 }
 
 
