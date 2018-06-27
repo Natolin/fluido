@@ -18,7 +18,7 @@
           <% if user_signed_in? %>
             <p>Hi <%= current_user.first_name %>!</p>
 
-            <% if current_page?(action: 'dashboard') %>
+            <% if current_page?(controller: 'dashboards', action: 'dashboard') %>
               <li><%= link_to 'Create a Lesson', new_lesson_path %></li>
             <% else %>
               <li><%= link_to 'Dashboard', dashboard_path %></li>
