@@ -1,9 +1,8 @@
-<div class="form-container">
-  <div class="booking-form">
+  <div class="magic-line-homepage"></div>
 
-    <div class="review-detials">
-      <h4>Select date and time</h4>
-    </div>
+  <!--   <div class="review-detials edit-form">
+      <h4 id="edit-form_prompts">Select date and time</h4>
+    </div> -->
 
     <%= simple_form_for [@lesson, @booking] do |f| %>
       <% if @booking.errors.any? %>
@@ -19,24 +18,24 @@
       <div class="booking-form--details">
         <!-- <div class="little-space-maker" style="margin: 60px 0px"></div> -->
 
-        <%= f.label :start_date, 'Date' %>
-        <%= f.input :start_date, as: :string, input_html: { class: "datepicker"} %>
-        <%= f.label :start_time, 'Start Time' %>
+        <%= f.label :start_date, 'Date:', class: "label-booking" %>
+        <%= f.input :start_date, as: :string, input_html: { class: "datepicker2"} %>
+        <%= f.label :start_time, 'Start Time:', class: "label-booking" %>
         <%= f.input :start_time, as: :string, input_html: { class: "datepicker2"}  %>
-        <%= f.label :end_time, 'End Time' %>
+        <%= f.label :end_time, 'End Time:', class: "label-booking" %>
         <%= f.input :end_time, as: :string, input_html: { class: "datepicker3"}  %>
 
         <!-- <div class="little-space-maker" style="margin: 60px 0px"></div> -->
 
 
-        <div class="little-space-maker" style="margin: 60px 0px"></div>
+        <div class="space" style="margin-top:40px"></div>
+        <div class="magic-line-homepage"></div>
 
-        <%= f.button :submit, class: 'jd-solid-button-med' %>
+        <div class="center"><%= f.button :submit, class: 'jd-solid-button-med' %></div>
 
         <div class="little-space-maker" style="margin: 60px 0px"></div>
       </div>
 
     <% end %>
-  </div>
-</div>
+
 
