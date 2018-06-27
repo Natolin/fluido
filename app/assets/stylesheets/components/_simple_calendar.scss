@@ -344,12 +344,22 @@ margin-right: auto;
   justify-content: space-around;
   color: black;
 }
-.flex-symbols a {
+
+
+
+.flex-symbols a, .flex-symbols i {
   text-decoration: none;
   color: black;
   justify-content: space-around;
+  font-size: 20px;
+  transition: 0.5s;
 
+  &:hover {
+    color: #D90146;
+    transform: scale(1.1);
+    }
 }
+
 .lesson-status{
   margin: 0px !important;
   font-size: 12px !important;

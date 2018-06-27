@@ -99,7 +99,7 @@
                 <%= form_for(@conversation) do |f|%>
                   <%= hidden_field_tag "user_id", x.lesson.user.id %>
 
-                  <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
+                  <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: transparent;" do %>
                     <i class="fas fa-envelope"></i>
                   <% end %>
 
@@ -188,7 +188,7 @@
                     <% if x.user.id != current_user.id %>
                       <%= form_for(@conversation) do |f|%>
                         <%= hidden_field_tag "user_id", x.user.id %>
-                        <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
+                        <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: transparent;" do %>
                           <i class="fas fa-envelope"></i>
                         <%end%>
                       <%end%>
