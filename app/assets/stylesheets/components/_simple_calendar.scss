@@ -8,6 +8,20 @@
   margin-top: 10%;
 }
 
+#local-media video{
+ max-width: 80px;
+ max-height: 80px;
+ border-radius: 5px;
+ margin-top: -56px;
+ margin-left: -150px;
+}
+
+#remote-media video{
+ max-width: 300px;
+ border-radius: 5px;
+ margin-bottom: -25px;
+}
+
 .day{
 height: 120px;
 font-family: 'Quicksand', sans-serif;
