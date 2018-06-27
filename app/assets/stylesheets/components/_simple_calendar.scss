@@ -1,3 +1,9 @@
+.dashboard-entire-page {
+  background: url("http://localhost:3000/assets/triangle-4b1e5bb690c8fca949974cfa1f2a07884758e0e14a54bca91eecabc83d0ad0f5.png");
+  background-repeat: no-repeat;
+  background-position: 0% 95%;
+}
+
 .has-events{
   display: flex;
   flex-direction: column;
@@ -242,7 +248,7 @@ margin-bottom: 50px;
 }
 
 .black_line_dashboard{
-border-bottom: 3px solid black;
+border-top: 2px solid black;
 margin-top: 20px;
 margin-bottom: 20px;
 width: 80%;
