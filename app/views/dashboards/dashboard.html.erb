@@ -8,10 +8,14 @@
   </div>
 
 
-   <% if @my_bookings.count > 0 %>
+  <% if @my_bookings.count > 0 %>
+
+    <!--     VIDEOS APPEAR HERE -->
+
     <div id="controls">
       <div class="both-video-box col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <div id="remote-media"></div>
+
       <div id="preview">
         <div id="local-media"></div>
       </div>
@@ -25,79 +29,96 @@
 
       <div id="log"></div>
     </div>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+
     <!-- <div class="black_line_dashboard"></div> -->
+    <!--     CALENDAR -->
 
     <div class="calendar">
       <% if @my_bookings.count > 0 %>
           <%= calendar number_of_days: 4, events: @my_bookings do |date, my_bookings| %>
             <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
-              <% @my_bookings.each do |my_bookings| %>
-                  <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
+
+            <% @my_bookings.each do |my_bookings| %>
+                <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
                   <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
-                  <% break %>
-              <% end %>
+                <% break %>
+            <% end %>
           <% end %>
       <% end %>
     </div>
 
     <div class="black_line_dashboard"></div>
 
+    <!-- PEOPLE YOU ARE LEARNING FROM -->
+
     <% @my_bookings.each do  |x| %>
+
       <div class="row">
         <div class="dash-learning-from-time">
-            <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
-              <p><%= x.status %></p>
-              <h6>Learning with</h6>
+          <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
+            <p><%= x.status %></p>
+            <h6>Learning with</h6>
         </div>
+
         <div class="dash-bookings-content">
           <div class="row">
-          <div class="card_dashboard col-xs-8 col-xs-offset-2">
-            <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
-            <div class="learning-from-name-and-status">
-              <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
-               <% if x.start_date == Date.today %>
-            <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-            <button id="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
-            <% end %>
-            </div>
+            <div class="card_dashboard col-xs-8 col-xs-offset-2">
+              <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
+              <div class="learning-from-name-and-status">
+                <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
+                <% if x.start_date == Date.today %>
+                  <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
+                  <button id="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
+                <% end %>
+              </div>
             <%= image_tag x.lesson.language.flag, class: "language_flag" %>
-          </div>
-          </div>
-        <div class="row">
-          <div class="flex-symbols">
-            <%= link_to lesson_path(x.lesson) do %>
-              <div class="fas fa-receipt"></div>
-            <% end %>
-            <% if x.lesson.user.id != current_user.id %>
-            <%= form_for(@conversation) do |f|%>
-              <%= hidden_field_tag "user_id", x.lesson.user.id %>
-              <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %><i class="fas fa-envelope"></i><%end%>
-              <%end%>
-            <% end %>
-            <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
-              <div class="fas fa-edit"></div>
-            <% end %>
-            <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
-              <div class="fas fa-trash-alt"></div>
-            <% end %>
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="flex-symbols">
+          <%= link_to lesson_path(x.lesson) do %>
+            <div class="fas fa-receipt"></div>
+          <% end %>
+
+          <% if x.lesson.user.id != current_user.id %>
+            <%= form_for(@conversation) do |f|%>
+              <%= hidden_field_tag "user_id", x.lesson.user.id %>
+              <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
+                <i class="fas fa-envelope"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
+            <div class="fas fa-edit"></div>
+          <% end %>
+
+          <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
+            <div class="fas fa-trash-alt"></div>
+          <% end %>
+        </div>
       </div>
+
+
+
       <div class="black_line_dashboard"></div>
 
       <% end %>
 
       <% else %>
-      <div class="message-if-nothing">
-        <h3>You don't have any bookings to display.</h3>
-        <%= link_to lessons_path do %>
-          <button class="dash-option-button">Book a lesson</button>
-        <% end %>
-      </div>
-      <br>
+
+        <div class="message-if-nothing">
+          <h3>You don't have any bookings to display.</h3>
+          <%= link_to lessons_path do %>
+            <button class="dash-option-button">Book a lesson</button>
+          <% end %>
+        </div>
+        <br>
       <% end %>
     <% end %>
 
