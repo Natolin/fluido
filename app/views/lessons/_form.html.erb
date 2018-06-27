@@ -1,19 +1,18 @@
-<div class="form-container">
-  <h1 id="edit-header">Create a New Lesson</h1>
+
   <div class="magic-line-homepage"></div>
 
 
   <div class="edit-form">
   <%= simple_form_for @lesson do |f| %>
 
-    <h4 style="margin-bottom: -15px">Select a language to teach:</h4>
+    <h4 id="edit-form_prompts" style="margin-bottom: -15px">Select a language to teach:</h4>
     <%= f.association :language, required: false %>
 
-    <h4>Choose your price/hour:</h4>
-    <%= f.number_field :price %>
+    <h4 id="edit-form_prompts">Choose your price/hour:</h4>
+    <%= f.number_field :price, input_html: { class: "select-box-border"} %>
 
-    <h4>Please give a few words about your lesson and your teaching style.</h4>
-    <%= f.text_area :description %>
+    <h4 id="edit-form_prompts">Please give a few words about your lesson and your teaching style.</h4>
+     <%= f.text_area :description %>
 
     <div class="space" style="margin-top:40px"></div>
     <div class="magic-line-homepage"></div>
@@ -26,4 +25,4 @@
 
   <% end %>
   </div>
-</div>
+
