@@ -85,7 +85,7 @@ function entireVideoFile() {
       window.room = activeRoom = room;
 
       // log("Joined as '" + identity + "'");
-      log("Joined Successfully!");
+      // log("Joined Successfully!");
 
       document.getElementById('button-join').style.display = 'none';
       document.getElementById('button-leave').style.display = 'inline';
