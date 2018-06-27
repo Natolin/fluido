@@ -16,7 +16,7 @@
         <ul class="dropdown-menu dropdown-menu-right jd-header-dropdown-menu">
 
           <% if user_signed_in? %>
-            <p>Hi <%= current_user.first_name %>!</p>
+            <p style="text-align: center">Hi <%= current_user.first_name %>!</p>
 
             <% if current_page?(controller: 'dashboards', action: 'dashboard') %>
               <li><%= link_to 'Create a Lesson', new_lesson_path %></li>

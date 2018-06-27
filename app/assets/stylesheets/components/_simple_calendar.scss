@@ -1,8 +1,21 @@
-.dashboard-entire-page {
-  background: url("http://localhost:3000/assets/triangle-4b1e5bb690c8fca949974cfa1f2a07884758e0e14a54bca91eecabc83d0ad0f5.png");
-  background-repeat: no-repeat;
-  background-position: 0% 95%;
-}
+
+// If we want background triangles, uncomment these two classes!!!
+
+
+// .dashboard-entire-page-triangle-left {
+//   background: url("http://localhost:3000/assets/triangle-4b1e5bb690c8fca949974cfa1f2a07884758e0e14a54bca91eecabc83d0ad0f5.png");
+//   background-repeat: no-repeat;
+//   background-size: 600px 25%;
+//   background-position: 0% 88%;
+// }
+
+// .dashboard-entire-page-triangle-right {
+//   background: url("trianglePointingLeft.png");
+//   // transform: rotate(180deg);
+//   background-repeat: no-repeat;
+//   background-position: 100% 25%;
+//   background-size: 600px 25%;
+// }
 
 .has-events{
   display: flex;

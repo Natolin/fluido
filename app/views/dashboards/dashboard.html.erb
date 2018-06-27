@@ -1,222 +1,227 @@
 <div class="spacemaker" style="margin-top:80px"></div>
 
-<div class="dashboard-entire-page">
-  <div class="container">
+<div class="dashboard-entire-page-triangle-left">
+  <div class="dashboard-entire-page-triangle-right">
+    <div class="container">
 
-    <div class="dash-bookings-title" id="video-start-here-dash">
-      <h1><%= @current_user.first_name %></h1>
-      <img src="<%= @current_user.photo %>" alt="">
-    </div>
-
-
-    <% if @my_bookings.count > 0 %>
-
-      <!--     VIDEOS APPEAR HERE -->
-
-      <div id="controls">
-        <div class="both-video-box col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div id="remote-media"></div>
-
-        <div id="preview">
-          <div id="local-media"></div>
-        </div>
-      </div>
-       <!--  <button id="button-preview">Preview My Camera</button> -->
-
-        <div id="room-controls">
-          <button id="button-leave" style="display: none" class="btn-danger">Leave Room</button>
-          <!-- <p id="button-leave" style="display: none">Joined successfully</p> -->
-        </div>
-
-        <div id="log"></div>
+      <div class="dash-bookings-title" id="video-start-here-dash">
+        <h1><%= @current_user.first_name %></h1>
+        <img src="<%= @current_user.photo %>" alt="">
       </div>
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+      <% if @my_bookings.count > 0 %>
 
-      <!-- <div class="black_line_dashboard"></div> -->
-      <!--     CALENDAR -->
+        <!--     VIDEOS APPEAR HERE -->
 
-      <div class="calendar">
-        <% if @my_bookings.count > 0 %>
-            <%= calendar number_of_days: 4, events: @my_bookings do |date, my_bookings| %>
-              <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
+        <div id="controls">
+          <div class="both-video-box col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div id="remote-media"></div>
 
-              <% @my_bookings.each do |my_bookings| %>
-                  <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
-                    <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
-                  <% break %>
-                  <% end %>
-              <% end %>
-            <% end %>
-        <% end %>
-      </div>
-
-      <!-- PEOPLE YOU ARE LEARNING FROM -->
-
-      <div class="spacemaker" style="margin-top:100px"></div>
-      <div class="black_line_dashboard"></div>
-      <div class="dash-bookings-title">
-        <h1>Your Scheduled Lessons</h1>
-      </div>
-      <div class="black_line_dashboard"></div>
-      <div class="spacemaker" style="margin-bottom:100px"></div>
-
-      <% @my_bookings.each do  |x| %>
-
-
-        <div class="row">
-          <div class="dash-learning-from-time">
-            <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
-              <p><%= x.status %></p>
-              <h6>Learning with</h6>
-          </div>
-
-          <div class="dash-bookings-content">
-            <div class="row">
-              <div class="card_dashboard col-xs-8 col-xs-offset-2">
-                <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
-                <div class="learning-from-name-and-status">
-                  <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
-                  <% if x.start_date == Date.today %>
-                    <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                    <button id="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
-                  <% end %>
-                </div>
-              <%= image_tag x.lesson.language.flag, class: "language_flag" %>
-            </div>
+          <div id="preview">
+            <div id="local-media"></div>
           </div>
         </div>
+         <!--  <button id="button-preview">Preview My Camera</button> -->
 
-        <div class="row">
-          <div class="flex-symbols">
-            <%= link_to lesson_path(x.lesson) do %>
-              <div class="fas fa-receipt"></div>
-            <% end %>
+          <div id="room-controls">
+            <button id="button-leave" style="display: none" class="btn-danger">Leave Room</button>
+            <!-- <p id="button-leave" style="display: none">Joined successfully</p> -->
+          </div>
 
-            <% if x.lesson.user.id != current_user.id %>
-              <%= form_for(@conversation) do |f|%>
-                <%= hidden_field_tag "user_id", x.lesson.user.id %>
+          <div id="log"></div>
+        </div>
 
-                <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
-                  <i class="fas fa-envelope"></i>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+        <!-- <div class="black_line_dashboard"></div> -->
+        <!--     CALENDAR -->
+
+        <div class="calendar">
+          <% if @my_bookings.count > 0 %>
+              <%= calendar number_of_days: 4, events: @my_bookings do |date, my_bookings| %>
+                <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
+
+                <% @my_bookings.each do |my_bookings| %>
+                    <% if my_bookings.start_date.to_s[0,10] == date.to_s %>
+                      <img src="http://res.cloudinary.com/df65oi2rs/image/upload/v1529591427/Mask_Group.png" width="70%"/>
+                    <% break %>
+                    <% end %>
                 <% end %>
-
               <% end %>
-            <% end %>
-
-            <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
-              <div class="fas fa-edit"></div>
-            <% end %>
-
-            <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
-              <div class="fas fa-trash-alt"></div>
-            <% end %>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+
+        <!-- PEOPLE YOU ARE LEARNING FROM -->
+
+        <div class="spacemaker" style="margin-top:50px"></div>
+        <div class="black_line_dashboard"></div>
+        <div class="dash-bookings-title">
+          <h1>Your Scheduled Lessons</h1>
+        </div>
+        <div class="black_line_dashboard"></div>
+        <div class="spacemaker" style="margin-bottom:50px"></div>
+
+        <% @my_bookings.each do  |x| %>
 
 
-    <% else %>
-
-      <!-- IF YOU DON'T HAVE ANY BOOKINGS... -->
-
-
-      <div class="message-if-nothing">
-        <h3 style="text-align:center">You don't have any bookings to display.</h3>
-        <br>
-        <%= link_to lessons_path do %>
-          <button class="jd-solid-button-med">Book a lesson</button>
-        <% end %>
-      </div>
-      <br>
-
-    <% end %>
-
-    <!-- CLASSES YOU ARE OFFEREING -->
-
-    <div class="spacemaker" style="margin-top:100px"></div>
-    <div class="black_line_dashboard"></div>
-    <div class="dash-bookings-title">
-      <h1>Lessons you are teaching</h1>
-    </div>
-    <div class="black_line_dashboard"></div>
-    <div class="spacemaker" style="margin-bottom:100px"></div>
-
-
-
-    <% if @my_classes.count > 0 %>
-      <div class="classes">
-      <% @my_classes.each do  |x| %>
-        <div class="dash-bookings-content">
           <div class="row">
             <div class="dash-learning-from-time">
               <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
-              <h6>Teaching</h6>
-            </div>
-
-            <div class="lesson-status">
-              <%= simple_form_for [x.lesson, x] do |f| %>
-                <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
-                <%= f.button :submit, "Update" %>
-              <% end %>
+                <p><%= x.status %></p>
+                <h6>Learning with</h6>
             </div>
 
             <div class="dash-bookings-content">
               <div class="row">
                 <div class="card_dashboard col-xs-8 col-xs-offset-2">
-                  <img class='avatar_user' src="<%= x.user.photo %>" alt="">
+                  <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
                   <div class="learning-from-name-and-status">
-                    <h4><%= x.user.first_name %></h4>
+                    <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
                     <% if x.start_date == Date.today %>
                       <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                      <button id="button-join" class="join btn-success">Talk to <%= x.user.first_name %></button>
+                      <button id="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
                     <% end %>
                   </div>
+                <%= image_tag x.lesson.language.flag, class: "language_flag" %>
+              </div>
+            </div>
+          </div>
 
-                  <%= image_tag x.lesson.language.flag, class: "language_flag" %>
-                </div>
+          <div class="row">
+            <div class="flex-symbols">
+              <%= link_to lesson_path(x.lesson) do %>
+                <div class="fas fa-receipt"></div>
+              <% end %>
+
+              <% if x.lesson.user.id != current_user.id %>
+                <%= form_for(@conversation) do |f|%>
+                  <%= hidden_field_tag "user_id", x.lesson.user.id %>
+
+                  <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
+                    <i class="fas fa-envelope"></i>
+                  <% end %>
+
+                <% end %>
+              <% end %>
+
+              <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
+                <div class="fas fa-edit"></div>
+              <% end %>
+
+              <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
+                <div class="fas fa-trash-alt"></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+
+      <% else %>
+
+        <!-- IF YOU DON'T HAVE ANY BOOKINGS... -->
+
+
+        <div class="message-if-nothing">
+          <h3 style="text-align:center">You don't have any bookings to display.</h3>
+          <br>
+          <%= link_to lessons_path do %>
+            <button class="jd-solid-button-med">Book a lesson</button>
+          <% end %>
+        </div>
+        <br>
+
+      <% end %>
+
+      <!-- CLASSES YOU ARE OFFEREING -->
+
+      <div class="spacemaker" style="margin-top:50px"></div>
+      <div class="black_line_dashboard"></div>
+      <div class="dash-bookings-title">
+        <h1>Lessons you are teaching</h1>
+      </div>
+      <div class="black_line_dashboard"></div>
+      <div class="spacemaker" style="margin-bottom:50px"></div>
+
+
+
+      <% if @my_classes.count > 0 %>
+        <div class="classes">
+        <% @my_classes.each do  |x| %>
+          <div class="dash-bookings-content">
+            <div class="row">
+              <div class="dash-learning-from-time">
+                <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
+                <h6>Teaching</h6>
               </div>
 
-              <div class="row">
-                <div class="flex-symbols">
-                  <%= link_to lesson_path(x.lesson) do %>
-                    <div class="fas fa-receipt"></div>
-                  <% end %>
+              <div class="lesson-status">
+                <%= simple_form_for [x.lesson, x] do |f| %>
+                  <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
+                  <%= f.button :submit, "Update" %>
+                <% end %>
+              </div>
 
-                  <% if x.user.id != current_user.id %>
-                    <%= form_for(@conversation) do |f|%>
-                      <%= hidden_field_tag "user_id", x.user.id %>
-                      <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
-                        <i class="fas fa-envelope"></i>
+              <div class="dash-bookings-content">
+                <div class="row">
+                  <div class="card_dashboard col-xs-8 col-xs-offset-2">
+                    <img class='avatar_user' src="<%= x.user.photo %>" alt="">
+                    <div class="learning-from-name-and-status">
+                      <h4><%= x.user.first_name %></h4>
+                      <% if x.start_date == Date.today %>
+                        <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
+                        <button id="button-join" class="join btn-success">Talk to <%= x.user.first_name %></button>
+                      <% end %>
+                    </div>
+
+                    <%= image_tag x.lesson.language.flag, class: "language_flag" %>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="flex-symbols">
+                    <%= link_to lesson_path(x.lesson) do %>
+                      <div class="fas fa-receipt"></div>
+                    <% end %>
+
+                    <% if x.user.id != current_user.id %>
+                      <%= form_for(@conversation) do |f|%>
+                        <%= hidden_field_tag "user_id", x.user.id %>
+                        <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %>
+                          <i class="fas fa-envelope"></i>
+                        <%end%>
                       <%end%>
-                    <%end%>
-                  <% end %>
+                    <% end %>
 
-                  <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
-                    <div class="fas fa-edit"></div>
-                  <% end %>
+                    <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
+                      <div class="fas fa-edit"></div>
+                    <% end %>
 
-                  <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
-                    <div class="fas fa-trash-alt"></div>
-                  <% end %>
+                    <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
+                      <div class="fas fa-trash-alt"></div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <% end %>
-    <% else %>
-
-      <div class="message-if-nothing">
-        <h3 style="text-align:center">Want to teach your native language?</h3>
-        <br>
-        <%= link_to new_lesson_path do %>
-          <button class="jd-solid-button-med">Create a lesson</button>
         <% end %>
-        <div class="spacemaker" style="margin-top:40px"></div>
-      </div>
-    <% end %>
+      <% else %>
+
+        <div class="message-if-nothing">
+          <h3 style="text-align:center">Want to teach your native language?</h3>
+          <br>
+          <%= link_to new_lesson_path do %>
+            <button class="jd-solid-button-med">Create a lesson</button>
+          <% end %>
+          <div class="spacemaker" style="margin-top:40px"></div>
+        </div>
+      <% end %>
+
+    </div>
   </div>
 </div>
+
+<div class="spacemaker" style="margin-bottom:80px"></div>
