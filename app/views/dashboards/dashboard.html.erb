@@ -16,23 +16,18 @@
         <div id="local-media"></div>
       </div>
     </div>
-
-
-      <button id="button-preview">Preview My Camera</button>
+     <!--  <button id="button-preview">Preview My Camera</button> -->
 
       <div id="room-controls">
-        <input id="room-name" type="text" placeholder="Enter room name" />
-        <br>
-        <button id="button-join" class="btn-success">Join Room</button>
-        <br>
-        <button id="button-leave" class="btn-danger">Leave Room</button>
+        <button id="button-leave" style="display: none" class="btn-danger">Leave Room</button>
+        <!-- <p id="button-leave" style="display: none">Joined successfully</p> -->
       </div>
 
       <div id="log"></div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <div class="black_line"></div>
+    <!-- <div class="black_line_dashboard"></div> -->
 
     <div class="calendar">
       <% if @my_bookings.count > 0 %>
@@ -47,12 +42,13 @@
       <% end %>
     </div>
 
-    <div class="black_line"></div>
+    <div class="black_line_dashboard"></div>
 
     <% @my_bookings.each do  |x| %>
       <div class="row">
         <div class="dash-learning-from-time">
             <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
+              <p><%= x.status %></p>
               <h6>Learning with</h6>
         </div>
         <div class="dash-bookings-content">
@@ -61,7 +57,10 @@
             <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
             <div class="learning-from-name-and-status">
               <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
-              <p>Status: <%= x.status %></p>
+               <% if x.start_date == Date.today %>
+            <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
+            <button id="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
+            <% end %>
             </div>
             <%= image_tag x.lesson.language.flag, class: "language_flag" %>
           </div>
@@ -87,7 +86,7 @@
         </div>
       </div>
       </div>
-      <div class="black_line"></div>
+      <div class="black_line_dashboard"></div>
 
       <% end %>
 
@@ -106,7 +105,7 @@
 <h4 style="text-align: center">Classes you will give</h4>
 <p style="text-align: center">*Dont forget to update your status</p>
 <br>
-<div class="black_line"></div>
+<div class="black_line_dashboard"></div>
 
     <% if @my_classes.count > 0 %>
     <div class="classes">
@@ -120,7 +119,7 @@
         <div class="lesson-status">
           <%= simple_form_for [x.lesson, x] do |f| %>
           <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
-          <%= f.button :submit %>
+          <%= f.button :submit, "Update" %>
           <% end %>
         </div>
         <div class="dash-bookings-content">
@@ -129,6 +128,10 @@
             <img class='avatar_user' src="<%= x.user.photo %>" alt="">
             <div class="learning-from-name-and-status">
               <h4><%= x.user.first_name %></h4>
+              <% if x.start_date == Date.today %>
+            <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
+            <button id="button-join" class="join btn-success">Talk to <%= x.user.first_name %></button>
+            <% end %>
             </div>
               <%= image_tag x.lesson.language.flag, class: "language_flag" %>
           </div>
@@ -154,7 +157,7 @@
         </div>
         </div>
         </div>
-        <div class="black_line"></div>
+        <div class="black_line_dashboard"></div>
     <% end %>
 
     <% else %>
