@@ -6,8 +6,14 @@
     <%= render 'lessons/search' %>
 
   <div class="center">
+
     <% if @lessons.count == 1 %>
       <h4>We found 1 result</h4>
+      <% if user_signed_in? %>
+        <% if @lessons.first.user.id == current_user.id %>
+          <h4>...and it's your own lesson. Head to your dashboard to find your own lessons.</h4>
+        <% end %>
+      <% end %>
     <% else %>
 
       <% if user_signed_in? %>
