@@ -8,18 +8,33 @@
   margin-top: 10%;
 }
 
+.both-video-box{
+display: flex;
+justify-content: space-around;
+padding: 0px;
+}
+
 #local-media video{
- max-width: 80px;
- max-height: 80px;
+ max-width: 20%;
+ max-height: 20%;
  border-radius: 5px;
- margin-top: -56px;
- margin-left: -150px;
+ position: absolute;
+ left: 0px;
+ bottom: 6px;
+ min-height: 50px;
 }
 
 #remote-media video{
- max-width: 300px;
+ position: relative;
+ width: 100%;
  border-radius: 5px;
- margin-bottom: -25px;
+ padding: 0px;
+ max-height: 500px;
+ max-width: 666px;
+}
+
+#remote-media{
+  padding: 0px;
 }
 
 .day{
@@ -106,6 +121,7 @@ margin-bottom: 50px;
     border-radius: 50%;
     bottom: 10px;
     left: 65px;
+    border: 1px solid #B2A5A3
   }
 }
 
@@ -186,11 +202,43 @@ margin-bottom: 50px;
   text-align: center;
 }
 
-
 // .form-control{
-//   width: 300px;
-//   margin-left: auto;
-//   text-align: center;
+//     display: block;
+//     width: 100%;
+//     height: 30px;
+//     padding: 6px 12px;
+//     font-size: 12px;
+//     line-height: 1.428571429;
+//     color: #000000;
+//     background-color: #fff;
+//     background-image: none;
+//     border: 1px solid #ccc;
+//     border-radius: 2px;
+//     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+//     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+//     margin: 0px;
+// }
+
+// .btn{
+//   display: inline-block;
+//     margin-bottom: 10px !important;
+//     font-weight: normal;
+//     text-align: center;
+//     vertical-align: middle;
+//     touch-action: manipulation;
+//     cursor: pointer;
+//     background-image: none;
+//     border: 1px solid transparent;
+//     white-space: nowrap;
+//     padding: 6px 12px;
+//     font-size: 12px;
+//     line-height: 1.428571429;
+//     border-radius: 2px;
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     -ms-user-select: none;
+//     user-select: none;
+//     margin: 0px;
 // }
 
 .form-control-label{
@@ -226,12 +274,12 @@ margin-right: auto;
     width: 85px;
     height: 85px;
     border-radius: 50%;
-    border: 1px solid #D90146;
+    border: 2px solid #B2A5A3;
   }
 }
 
 .learning-from-name-and-status {
-  margin: 10%;
+  margin-left: 10%;
 }
 
 .dash-lesson-buttons {
@@ -254,20 +302,19 @@ margin-right: auto;
 
 }
 .flex-symbols{
+  margin: 10px 80px -5px 80px;
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 2px;
+  justify-content: space-around;
   color: black;
 }
 .flex-symbols a {
   text-decoration: none;
   color: black;
-  padding: 0 2px;
-}
-.fabutton {
-  background: none;
-  padding: 0px;
-  border: none;
-}
+  justify-content: space-around;
 
+}
+.lesson-status{
+  margin: 0px !important;
+  font-size: 12px !important;
+  padding: 0px !important;
+}

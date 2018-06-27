@@ -5,16 +5,17 @@
   <div class="dash-bookings-title" id="video-start-here-dash">
     <h1><%= @current_user.first_name %></h1>
     <img src="<%= @current_user.photo %>" alt="">
-    <div class="black_line"></div>
   </div>
 
 
-  <% if @my_bookings.count > 0 %>
+   <% if @my_bookings.count > 0 %>
     <div id="controls">
+      <div class="both-video-box col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <div id="remote-media"></div>
       <div id="preview">
         <div id="local-media"></div>
       </div>
+    </div>
 
 
       <button id="button-preview">Preview My Camera</button>
@@ -55,32 +56,36 @@
               <h6>Learning with</h6>
         </div>
         <div class="dash-bookings-content">
+          <div class="row">
           <div class="card_dashboard col-xs-8 col-xs-offset-2">
             <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
             <div class="learning-from-name-and-status">
-                <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
+              <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
               <p>Status: <%= x.status %></p>
             </div>
             <%= image_tag x.lesson.language.flag, class: "language_flag" %>
-            <div class="flex-symbols">
-              <%= link_to lesson_path(x.lesson) do %>
-                <div class="fas fa-receipt"></div>
-              <% end %>
-              <% if x.lesson.user.id != current_user.id %>
-              <%= form_for(@conversation) do |f|%>
-                <%= hidden_field_tag "user_id", x.lesson.user.id %>
-                <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %><i class="fas fa-envelope"></i><%end%>
-                <%end%>
-              <% end %>
-              <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
-                <div class="fas fa-edit"></div>
-              <% end %>
-              <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
-                <div class="fas fa-trash-alt"></div>
-              <% end %>
-            </div>
+          </div>
+          </div>
+        <div class="row">
+          <div class="flex-symbols">
+            <%= link_to lesson_path(x.lesson) do %>
+              <div class="fas fa-receipt"></div>
+            <% end %>
+            <% if x.lesson.user.id != current_user.id %>
+            <%= form_for(@conversation) do |f|%>
+              <%= hidden_field_tag "user_id", x.lesson.user.id %>
+              <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %><i class="fas fa-envelope"></i><%end%>
+              <%end%>
+            <% end %>
+            <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
+              <div class="fas fa-edit"></div>
+            <% end %>
+            <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
+              <div class="fas fa-trash-alt"></div>
+            <% end %>
           </div>
         </div>
+      </div>
       </div>
       <div class="black_line"></div>
 
@@ -97,27 +102,59 @@
       <% end %>
     <% end %>
 
+<br>
+<h4 style="text-align: center">Classes you will give</h4>
+<p style="text-align: center">*Dont forget to update your status</p>
+<br>
+<div class="black_line"></div>
 
-  <% if @my_classes.count > 0 %>
-  <div class="classes">
+    <% if @my_classes.count > 0 %>
+    <div class="classes">
     <% @my_classes.each do  |x| %>
+      <div class="dash-bookings-content">
       <div class="row">
-
-        <div class="dash-bookings-content">
-          <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_date.to_s[11] %><%= x.start_date.to_s[12] %>:<%= x.start_date.to_s[14] %><%= x.start_date.to_s[15] %></h5>
+        <div class="dash-learning-from-time">
+          <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
           <h6>Teaching</h6>
-          <div class="card_dashboard col-xs-12 col-md-6 col-lg-4">
-            <img class='avatar_user' src="<%= x.user.photo %>" alt="">
-            <p><%= x.user.first_name %></p>
-            <p>Estimated Price: <%= (x.lesson.price*(x.end_time - x.start_time)/3600).round(2) %></p>
-           <%= image_tag x.lesson.language.flag, class: "language_flag" %>
-            <%= simple_form_for [x.lesson, x] do |f| %>
-            <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
-            <%= f.button :submit %>
+        </div>
+        <div class="lesson-status">
+          <%= simple_form_for [x.lesson, x] do |f| %>
+          <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
+          <%= f.button :submit %>
           <% end %>
+        </div>
+        <div class="dash-bookings-content">
+          <div class="row">
+          <div class="card_dashboard col-xs-8 col-xs-offset-2">
+            <img class='avatar_user' src="<%= x.user.photo %>" alt="">
+            <div class="learning-from-name-and-status">
+              <h4><%= x.user.first_name %></h4>
+            </div>
+              <%= image_tag x.lesson.language.flag, class: "language_flag" %>
+          </div>
+          </div>
+          <div class="row">
+          <div class="flex-symbols">
+            <%= link_to lesson_path(x.lesson) do %>
+              <div class="fas fa-receipt"></div>
+            <% end %>
+            <% if x.lesson.user.id != current_user.id %>
+            <%= form_for(@conversation) do |f|%>
+              <%= hidden_field_tag "user_id", x.lesson.user.id %>
+              <%= f.button "", class: "fabutton", style: "border: none; padding: 0; background-color: white;" do %><i class="fas fa-envelope"></i><%end%>
+              <%end%>
+            <% end %>
+            <%= link_to edit_lesson_booking_path(x.lesson, x) do %>
+              <div class="fas fa-edit"></div>
+            <% end %>
+            <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
+              <div class="fas fa-trash-alt"></div>
+            <% end %>
           </div>
         </div>
-      </div>
+        </div>
+        </div>
+        <div class="black_line"></div>
     <% end %>
 
     <% else %>
