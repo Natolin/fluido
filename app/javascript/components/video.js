@@ -49,7 +49,13 @@ function entireVideoFile() {
       document.getElementById('room-controls').style.display = 'block';
 
         // Bind button to join Room.
-      document.getElementById('button-join').onclick = function() {
+     const joinButtons = document.querySelectorAll('.button-join');
+     joinButtons.forEach(button => {button.addEventListener("click", joinChat)});
+
+      const leaveButtons = document.querySelectorAll('.button-leave');
+     leaveButtons.forEach(button => {button.addEventListener("click", leaveChat)});
+
+      function joinChat() {
         roomName = document.getElementById('room-name').value;
         if (!roomName) {
           alert('Please enter a room name.');
@@ -73,7 +79,7 @@ function entireVideoFile() {
       }
     }).catch(console.error);
 
-    document.getElementById('button-leave').onclick = function() {
+    function leaveChat() {
       window.room = activeRoom = room;
       if (activeRoom) {
         activeRoom.disconnect();
@@ -86,9 +92,10 @@ function entireVideoFile() {
 
       // log("Joined as '" + identity + "'");
       // log("Joined Successfully!");
+      console.log(room);
 
-      document.getElementById('button-join').style.display = 'none';
-      document.getElementById('button-leave').style.display = 'inline';
+      document.querySelectorAll('.button-join').forEach(button => button.style.display = 'none');
+      document.querySelector('.button-leave').style.display = 'inline';
 
       // Attach LocalParticipant's Tracks, if not already attached.
       var previewContainer = document.getElementById('local-media');
@@ -139,28 +146,28 @@ function entireVideoFile() {
         detachParticipantTracks(room.localParticipant);
         room.participants.forEach(detachParticipantTracks);
         activeRoom = null;
-        document.getElementById('button-join').style.display = 'inline';
-        document.getElementById('button-leave').style.display = 'none';
+        document.querySelectorAll('.button-join').forEach(button => button.style.display = 'inline');
+        document.querySelector('.button-leave').style.display = 'none';
       });
     }
 
     // Preview LocalParticipant's Tracks.
-    document.getElementById('button-preview').onclick = function() {
-      var localTracksPromise = previewTracks
-        ? Promise.resolve(previewTracks)
-        : Video.createLocalTracks();
+    // document.getElementById('button-preview').onclick = function() {
+    //   var localTracksPromise = previewTracks
+    //     ? Promise.resolve(previewTracks)
+    //     : Video.createLocalTracks();
 
-      localTracksPromise.then(function(tracks) {
-        window.previewTracks = previewTracks = tracks;
-        var previewContainer = document.getElementById('local-media');
-        if (!previewContainer.querySelector('video')) {
-          attachTracks(tracks, previewContainer);
-        }
-      }, function(error) {
-        console.error('Unable to access local media', error);
-        log('Unable to access Camera and Microphone');
-      });
-    };
+    //   localTracksPromise.then(function(tracks) {
+    //     window.previewTracks = previewTracks = tracks;
+    //     var previewContainer = document.getElementById('local-media');
+    //     if (!previewContainer.querySelector('video')) {
+    //       attachTracks(tracks, previewContainer);
+    //     }
+    //   }, function(error) {
+    //     console.error('Unable to access local media', error);
+    //     log('Unable to access Camera and Microphone');
+    //   });
+    // };
 
     // Activity log.
     function log(message) {
