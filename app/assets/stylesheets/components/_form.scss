@@ -1,4 +1,4 @@
-.form-container{
+.form-container {
   padding: 5px 50px;
   padding-bottom: 5px;
   background-color: white;
@@ -13,11 +13,11 @@
   }
 }
 
-.form-button1{
+.form-button1 {
   display: flex;
   justify-content: center;
 }
-.form-button2{
+.form-button2 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
   }
 }
 
-.flatpickr-month{
+.flatpickr-month {
   height:40px !important;
 }
 
@@ -41,14 +41,15 @@
 }
 
 .booking-form--details{
-    .form-group {
-        margin-top: 0px !important;
-        margin-bottom: 40px !important;
-    }
+  .form-group {
+    margin-top: 0px !important;
+    margin-bottom: 40px !important;
+  }
 }
 
-.review-detials{
-  h4{
+.review-detials {
+
+  h4 {
     margin-bottom: 40px;
   }
 }
@@ -58,12 +59,18 @@
   margin-right: 5px !important;
 }
 
-#lesson_price {
+input#lesson_price {
   border: 1px solid #ccc;
+  max-width: 95%;
 }
 
-#lesson_description {
+textarea#lesson_description {
   border: 1px solid #ccc;
+  max-width: 95%;
+}
+
+select#lesson_language_id.form-control {
+  max-width: 95%;
 }
 
 #edit-form_prompts {
