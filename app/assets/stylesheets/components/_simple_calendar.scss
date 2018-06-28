@@ -1,3 +1,22 @@
+
+// If we want background triangles, uncomment these two classes!!!
+
+
+.dashboard-entire-page-triangle-left {
+  background-image: image-url('triangle.png');
+  background-repeat: no-repeat;
+  background-size: 600px 25%;
+  background-position: 0% 88%;
+}
+
+.dashboard-entire-page-triangle-right {
+  background-image: image-url("trianglePointingLeft.png");
+  // transform: rotate(180deg);
+  background-repeat: no-repeat;
+  background-position: 100% 25%;
+  background-size: 600px 25%;
+}
+
 .has-events{
   display: flex;
   flex-direction: column;
@@ -38,13 +57,50 @@ padding: 0px;
   padding: 0px;
 }
 
-.day{
-height: 120px;
-font-family: 'Quicksand', sans-serif;
-font-size: 15px;
-  img{
-    max-width: 50px;
+.calendar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.calendar-heading a {
+  position: relative;
+  width: 90px;
+  height: 36px;
+  background: white;
+  color: #B2A5A3;
+  border: 1px solid #B2A5A3;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    background: #D90146;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
   }
+}
+
+#scheduled-day-filled {
+  margin: 10px auto;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #D90146;
+}
+
+
+.day{
+  height: 120px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  text-align: center;
 }
 
 .simple-calendar{
@@ -53,8 +109,14 @@ font-size: 15px;
   align: center;
 }
 
+
 thead th{
   text-align: center;
+  background: white;
+}
+
+td {
+  background: white;
 }
 
 h5{
@@ -66,11 +128,9 @@ h6{
   color: #D90146;
 }
 
-.table{
-box-shadow: 0px 2px 2px 0px gray;
-border-radius: 5px 5px 0px 0px;
-font-family: 'Quicksand', sans-serif;
-margin-bottom: 50px;
+.table {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 50px;
 }
 
 .calendar-title{
@@ -93,13 +153,18 @@ margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Quicksand', sans-serif;
+
+  h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px
+  }
 
   img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-bottom: 20px;
+    border: 2px solid #B2A5A3;
   }
 }
 
@@ -207,12 +272,6 @@ margin-bottom: 50px;
 .form-control-label{
   display: none;
 }
-.calendar{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-}
 
 
 .dash-bookings-content{
@@ -231,19 +290,40 @@ margin-bottom: 50px;
   }
 }
 
-.join{
+.join {
+  height: 52px;
   border-radius: 5px;
   font-size: 15px;
+  position: relative;
+  background: #D90146;
+  color: white;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    background: white;
+    border: 1px solid #D90146;
+    color: #B2A5A3;
+    cursor: pointer;
+  }
 }
 
 .black_line_dashboard{
-border-bottom: 3px solid white;
-margin-top: 20px;
-margin-bottom: 20px;
-width: 80%;
-display: block;
-margin-left: auto;
-margin-right: auto;
+  border-top: 2px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  h1 {
+    font-family: "Quicksand";
+  }
 }
 
 
@@ -289,9 +369,14 @@ margin-right: auto;
 // }
 
 .learning-from-name-and-status {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   margin-left: 10%;
-  h4{
-  margin-bottom: 10px ;
+
+  button {
+    width: 50%;
+    margin-left: 10px;
   }
 }
 
@@ -320,14 +405,36 @@ margin-right: auto;
   justify-content: space-around;
   color: black;
 }
-.flex-symbols a {
+
+
+.flex-symbols a, .flex-symbols i {
   text-decoration: none;
   color: black;
   justify-content: space-around;
+  font-size: 20px;
+  transition: 0.5s;
 
+  &:hover {
+    color: #D90146;
+    transform: scale(1.1);
+    }
 }
-.lesson-status{
-  margin: 0px !important;
-  font-size: 12px !important;
-  padding: 0px !important;
+
+.sexy-line {
+  width: 70%;
+  display:block;
+  margin: 0 auto;
+  border:none;
+  color:$light-gray;
+  height:1px;
+  background:black;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#000), to(whitesmoke));
 }
+
+
+
+
+
+
+
+

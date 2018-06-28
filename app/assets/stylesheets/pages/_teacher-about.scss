@@ -17,21 +17,24 @@
 
   a {
     font-size: 26px;
-  font-family: 'Permanent Marker', cursive;
-  color: white;
-  text-decoration: none;
-  text-shadow: 1px 1px 1px black;
-  transition: .3s;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    text-decoration: none;
 
     &:hover {
       text-decoration: none;
       color: #B2A5A3;
+      transition: 0.5s;
     }
   }
 }
 
 #accent-fluido-header {
 
+  a {
+    font-family: 'Permanent Marker';
+    text-shadow: 1px 1px 1px black;
+  }
 }
 
 
@@ -61,9 +64,6 @@
   font-size: 40px;
 }
 
-#accent-fluido {
-  font-size: 40px;
-}
 
 span {
   font-size: 30px;
