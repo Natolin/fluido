@@ -84,7 +84,7 @@
           <% @sorted = @all.order(start_date: :asc).order(start_time: :asc) %>
           <% @sorted.each do |x| %>
             <% if x.start_date > Date.yesterday %>
-            <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%I:%M%p") %> <%= x.start_time.getlocal.zone %></p>
+            <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M%p") %> <%= x.start_time.getlocal.zone %></p>
             <% end %>
 
           <% end %>

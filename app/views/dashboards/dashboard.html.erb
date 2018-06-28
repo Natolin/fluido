@@ -65,15 +65,17 @@
 
         <div class="black_line_dashboard"></div>
         <div class="spacemaker" style="margin-bottom:50px"></div>
-
-        <% @my_bookings.each do  |x| %>
+          <% @sorted = @my_bookings.order(start_date: :asc).order(start_time: :asc) %>
+        <% @sorted.each do  |x| %>
 
           <div class="spacemaker" style="margin:80px 0;"></div>
 
           <div class="row">
             <div class="dash-learning-from-time">
-              <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</p>
-
+                <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M%p") %>
+                <%= x.start_time.getlocal.zone %> (+ 01:00 <%= Time.zone.now.getlocal.zone %>)
+                </p>
+                <br>
                 <% if x.status == "accepted" %>
                   <p style="$green"><%= x.status %></p>
                 <% elsif x.status == "declined" %>
@@ -170,11 +172,16 @@
 
       <% if @my_classes.count > 0 %>
         <div class="classes">
-        <% @my_classes.each do  |x| %>
+          <% @sorted2 = @my_classes.sort_by { |a| [a.start_date, a.start_time] } %>
+        <% @sorted2.each do  |x| %>
           <div class="dash-bookings-content">
             <div class="row">
               <div class="dash-learning-from-time">
-                <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
+
+                <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M%p") %>
+                  <%= x.start_time.getlocal.zone %> (+ 01:00 <%= Time.zone.now.getlocal.zone %>)
+                </p>
+                <br>
                 <h6>Teaching</h6>
               </div>
 
