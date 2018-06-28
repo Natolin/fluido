@@ -75,11 +75,12 @@
       <div class="show-magic-line"></div>
 
 
-      <% if @user.bookings.count > 0 %>
+      <% if @user.bookings.count > 0 || @my_classes.count > 0 %>
         <div class="show-availability">
           <p><%= @user.first_name %> is currently booked for these times:</p>
           <br>
-
+      <% end %>
+      <% if @user.bookings.count > 0%>
           <h6> Learning: </h6>
           <% @all = @user.bookings %>
           <% @sorted = @all.order(start_date: :asc).order(start_time: :asc) %>
