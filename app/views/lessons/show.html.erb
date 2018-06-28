@@ -79,11 +79,14 @@
         <div class="show-availability">
           <p><%= @lesson.user.first_name %> is currently booked for these times:</p>
           <br>
+
           <% @all = @lesson.user.bookings %>
           <% @sorted = @all.order(start_date: :asc).order(start_time: :asc) %>
-
           <% @sorted.each do |x| %>
+            <% if x.start_date > Date.yesterday %>
             <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%I:%M%p") %> <%= x.start_time.getlocal.zone %></p>
+            <% end %>
+
           <% end %>
         </div>
       <% end %>

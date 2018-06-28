@@ -74,9 +74,9 @@
             <div class="dash-learning-from-time">
               <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</p>
 
-                <% if x.status == "Accepted" %>
+                <% if x.status == "accepted" %>
                   <p style="$green"><%= x.status %></p>
-                <% elsif x.status == "Decline" %>
+                <% elsif x.status == "decline" %>
                   <p style="$red"><%= x.status %></p>
                 <% else %>
                   <p><%= x.status %></p>
