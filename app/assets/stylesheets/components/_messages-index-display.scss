@@ -1,4 +1,6 @@
-
+#all-convos-page h4, h2, p {
+  font-family: "Quicksand";
+}
 
 .convo-index-header {
   margin: 0px auto;
@@ -6,7 +8,7 @@
 }
 
 .convo-index-card {
-  width: 325px;
+  max-width: 300px;
   margin: 20px auto;
   background: white;
   border: 2px solid #D90146;

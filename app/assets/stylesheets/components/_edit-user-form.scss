@@ -1,4 +1,6 @@
-
+#user-edit-page {
+  font-family: "Quicksand";
+}
 
 .edit-form {
   display: flex;
@@ -10,11 +12,17 @@
     font-size: 18px;
     margin-top:30px;
   }
+
+  select {
+    max-width: 100%;
+  }
+
+  input#user_photo {
+    max-width: 100%;
+    text-align: center;
+  }
 }
 
-#user_photo {
-
-}
 
 .form-group {
   margin-top: 25px;
