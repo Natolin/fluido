@@ -77,6 +77,7 @@ portuguese_lesson = Lesson.create(description: "Talk about cats with Leandra", p
 lessons = Lesson.count
 puts "#{lessons} lessons created"
 
+
 Booking.create(start_date: "2018-07-01", start_time: "18:00:00", end_time: "19:00:00" , user_id: dirk.id, lesson_id: spanish_lesson.id)
 Booking.create(start_date: "2018-07-02", start_time: "15:00:00", end_time: "16:00:00" , user_id: syd.id, lesson_id: portuguese_lesson.id)
 Booking.create(start_date: "2018-07-03", start_time: "17:00:00", end_time: "18:00:00" , user_id: chris.id, lesson_id: polish_lesson.id)
@@ -88,8 +89,6 @@ Booking.create(start_date: "2018-07-02", start_time: "17:00:00", end_time: "18:0
 
 bookings = Booking.count
 puts "#{bookings} bookings created"
-
-
 
 sports = Interest.create(name: "Sports")
 food = Interest.create(name: "Food")

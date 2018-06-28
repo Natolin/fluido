@@ -5,42 +5,44 @@
 
 <!-- <div class="container"> -->
 
-<h2 class="convo-index-header">All Messages</h2>
-<div class="magic-line-homepage"></div>
-<div style="margin-top:50px"></div>
+<div id="all-convos-page">
+  <h2 class="convo-index-header">All Messages</h2>
+  <div class="magic-line-homepage"></div>
+  <div style="margin-top:50px"></div>
 
-<% if @my_convos.count < 1 %>
-  <div class="spacemaker" style="margin-top:100px"></div>
-  <div><h4 class="center">You have no messages.</h4></div>
-<% else %>
-  <% @my_convos.each do |c| %>
-    <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
+  <% if @my_convos.count < 1 %>
+    <div class="spacemaker" style="margin-top:100px"></div>
+    <div><h4 class="center">You have no messages.</h4></div>
+  <% else %>
+    <% @my_convos.each do |c| %>
+      <% subscript = c.subscriptions.find { |sub| (sub.user_id != current_user.id) }%>
 
-    <%= link_to conversation_path(c) do %>
-    <div class="convo-index-card">
-      <div class="row">
+      <%= link_to conversation_path(c) do %>
+      <div class="convo-index-card">
+        <div class="row">
 
-        <div class="col-xs-4">
-          <div class="convo-avatar-circle">
-            <img class='avatar_user' src="<%= subscript.user.photo %>" alt="">
+          <div class="col-xs-4">
+            <div class="convo-avatar-circle">
+              <img class='avatar_user' src="<%= subscript.user.photo %>" alt="">
+            </div>
           </div>
-        </div>
 
-        <div class="col-xs-8">
-          <div class="convo-card-text">
-            <p class="convo-owner"><%= subscript.user.first_name %> <%= subscript.user.last_name[0] %>.</p>
-            <p class="convo-country"> from <%= subscript.user.country %></p>
+          <div class="col-xs-8">
+            <div class="convo-card-text">
+              <p class="convo-owner"><%= subscript.user.first_name %> <%= subscript.user.last_name[0] %>.</p>
+              <p class="convo-country"> from <%= subscript.user.country %></p>
+            </div>
           </div>
-        </div>
 
-      </div>
-    </div> <!-- end of card -->
+        </div>
+      </div> <!-- end of card -->
+      <% end %>
     <% end %>
-  <% end %>
-<% end %> <!-- end of if/else -->
+  <% end %> <!-- end of if/else -->
 
-<div class="spacemaker" style="margin-top:100px"></div>
+  <div class="spacemaker" style="margin-top:100px"></div>
 
-  <h4 class="center">To start a new conversation,</h4>
-  <h4 class="center"><%= link_to "select a teacher.", lessons_path %></h4>
+    <h4 class="center">To start a new conversation,</h4>
+    <h4 class="center"><%= link_to "select a teacher.", lessons_path %></h4>
+</div>
 <!-- </div> end of container -->

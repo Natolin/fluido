@@ -52,6 +52,10 @@ class LessonsController < ApplicationController
 
   def show
     @conversation = Conversation.new
+    @my_bookings = current_user.bookings
+    @my_lessons = current_user.lessons
+    bookings = Booking.all
+    @my_classes = bookings.select{ |booking| booking.lesson.user_id == @lesson.user_id }
   end
 
   def new
