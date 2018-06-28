@@ -96,7 +96,7 @@
                     <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
                     <% if x.start_date == Date.today %>
                       <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                      <button class="button-join" class="btn-success">Talk to <%= x.lesson.user.first_name %></button>
+                      <button class="button-join" class="btn-success">Join</button>
                     <% end %>
                   </div>
                 <%= image_tag x.lesson.language.flag, class: "language_flag" %>
