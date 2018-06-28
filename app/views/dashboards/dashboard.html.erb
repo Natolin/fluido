@@ -84,7 +84,7 @@
                   <p><%= x.status %></p>
                 <% end %>
 
-                <h6>Learning with</h6>
+                <h6>Learning <%= x.lesson.language.name %> with</h6>
             </div>
           </div>
 
@@ -178,11 +178,13 @@
             <div class="row">
               <div class="dash-learning-from-time">
 
+
                 <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M") %>
                   <%= x.start_time.getlocal.zone %> (+ 01:00 <%= Time.zone.now.getlocal.zone %>)
                 </p>
                 <br>
-                <h6>Teaching</h6>
+                <h6>Teaching <%= x.lesson.language.name %> to</h6>
+
               </div>
 
               <div class="lesson-status">
