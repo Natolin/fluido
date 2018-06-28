@@ -180,7 +180,7 @@
 
               <div class="lesson-status">
                 <%= simple_form_for [x.lesson, x] do |f| %>
-                  <%= f.input :status, collection: ["Pending", "Accepted", "Declined"], html: { class: "status-dropdown-bar"} %>
+                  <%= f.input :status, collection: ["pending", "accepted", "declined"], html: { class: "status-dropdown-bar"} %>
                   <%= f.button :submit, "Update" %>
                 <% end %>
               </div>
