@@ -7,7 +7,7 @@ class Booking < ApplicationRecord
   validates :end_time, presence: true
 
   validate :end_time_is_after_start_time
-
+  validate :start_time_is_before_now
 
 
 private
@@ -20,4 +20,9 @@ private
     end
   end
 
+  def start_time_is_before_now
+    if start_time.to_s[10,10]<= Time.now.to_s[10,10]
+      errors.add(:start_time, "can't be earlier than now")
+    end
+  end
 end
