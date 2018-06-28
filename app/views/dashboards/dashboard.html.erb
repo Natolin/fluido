@@ -123,7 +123,7 @@
                 <div class="fas fa-edit"></div>
               <% end %>
 
-              <%= link_to lesson_booking_path(x.lesson, x), method: :delete do %>
+              <%= link_to lesson_booking_path(x.lesson, x), method: :delete, data: {confirm: "Are you sure you want to delete this?"} do %>
                 <div class="fas fa-trash-alt"></div>
               <% end %>
             </div>
