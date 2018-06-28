@@ -82,7 +82,7 @@
                   <p><%= x.status %></p>
                 <% end %>
 
-                <h6>Learning with</h6>
+                <h6>Learning <%= x.lesson.language.name %> with</h6>
             </div>
           </div>
 
@@ -175,7 +175,7 @@
             <div class="row">
               <div class="dash-learning-from-time">
                 <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
-                <h6>Teaching</h6>
+                <h6>Teaching <%= x.lesson.language.name %> to</h6>
               </div>
 
               <div class="lesson-status">
