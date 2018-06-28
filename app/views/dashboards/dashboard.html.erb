@@ -72,7 +72,7 @@
 
           <div class="row">
             <div class="dash-learning-from-time">
-                <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M%p") %>
+                <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M") %>
                 <%= x.start_time.getlocal.zone %> (+ 01:00 <%= Time.zone.now.getlocal.zone %>)
                 </p>
                 <br>
@@ -178,7 +178,7 @@
             <div class="row">
               <div class="dash-learning-from-time">
 
-                <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M%p") %>
+                <p><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M") %>
                   <%= x.start_time.getlocal.zone %> (+ 01:00 <%= Time.zone.now.getlocal.zone %>)
                 </p>
                 <br>
