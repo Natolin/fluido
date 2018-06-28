@@ -312,13 +312,18 @@ h6{
 }
 
 .black_line_dashboard{
-border-top: 2px solid black;
-margin-top: 20px;
-margin-bottom: 20px;
-width: 80%;
-display: block;
-margin-left: auto;
-margin-right: auto;
+  border-top: 2px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  h1 {
+    font-family: "Quicksand";
+  }
 }
 
 
