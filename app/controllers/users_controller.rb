@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     if @user.save
-      redirect_to dashboard_path(@current_user) #fix redirect later
+      redirect_to dashboard_path #fix redirect later
     else
       render :edit
     end

@@ -88,13 +88,13 @@
 
             <div class="dash-bookings-content">
               <div class="row">
-                <div class="card_dashboard col-xs-8 col-xs-offset-2">
+                <div class="card_dashboard col-xs-10 col-xs-offset-1">
                   <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
                   <div class="learning-from-name-and-status">
                     <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
                     <% if x.start_date == Date.today %>
                       <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                      <button id="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
+                      <button class="join">Join</button>
                     <% end %>
                   </div>
                 <%= image_tag x.lesson.language.flag, class: "language_flag" %>
@@ -180,20 +180,20 @@
 
               <div class="lesson-status">
                 <%= simple_form_for [x.lesson, x] do |f| %>
-                  <%= f.input :status, collection: ["Pending", "Accepted", "Declined"], html: { class: "status-dropdown-bar"} %>
+                  <%= f.input :status, collection: ["pending", "accepted", "declined"], html: { class: "status-dropdown-bar"} %>
                   <%= f.button :submit, "Update" %>
                 <% end %>
               </div>
 
               <div class="dash-bookings-content">
                 <div class="row">
-                  <div class="card_dashboard col-xs-8 col-xs-offset-2">
+                  <div class="card_dashboard col-xs-10 col-xs-offset-1">
                     <img class='avatar_user' src="<%= x.user.photo %>" alt="">
                     <div class="learning-from-name-and-status">
                       <h4><%= x.user.first_name %></h4>
                       <% if x.start_date == Date.today %>
                         <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                        <button id="button-join" class="join">Join</button>
+                        <button class="join">Join</button>
                       <% end %>
                     </div>
 
