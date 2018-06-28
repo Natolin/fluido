@@ -27,11 +27,11 @@
   margin-top: 10%;
 }
 
-// .both-video-box{
-// display: flex;
-// justify-content: space-around;
-// padding: 0px;
-// }
+.both-video-box{
+display: flex;
+justify-content: space-around;
+padding: 0px;
+}
 
 #local-media video{
  max-width: 20%;
@@ -44,18 +44,18 @@
 }
 
 
-// #remote-media video{
-//  position: relative;
-//  width: 100%;
-//  border-radius: 5px;
-//  padding: 0px;
-//  max-height: 500px;
-//  max-width: 666px;
-// }
+#remote-media video{
+ position: relative;
+ width: 100%;
+ border-radius: 5px;
+ padding: 0px;
+ max-height: 500px;
+ max-width: 666px;
+}
 
-// #remote-media{
-//   padding: 0px;
-// }
+#remote-media{
+  padding: 0px;
+}
 
 .calendar{
   display: flex;
