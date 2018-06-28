@@ -94,8 +94,7 @@ function entireVideoFile() {
       // log("Joined Successfully!");
       console.log(room);
 
-      document.querySelectorAll('.button-join').forEach(button => button.style.display = 'none');
-      document.querySelector('.button-leave').style.display = 'inline';
+      toggleButtons(true);
 
       // Attach LocalParticipant's Tracks, if not already attached.
       var previewContainer = document.getElementById('local-media');
@@ -146,9 +145,13 @@ function entireVideoFile() {
         detachParticipantTracks(room.localParticipant);
         room.participants.forEach(detachParticipantTracks);
         activeRoom = null;
-        document.querySelectorAll('.button-join').forEach(button => button.style.display = 'inline');
-        document.querySelector('.button-leave').style.display = 'none';
+        toggleButtons(false);
       });
+    }
+
+    function toggleButtons(joining) {
+      document.querySelectorAll('.button-join').forEach(button => button.style.display = (joining ? 'none' : 'inline'));
+      document.querySelector('.button-leave').style.display = (joining ? 'inline' : 'none');
     }
 
     // Preview LocalParticipant's Tracks.
