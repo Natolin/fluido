@@ -1,8 +1,8 @@
 
-  <div class="magic-line-homepage"></div>
+<div class="magic-line-homepage" style="max-width: 90%;"></div>
 
 
-  <div class="edit-form">
+<div class="edit-form">
   <%= simple_form_for @lesson do |f| %>
 
     <h4 id="edit-form_prompts" style="margin-bottom: -15px">Select a language to teach:</h4>
@@ -15,7 +15,7 @@
      <%= f.text_area :description %>
 
     <div class="space" style="margin-top:40px"></div>
-    <div class="magic-line-homepage"></div>
+    <div class="magic-line-homepage" style="max-width: 90%;"></div>
 
     <div class="center">
       <%= f.button :submit, class: "update-user" %>
@@ -24,5 +24,5 @@
     <div class="space" style="margin-top:40px"></div>
 
   <% end %>
-  </div>
+</div>
 
