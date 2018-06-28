@@ -71,7 +71,7 @@
 
           <div class="row">
             <div class="dash-learning-from-time">
-              <h5><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</h5>
+              <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</p>
 
                 <% if x.status == "Accepted" %>
                   <p style="$green"><%= x.status %></p>
@@ -253,4 +253,4 @@
   </div>
 </div>
 
-<div class="spacemaker" style="margin-bottom:80px"></div>
+<div class="backdrop-gradient-reversed"></div>

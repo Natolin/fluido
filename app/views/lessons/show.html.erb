@@ -3,52 +3,54 @@
 <div class="container">
 
 
-   <div class="jd-card-square-fluido">
-      <div class="show-avatar">
-        <div class="show-avatar-circle">
-          <img class='avatar_user' src="<%= @user.photo %>" alt="">
-        </div>
+  <div class="jd-card-square-fluido">
+    <div class="show-avatar">
+      <div class="show-avatar-circle">
+        <img class='avatar_user' src="<%= @user.photo %>" alt="">
       </div>
+    </div>
 
-      <div class="flags-on-card">
-        <div class="country-flag-circle">
-          <%= image_tag @lesson.language.flag, class: "country-image"  %>
-        </div>
+    <div class="flags-on-card">
+      <div class="country-flag-circle">
+        <%= image_tag @lesson.language.flag, class: "country-image"  %>
       </div>
+    </div>
 
 
-      <div class="show-name-box">
-        <p><%= @lesson.user.first_name %> <%= @lesson.user.last_name[0]%>.</p>
-      </div>
+    <div class="show-name-box">
+      <p><%= @lesson.user.first_name %> <%= @lesson.user.last_name[0]%>.</p>
+    </div>
 
 
-<div class="show-content">
+    <div class="show-content">
 
       <div class="show-country">
-        <p>from <%= @lesson.user.country %></p>
+        <% if @lesson.user.country != "Country" %>
+          <p>from <%= @lesson.user.country %></p>
+        <% end %>
       </div>
+
         <div class="show-average-rating">
           <% @rating = @lesson.user.average_rating %>
 
-      <% if @rating.nil? == false  %>
+          <% if @rating.nil? == false  %>
+            <% @rounded = @rating.round %>
 
-          <% @rounded = @rating.round %>
-          <% @rounded.times do %>
-            <i class="fas fa-star yellow-star"></i>
-          <%end%>
+            <% @rounded.times do %>
+              <i class="fas fa-star yellow-star"></i>
+            <%end%>
 
-          <% (5 - @rounded).times do %>
-            <i class="fas fa-star grey-star"></i>
-          <%end%>
+            <% (5 - @rounded).times do %>
+              <i class="fas fa-star grey-star"></i>
+            <%end%>
+          <% end %>
         </div>
-      <% end %>
 
       <div class="show-price">
         <p>$<%= @lesson.price %>/hour</p>
       </div>
 
-      <div class="show-magic-line">
-      </div>
+      <div class="show-magic-line"></div>
 
       <div class="show-description">
         <p>Interests</p>
@@ -57,22 +59,35 @@
             <li class="description-body"><%= int.name %></li>
           <% end %>
         </ul>
+        <br>
       </div>
 
 
 
-      <div class="show-magic-line">
-      </div>
+      <div class="show-magic-line"></div>
 
       <div class="show-description">
         <p>Description</p>
         <p class="description-body">"<%= @lesson.description %>"</p>
+        <br>
       </div>
 
-    </div>
+      <div class="show-magic-line"></div>
 
 
+      <% if @lesson.user.bookings.count > 0 %>
+        <div class="show-availability">
+          <p><%= @lesson.user.first_name %> is currently booked for these times:</p>
+          <br>
+          <% @lesson.user.bookings.each do |x| %>
+            <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %></p>
+          <% end %>
+        </div>
+      <% end %>
+
+      <br>
     </div>
+  </div>
 
 
 
@@ -87,7 +102,6 @@
     <% end %>
   </div>
 
-  <!-- Availability and calendar will go here-->
 
   <% if user_signed_in? == false || @lesson.user.id != current_user.id %>
     <div class="show-buttons-centered">
@@ -110,9 +124,6 @@
   <%end%>
 
   <div class="little-space-maker" style="margin: 60px 0px"></div>
-
-
-
 <!-- end of page container div-->
 </div>
 

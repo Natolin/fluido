@@ -1,9 +1,8 @@
 .jd-card-square-fluido {
   /*Don't copy this margin*/
-  margin: 100px auto;
-  margin-top: 175px;
+  margin: 170px auto 50px auto;
   position: relative;
-  width: 275px;
+  width: 300px;
   //height: 350px;
   border: 1px solid #B2A5A3;
   color: #B2A5A3;
@@ -17,7 +16,7 @@
 .show-avatar {
   position: absolute;
   top: -75px;
-  right: 70px;
+  right: 88px;
 }
 .show-avatar-circle > img {
   width: 125px;
@@ -29,7 +28,7 @@
 .flags-on-card {
   position: absolute;
   top: 5px;
-  right: 55px;
+  right: 78px;
 }
 
 .country-image {
@@ -41,13 +40,15 @@
 }
 
 .show-name-box {
+
+  margin: 80px auto 10px auto;
   border: 2px solid #B2A5A3;
-  //background: #B2A5A3;
-  // width: 271px;
-  position: absolute;
+  width: 60%;
   padding: 0px 10px;
-  top: 75px;
-  left: 100px;
+  //background: #B2A5A3;
+  // position: absolute;
+  // top: 75px;
+  // left: 85px;
   // z-index: -1;
   p {
     margin-bottom: 0px;
@@ -57,7 +58,7 @@
 }
 
 .show-content {
-  padding-top: 115px;
+
 }
 
 .show-country {
@@ -71,12 +72,12 @@
 
 .yellow-star {
   color: gold;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .grey-star {
   color: #B2A5A3;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .show-price {
@@ -98,7 +99,7 @@
   margin: 0px auto;
 }
 
-.show-description {
+.show-description, .show-availability {
   text-align: center;
   margin-top: 15px;
   .description-body {
@@ -113,6 +114,15 @@
   p {
     padding: 0px 20px;
   }
+}
+
+.show-availability {
+
+  p {
+    font-size: 18px;
+  }
+
+
 }
 
 .show-message-button {
