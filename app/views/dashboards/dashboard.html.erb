@@ -74,9 +74,9 @@
             <div class="dash-learning-from-time">
               <p><%= x.start_date.to_s[8] %><%= x.start_date.to_s[9]%>/<%= x.start_date.to_s[5] %><%= x.start_date.to_s[6] %> @ <%= x.start_time.to_s[11] %><%= x.start_time.to_s[12] %><%= x.start_time.to_s[13] %><%= x.start_time.to_s[14] %><%= x.start_time.to_s[15] %>h</p>
 
-                <% if x.status == "Accepted" %>
+                <% if x.status == "accepted" %>
                   <p style="$green"><%= x.status %></p>
-                <% elsif x.status == "Decline" %>
+                <% elsif x.status == "declined" %>
                   <p style="$red"><%= x.status %></p>
                 <% else %>
                   <p><%= x.status %></p>
@@ -88,7 +88,7 @@
 
             <div class="dash-bookings-content">
               <div class="row">
-                <div class="card_dashboard col-xs-8 col-xs-offset-2">
+                <div class="card_dashboard col-xs-10 col-xs-offset-1">
                   <img class='avatar_user' src="<%= x.lesson.user.photo %>" alt="">
                   <div class="learning-from-name-and-status">
                     <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
@@ -180,21 +180,22 @@
 
               <div class="lesson-status">
                 <%= simple_form_for [x.lesson, x] do |f| %>
-                  <%= f.input :status, collection: ["Pending", "Accepted", "Declined"], html: { class: "status-dropdown-bar"} %>
+                  <%= f.input :status, collection: ["pending", "accepted", "declined"], html: { class: "status-dropdown-bar"} %>
                   <%= f.button :submit, "Update" %>
                 <% end %>
               </div>
 
               <div class="dash-bookings-content">
                 <div class="row">
-                  <div class="card_dashboard col-xs-8 col-xs-offset-2">
+                  <div class="card_dashboard col-xs-10 col-xs-offset-1">
                     <img class='avatar_user' src="<%= x.user.photo %>" alt="">
                     <div class="learning-from-name-and-status">
                       <h4><%= x.user.first_name %></h4>
                       <% if x.start_date == Date.today %>
                         <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
                         <button class="button-join" class="join">Join</button>
-                      <% end %>
+
+                    <% end %>
                     </div>
 
                     <%= image_tag x.lesson.language.flag, class: "language_flag" %>
