@@ -40,7 +40,6 @@
 
         <div class="calendar">
           <% if @my_bookings.count > 0 %>
-            <p style="text-align:center">* A red dot means you have at least one lesson scheduled for this day.</p>
             <%= calendar number_of_days: 4, events: @my_bookings do |date, my_bookings| %>
               <%= date.to_s[8,10] %>/<%= date.to_s[5] %><%= date.to_s[6] %>
 
@@ -53,6 +52,7 @@
 
             <% end %>
           <% end %>
+          <p style="text-align:center">* A red dot means you have at least one lesson scheduled for this day.</p>
         </div>
 
         <!-- PEOPLE YOU ARE LEARNING FROM -->
