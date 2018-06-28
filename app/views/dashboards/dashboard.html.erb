@@ -193,7 +193,7 @@
                       <h4><%= x.user.first_name %></h4>
                       <% if x.start_date == Date.today %>
                         <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                        <button id="button-join" class="join btn-success">Talk to <%= x.user.first_name %></button>
+                        <button id="button-join" class="join">Join</button>
                       <% end %>
                     </div>
 
