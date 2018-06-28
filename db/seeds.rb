@@ -65,14 +65,14 @@ portuguese_lesson = Lesson.create(description: "Let's talk about Rio", price: "2
 lessons = Lesson.count
 puts "#{lessons} lessons created"
 
-Booking.create(start_date: "2018-02-02", start_time: "12:00:00", end_time: "13:00:00" , user_id: pit.id, lesson_id: spanish_lesson.id )
-Booking.create(start_date: "2018-02-03", start_time: "12:00:00", end_time: "13:00:00" , user_id: syd.id, lesson_id: portuguese_lesson.id)
-Booking.create(start_date: "2018-02-03", start_time: "12:00:00", end_time: "13:00:00" , user_id: chris.id, lesson_id: polish_lesson.id)
-Booking.create(start_date: "2018-02-03", start_time: "12:00:00", end_time: "13:00:00" , user_id: jess.id, lesson_id: german_lesson.id)
-Booking.create(start_date: "2018-02-03", start_time: "12:00:00", end_time: "13:00:00" , user_id: pit.id, lesson_id: russian_lesson.id)
-Booking.create(start_date: "2018-02-03", start_time: "12:00:00", end_time: "13:00:00" , user_id: chris.id, lesson_id: french_lesson.id)
-Booking.create(start_date: "2018-02-02", start_time: "12:00:00", end_time: "13:00:00" , user_id: jess.id, lesson_id: french_lesson.id, rating: 3)
-Booking.create(start_date: "2018-02-03", start_time: "12:00:00", end_time: "13:00:00" , user_id: syd.id, lesson_id: italian_lesson.id, rating: 5)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: pit.id, lesson_id: spanish_lesson.id )
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: syd.id, lesson_id: portuguese_lesson.id)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: chris.id, lesson_id: polish_lesson.id)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: jess.id, lesson_id: german_lesson.id)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: pit.id, lesson_id: russian_lesson.id)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: chris.id, lesson_id: french_lesson.id)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: jess.id, lesson_id: french_lesson.id, rating: 3)
+Booking.create(start_date: "2018-06-29", start_time: "12:00:00", end_time: "13:00:00" , user_id: syd.id, lesson_id: italian_lesson.id, rating: 5)
 
 bookings = Booking.count
 puts "#{bookings} bookings created"
