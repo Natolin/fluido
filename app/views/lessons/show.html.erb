@@ -75,18 +75,39 @@
       <div class="show-magic-line"></div>
 
 
-      <% if @lesson.user.bookings.count > 0 %>
+      <% if @user.bookings.count > 0 %>
         <div class="show-availability">
-          <p><%= @lesson.user.first_name %> is currently booked for these times:</p>
+          <p><%= @user.first_name %> is currently booked for these times:</p>
           <br>
 
-          <% @all = @lesson.user.bookings %>
+          <h6> Learning: </h6>
+          <% @all = @user.bookings %>
           <% @sorted = @all.order(start_date: :asc).order(start_time: :asc) %>
           <% @sorted.each do |x| %>
             <% if x.start_date > Date.yesterday %>
-            <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @ <%= x.start_time.getlocal.strftime("%H:%M%p") %> <%= x.start_time.getlocal.zone %></p>
+            <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @
+              <br>
+             <%= x.start_time.getlocal.strftime("%H:%M") %> <%= x.start_time.getlocal.zone %>
+            (+ 01:00 <%= Time.zone.now.getlocal.zone %>)</p>
+
             <% end %>
 
+          <% end %>
+        </div>
+      <% end %>
+
+
+      <% if @my_classes.count > 0 %>
+          <h6> Teaching: </h6>
+          <div class="show-availability">
+          <% @sortedx = @my_classes.sort_by{ |x| [x.start_date, x.start_time]} %>
+          <% @sortedx.each do |x| %>
+
+
+          <p class="description-body"><%= x.start_date.strftime('%a %d %b %Y') %> @
+            <br>
+          <%= x.start_time.getlocal.strftime("%H:%M") %> <%= x.start_time.getlocal.zone %>
+          (+ 01:00 <%= Time.zone.now.getlocal.zone %>)</p>
           <% end %>
         </div>
       <% end %>
