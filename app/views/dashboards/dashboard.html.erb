@@ -25,7 +25,7 @@
          <!--  <button id="button-preview">Preview My Camera</button> -->
 
           <div id="room-controls">
-            <button class="button-leave" style="display: none" class="btn-danger">Leave Room</button>
+            <button class="button-leave btn-danger" style="display: none">Leave Room</button>
             <!-- <p id="button-leave" style="display: none">Joined successfully</p> -->
           </div>
 
@@ -94,7 +94,7 @@
                     <h4><%= x.lesson.user.first_name %> <%= x.lesson.user.last_name[0] %>.</h4>
                     <% if x.start_date == Date.today %>
                       <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                      <button class="button-join" class="join btn-success">Talk to <%= x.lesson.user.first_name %></button>
+                      <button class="button-join" class="btn-success">Talk to <%= x.lesson.user.first_name %></button>
                     <% end %>
                   </div>
                 <%= image_tag x.lesson.language.flag, class: "language_flag" %>
@@ -193,7 +193,7 @@
                       <h4><%= x.user.first_name %></h4>
                       <% if x.start_date == Date.today %>
                         <input id="room-name" type="text" value=<%= x.id %> hidden placeholder="Enter room name" />
-                        <button class="button-join" class="join">Join</button>
+                        <button class="button-join">Join</button>
 
                     <% end %>
                     </div>
