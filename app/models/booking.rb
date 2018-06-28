@@ -21,7 +21,7 @@ private
   end
 
   def start_time_is_before_now
-    if start_time.to_s[10,10]<= Time.now.to_s[10,10]
+    if start_time.to_s[10,10]<= Time.now.to_s[10,10] && start_date <= Date.today
       errors.add(:start_time, "can't be earlier than now")
     end
   end
