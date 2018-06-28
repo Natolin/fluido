@@ -3,7 +3,8 @@ Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_cable.url = "wss://www.fluido.io/cable"
+  config.action_cable.allowed_request_origins = [ "http://www.fluido.io", "https://www.fluido.io" ]
   # Code is not reloaded between requests.
   config.cache_classes = true
 
